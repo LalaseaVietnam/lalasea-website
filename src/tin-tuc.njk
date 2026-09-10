@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+title: Tin tức & Ưu đãi
+mo_ta: Tin tức, sự kiện và chương trình ưu đãi mới nhất tại Lalasea Bistro Hà Tiên.
+permalink: /tin-tuc/
+---
+
+<div class="page-hero">
+  <div class="kicker">Có gì mới ở Lalasea?</div>
+  <h1>Tin tức &amp; Ưu đãi</h1>
+  <p>Sự kiện, khuyến mãi và những câu chuyện mới nhất từ nhà hàng.</p>
+</div>
+
+<section class="news">
+  <div class="container">
+    {% if collections.baiviet.length > 0 %}
+    <div class="news-grid">
+      {% for bai in collections.baiviet %}
+      <a class="news-card" href="{{ bai.url }}">
+        <div class="thumb">{% if bai.data.anh_dai_dien %}<img src="{{ bai.data.anh_dai_dien }}" alt="" loading="lazy">{% endif %}</div>
+        <div class="body">
+          <div class="date">{{ bai.date | ngayVN }}</div>
+          <h3>{{ bai.data.title }}</h3>
+          <p>{{ bai.data.mo_ta }}</p>
+          <span class="more">Đọc tiếp →</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p style="text-align:center; color:var(--chu-nhat);">Chưa có bài viết nào. Hãy quay lại sau nhé!</p>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,13 @@
+{
+  "name": "lalasea-website",
+  "version": "2.0.0",
+  "description": "Website Lalasea Bistro — Nhà hàng hải sản Hà Tiên",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

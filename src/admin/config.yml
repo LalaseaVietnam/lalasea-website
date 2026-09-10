@@ -1,0 +1,82 @@
+# ============================================================
+# CẤU HÌNH TRANG QUẢN TRỊ NỘI DUNG (Sveltia CMS)
+# Trang admin cho phép đăng bài, sửa thông tin nhà hàng,
+# thay ảnh menu & thư viện — không cần biết code.
+# ============================================================
+backend:
+  name: github
+  repo: lalaseavietnam/lalasea-website
+  branch: main
+  automatic_deployments: true
+
+site_url: https://lalasea.vn
+display_url: https://lalasea.vn
+logo_url: https://lalasea.vn/favicon.svg
+
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: baiviet
+    label: "📰 Tin tức & Ưu đãi"
+    label_singular: "bài viết"
+    folder: src/posts
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+    sortable_fields:
+      fields: [date, title]
+      default:
+        field: date
+        direction: descending
+    fields:
+      - { name: title, label: "Tiêu đề bài viết", widget: string }
+      - { name: date, label: "Ngày đăng", widget: datetime, time_format: false, date_format: "YYYY-MM-DD" }
+      - { name: mo_ta, label: "Mô tả ngắn (hiện ở trang danh sách tin)", widget: text }
+      - { name: anh_dai_dien, label: "Ảnh đại diện", widget: image, required: false }
+      - { name: body, label: "Nội dung bài viết", widget: markdown }
+
+  - name: caidat
+    label: "⚙️ Thông tin nhà hàng"
+    files:
+      - name: thongtin
+        label: "Thông tin chung (SĐT, địa chỉ, giờ mở cửa...)"
+        file: src/_data/thongtin.json
+        fields:
+          - { name: ten, label: "Tên nhà hàng", widget: string }
+          - { name: khau_hieu, label: "Khẩu hiệu (dòng nhỏ trên banner)", widget: string }
+          - { name: mo_ta, label: "Mô tả website (cho Google)", widget: text }
+          - { name: dien_thoai, label: "Số điện thoại (hiển thị)", widget: string }
+          - { name: dien_thoai_goi, label: "Số điện thoại (để bấm gọi, viết liền)", widget: string }
+          - { name: dia_chi, label: "Địa chỉ", widget: string }
+          - { name: gio_mo_cua, label: "Giờ mở cửa", widget: string }
+          - { name: gio_ghi_chu, label: "Ghi chú giờ mở cửa", widget: string }
+          - { name: facebook, label: "Link Facebook", widget: string }
+          - { name: tiktok, label: "Link TikTok", widget: string }
+          - { name: zalo, label: "Link Zalo", widget: string }
+          - { name: maps, label: "Link Google Maps", widget: string }
+          - { name: booking_url, label: "Link nhận đặt bàn (Google Apps Script)", widget: string, required: false }
+
+      - name: thuvien
+        label: "Thư viện ảnh trang chủ"
+        file: src/_data/thuvien.json
+        fields:
+          - name: anh
+            label: "Danh sách ảnh"
+            label_singular: "ảnh"
+            widget: list
+            fields:
+              - { name: file, label: "Ảnh", widget: image }
+              - { name: mota, label: "Mô tả ảnh", widget: string }
+
+      - name: menuanh
+        label: "Các trang menu (ảnh thực đơn)"
+        file: src/_data/menuanh.json
+        fields:
+          - name: trang
+            label: "Danh sách trang menu (theo thứ tự)"
+            label_singular: "trang menu"
+            widget: list
+            fields:
+              - { name: file, label: "Ảnh trang menu", widget: image }

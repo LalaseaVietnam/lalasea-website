@@ -1,0 +1,49 @@
+---
+layout: layouts/base.njk
+title: Liên hệ
+mo_ta: Địa chỉ, số điện thoại, giờ mở cửa và bản đồ đường đi đến Lalasea Bistro — QL80, Tô Châu, Hà Tiên.
+permalink: /lien-he/
+---
+
+<div class="page-hero">
+  <div class="kicker">Ghé thăm chúng tôi</div>
+  <h1>Liên hệ &amp; Đường đi</h1>
+  <p>Lalasea Bistro luôn sẵn sàng chào đón bạn bên bờ biển Tô Châu, Hà Tiên.</p>
+</div>
+
+<section class="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="info-row">
+          <div class="ic">📍</div>
+          <div><strong>Địa chỉ</strong><span>{{ thongtin.dia_chi }}</span></div>
+        </div>
+        <div class="info-row">
+          <div class="ic">📞</div>
+          <div><strong>Điện thoại / Zalo</strong><span>{{ thongtin.dien_thoai }}</span></div>
+        </div>
+        <div class="info-row">
+          <div class="ic">🕘</div>
+          <div><strong>Giờ mở cửa</strong><span>{{ thongtin.gio_mo_cua }} · {{ thongtin.gio_ghi_chu }}</span></div>
+        </div>
+        <div class="info-row">
+          <div class="ic">📘</div>
+          <div><strong>Facebook</strong><span><a href="{{ thongtin.facebook }}" target="_blank" rel="noopener">Lalasea Bistro Hà Tiên</a></span></div>
+        </div>
+        <div class="info-row">
+          <div class="ic">🎵</div>
+          <div><strong>TikTok</strong><span><a href="{{ thongtin.tiktok }}" target="_blank" rel="noopener">@lalasea_bistro</a></span></div>
+        </div>
+      </div>
+      <div>
+        <a href="tel:{{ thongtin.dien_thoai_goi }}" class="btn" style="display:block; text-align:center; margin-bottom:14px;">📞 Gọi đặt bàn ngay</a>
+        <a href="{{ thongtin.zalo }}" target="_blank" rel="noopener" class="btn btn-ghost" style="display:block; text-align:center; margin-bottom:14px;">💬 Nhắn Zalo</a>
+        <a href="{{ thongtin.maps }}" target="_blank" rel="noopener" class="btn btn-ghost" style="display:block; text-align:center;">🗺️ Mở Google Maps</a>
+      </div>
+    </div>
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps?q=Lalasea+Bistro+QL80+To+Chau+Ha+Tien&output=embed" loading="lazy" title="Bản đồ đường đi đến Lalasea Bistro" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>

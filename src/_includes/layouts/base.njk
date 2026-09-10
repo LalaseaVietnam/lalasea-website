@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — {{ thongtin.ten }}{% else %}{{ thongtin.ten }} — Nhà hàng Hải sản Hà Tiên{% endif %}</title>
+  <meta name="description" content="{{ mo_ta or thongtin.mo_ta }}">
+  <meta property="og:title" content="{% if title %}{{ title }} — {{ thongtin.ten }}{% else %}{{ thongtin.ten }} — Nhà hàng Hải sản Hà Tiên{% endif %}">
+  <meta property="og:description" content="{{ mo_ta or thongtin.mo_ta }}">
+  <meta property="og:image" content="https://lalasea.vn{{ anh_dai_dien or '/hero.jpg' }}">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "{{ thongtin.ten }}",
+    "servesCuisine": "Hải sản, Ẩm thực Việt Nam",
+    "telephone": "+84{{ thongtin.dien_thoai_goi | replace('0', '', 1) }}",
+    "address": { "@type": "PostalAddress", "streetAddress": "QL80, Tô Châu", "addressLocality": "Hà Tiên", "addressRegion": "An Giang", "addressCountry": "VN" },
+    "openingHours": "Mo-Su 09:00-23:00",
+    "url": "https://lalasea.vn",
+    "image": "https://lalasea.vn/hero.jpg"
+  }
+  </script>
+</head>
+<body>
+
+  {# Logo Lalasea — định nghĩa một lần, dùng lại nhiều chỗ #}
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="lalasea-logo" viewBox="0 0 220 430">
+      <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round">
+        <rect x="35" y="55" width="150" height="300" rx="75"/>
+        <line x1="20" y1="150" x2="20" y2="210"/>
+        <line x1="200" y1="150" x2="200" y2="210"/>
+        <circle cx="110" cy="180" r="12"/>
+        <g stroke-width="3">
+          <line x1="110" y1="156" x2="110" y2="126" transform="rotate(0 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="140" transform="rotate(22.5 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="126" transform="rotate(45 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="140" transform="rotate(67.5 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="126" transform="rotate(90 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="140" transform="rotate(112.5 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="126" transform="rotate(135 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="140" transform="rotate(157.5 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="126" transform="rotate(180 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="140" transform="rotate(202.5 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="126" transform="rotate(225 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="140" transform="rotate(247.5 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="126" transform="rotate(270 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="140" transform="rotate(292.5 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="126" transform="rotate(315 110 180)"/>
+          <line x1="110" y1="156" x2="110" y2="140" transform="rotate(337.5 110 180)"/>
+        </g>
+        <path d="M55 255 q11 -10 22 0 t22 0 t22 0 t22 0 t22 0"/>
+        <path d="M55 275 q11 -10 22 0 t22 0 t22 0 t22 0 t22 0"/>
+        <path d="M55 295 q11 -10 22 0 t22 0 t22 0 t22 0 t22 0"/>
+        <path d="M60 315 q10 -9 20 0 t20 0 t20 0 t20 0 t20 0"/>
+        <path d="M68 333 q9 -8 18 0 t18 0 t18 0 t18 0"/>
+      </g>
+      <defs><path id="arcTop" d="M 48 120 A 62 78 0 0 1 172 120" fill="none"/></defs>
+      <text font-family="Georgia,serif" font-size="24" font-weight="bold" letter-spacing="5" fill="currentColor">
+        <textPath href="#arcTop" startOffset="50%" text-anchor="middle">LALASEA</textPath>
+      </text>
+      <text x="110" y="410" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="bold" letter-spacing="8" fill="currentColor">BISTRO</text>
+    </symbol>
+  </svg>
+
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="/" class="brand" aria-label="Lalasea Bistro — Trang chủ">
+        <svg class="logo-svg" width="26" height="51"><use href="#lalasea-logo"/></svg>
+        <span class="wordmark">LALASEA <span>BISTRO</span></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Mở menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="/">Trang chủ</a>
+        <a href="/#gioi-thieu">Giới thiệu</a>
+        <a href="/thuc-don/">Thực đơn</a>
+        <a href="/tin-tuc/">Tin tức</a>
+        <a href="/lien-he/">Liên hệ</a>
+        <a href="/#dat-ban" class="btn btn-nav">Đặt bàn</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  {% if not an_footer %}
+  <footer class="site-footer">
+    <svg class="logo-svg" width="44" height="86"><use href="#lalasea-logo"/></svg>
+    <div class="socials">
+      <a href="{{ thongtin.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H17V3.6c-.3 0-1.3-.1-2.45-.1-2.4 0-4.05 1.5-4.05 4.2v2.2H7.8V13h2.7v8h3z"/></svg>
+      </a>
+      <a href="{{ thongtin.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.5 3c.3 2 1.6 3.5 3.5 3.8v2.6c-1.3 0-2.5-.4-3.5-1v6.1c0 3.3-2.4 5.5-5.4 5.5A5.3 5.3 0 0 1 6 14.5c0-3 2.4-5.3 5.6-5V12a2.7 2.7 0 0 0-.6-.1 2.7 2.7 0 1 0 2.7 2.7V3h2.8z"/></svg>
+      </a>
+      <a href="{{ thongtin.zalo }}" target="_blank" rel="noopener" aria-label="Zalo">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.5 2 2 5.9 2 10.7c0 2.6 1.3 4.9 3.4 6.5-.1.8-.5 2.2-1.4 3.3-.2.2 0 .6.3.5 1.9-.3 3.5-1.1 4.4-1.7.4.1 2.1.4 3.3.4 5.5 0 10-3.9 10-8.7S17.5 2 12 2zM7.9 13.5H5.2c-.3 0-.5-.2-.5-.5s.1-.5.3-.7l2.3-3h-2c-.3 0-.5-.2-.5-.5s.2-.5.5-.5h2.6c.3 0 .5.2.5.5 0 .2-.1.4-.2.6l-2.3 3h2c.3 0 .5.2.5.5s-.2.6-.5.6zm3 0c0 .3-.2.5-.5.5s-.5-.2-.5-.5V8.8c0-.3.2-.5.5-.5s.5.2.5.5v4.7zm5.3 0c0 .3-.2.5-.5.5-.2 0-.3-.1-.4-.2-.4.2-.8.3-1.2.3-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4c.4 0 .8.1 1.2.3.1-.1.2-.2.4-.2.3 0 .5.2.5.5v3.6zm2.7.5c-.3 0-.5-.2-.5-.5V8.8c0-.3.2-.5.5-.5s.5.2.5.5v4.7c0 .3-.2.5-.5.5zm-4.4-3.6c-.7 0-1.3.6-1.3 1.3s.6 1.3 1.3 1.3 1.3-.6 1.3-1.3-.6-1.3-1.3-1.3z"/></svg>
+      </a>
+    </div>
+    <p>© 2026 {{ thongtin.ten }} · {{ thongtin.dia_chi }} · {{ thongtin.dien_thoai }}</p>
+  </footer>
+
+  <div class="float-actions">
+    <a href="{{ thongtin.zalo }}" target="_blank" rel="noopener" class="fab fab-zalo" aria-label="Nhắn Zalo">Zalo</a>
+    <a href="tel:{{ thongtin.dien_thoai_goi }}" class="fab fab-phone" aria-label="Gọi đặt bàn">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+    </a>
+  </div>
+  {% endif %}
+
+  <script>
+    (function () {
+      var t = document.getElementById('nav-toggle');
+      var l = document.getElementById('nav-links');
+      if (t && l) {
+        t.addEventListener('click', function () {
+          var open = l.classList.toggle('open');
+          t.setAttribute('aria-expanded', open ? 'true' : 'false');
+          t.classList.toggle('active', open);
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

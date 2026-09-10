@@ -1,0 +1,58 @@
+# ============================================================
+# TỰ ĐỘNG XUẤT BẢN WEBSITE
+# Mỗi khi có thay đổi (đăng bài từ trang admin, sửa giao diện...),
+# website được dựng lại và đưa lên GitHub Pages sau 1-2 phút.
+# ============================================================
+name: Xuất bản website
+
+on:
+  push:
+    branches:
+      - main
+      - claude/wordpress-lalasea-handover-3l40cq
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tải mã nguồn
+        uses: actions/checkout@v4
+      - name: Cài Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Cấu hình GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Cài thư viện
+        run: npm ci
+      - name: Dựng website
+        run: npx eleventy --pathprefix "${{ steps.pages.outputs.base_path }}/"
+      - name: Đóng gói kết quả
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Đưa website lên mạng
+        id: deployment
+        uses: actions/deploy-pages@v4

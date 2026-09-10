@@ -1,0 +1,47 @@
+---
+layout: layouts/base.njk
+title: Thực đơn
+mo_ta: Thực đơn đầy đủ của Lalasea Bistro — hải sản tươi sống, món nướng, lẩu, đồ uống. Lướt qua từng trang như lật menu thật.
+permalink: /thuc-don/
+an_footer: true
+---
+
+<div class="menu-viewer">
+  <div class="viewer">
+    <button class="navbtn prev" id="prev" aria-label="Trang trước">‹</button>
+    <button class="navbtn next" id="next" aria-label="Trang sau">›</button>
+    <div class="track" id="track">
+      {% for trang in menuanh.trang %}
+      <div class="slide"><img src="{{ trang.file }}" alt="Menu trang {{ loop.index }}"{% if loop.index > 1 %} loading="lazy"{% endif %}></div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="counter"><span id="cur">1</span> / {{ menuanh.trang.length }}</div>
+  <div class="hint"><span class="desktop">Dùng nút ‹ › hoặc phím mũi tên để lật trang</span><span class="mobile">Vuốt trái/phải để lật trang</span></div>
+</div>
+
+<script>
+  const track = document.getElementById('track');
+  const cur = document.getElementById('cur');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const total = {{ menuanh.trang.length }};
+
+  function page() { return Math.round(track.scrollLeft / track.clientWidth); }
+  function update() {
+    const p = page();
+    cur.textContent = p + 1;
+    prev.disabled = p <= 0;
+    next.disabled = p >= total - 1;
+  }
+  function go(dir) { track.scrollTo({ left: (page() + dir) * track.clientWidth, behavior: 'smooth' }); }
+
+  prev.addEventListener('click', () => go(-1));
+  next.addEventListener('click', () => go(1));
+  track.addEventListener('scroll', () => window.requestAnimationFrame(update));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') go(-1);
+    if (e.key === 'ArrowRight') go(1);
+  });
+  update();
+</script>
