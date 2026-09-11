@@ -3,40 +3,50 @@ layout: layouts/base.njk
 permalink: /
 ---
 
-<!-- ===== BANNER ĐẦU TRANG ===== -->
+<!-- ===== BANNER ĐẦU TRANG — TRƯỢT ẢNH TỰ ĐỘNG ===== -->
 <section class="hero">
-  <svg class="logo-svg" width="105" height="205"><use href="#lalasea-logo"/></svg>
-  <div class="kicker">{{ thongtin.khau_hieu }}</div>
+  <div class="hero-slides" id="hero-slides">
+    <div class="slide-bg active"><img src="/hero.jpg" alt="Không gian Lalasea Bistro bên biển"></div>
+    <div class="slide-bg"><img src="/anh/img10.jpg" alt="Bãi cỏ Lalasea bên bờ biển" loading="lazy"></div>
+    <div class="slide-bg"><img src="/anh/img2.jpg" alt="Lalasea về đêm với đèn dây lung linh" loading="lazy"></div>
+  </div>
+  <svg class="logo-svg" width="95" height="186"><use href="#lalasea-logo"/></svg>
+  <div class="script">Hương vị đại dương mỗi ngày</div>
   <h1>LALASEA BISTRO</h1>
-  <p>Hương vị đại dương tươi ngon mỗi ngày — nơi những mẻ hải sản tươi rói gặp bàn tay đầu bếp tận tâm.</p>
+  <p>Nhà hàng hải sản bên bờ biển Tô Châu, Hà Tiên — nơi những mẻ hải sản tươi rói gặp bàn tay đầu bếp tận tâm.</p>
   <div class="hero-actions">
-    <a href="/thuc-don/" class="btn">Khám phá thực đơn</a>
-    <a href="tel:{{ thongtin.dien_thoai_goi }}" class="btn btn-ghost">📞 {{ thongtin.dien_thoai }}</a>
+    <a href="#dat-ban" class="btn btn-lg">Đặt bàn ngay</a>
+    <a href="/thuc-don/" class="btn btn-ghost">Xem thực đơn</a>
+  </div>
+  <div class="hero-dots" id="hero-dots">
+    <button class="active" aria-label="Ảnh 1"></button>
+    <button aria-label="Ảnh 2"></button>
+    <button aria-label="Ảnh 3"></button>
   </div>
 </section>
 
 <!-- ===== DẢI ĐIỂM NỔI BẬT ===== -->
 <div class="features">
   <div class="container">
-    <div class="feature"><div class="fi">🐟</div><h3>Hải sản tươi mỗi ngày</h3><p>Nguyên liệu tuyển chọn, đưa thẳng từ biển về bếp.</p></div>
-    <div class="feature"><div class="fi">🌅</div><h3>Bên bờ Tô Châu</h3><p>Không gian thoáng đãng, view sông thơ mộng.</p></div>
-    <div class="feature"><div class="fi">👨‍🍳</div><h3>Phục vụ tận tâm</h3><p>Đội ngũ thân thiện, chu đáo với từng bàn.</p></div>
+    <div class="feature reveal"><div class="fi">🐟</div><h3>Hải sản tươi mỗi ngày</h3><p>Nguyên liệu tuyển chọn, đưa thẳng từ biển về bếp.</p></div>
+    <div class="feature reveal"><div class="fi">🌅</div><h3>Bên bờ Tô Châu</h3><p>Không gian thoáng đãng, view sông thơ mộng.</p></div>
+    <div class="feature reveal"><div class="fi">👨‍🍳</div><h3>Phục vụ tận tâm</h3><p>Đội ngũ thân thiện, chu đáo với từng bàn.</p></div>
   </div>
 </div>
 
 <!-- ===== GIỚI THIỆU ===== -->
 <section id="gioi-thieu">
   <div class="container about">
-    <div class="about-img">
-      <img src="/anh/img1.jpg" alt="Không gian Lalasea Bistro bên biển lúc hoàng hôn" loading="lazy">
+    <div class="about-collage reveal">
+      <div class="main-photo"><img src="/anh/img3.jpg" alt="Beach Bar Lalasea buổi tối với đèn dây lung linh" loading="lazy"></div>
+      <div class="sub-photo"><img src="/anh/img5.jpg" alt="Bãi cỏ picnic bên bờ biển" loading="lazy"></div>
     </div>
-    <div class="about-text">
-      <div class="section-title" style="text-align:left; margin-bottom:0;">
-        <div class="kicker">Câu chuyện của chúng tôi</div>
-      </div>
+    <div class="about-text reveal">
+      <span class="script-accent">Câu chuyện của chúng tôi</span>
       <h2>Ẩm thực &amp; nghỉ dưỡng bên bờ biển Hà Tiên</h2>
       <p>Lalasea Bistro là điểm đến lý tưởng bên bờ biển Tô Châu (Hà Tiên) dành cho những ai yêu hải sản tươi ngon và muốn tận hưởng không gian thoáng đãng. Đội ngũ đầu bếp kết hợp hương vị đặc trưng của vùng biển Hà Tiên với tay nghề tinh tế, mang đến những món ăn đậm đà khó quên.</p>
       <p>Không chỉ là nhà hàng, Lalasea còn là một tổ hợp trải nghiệm: cắm trại bên biển, beach bar, tiệc cưới ngoài trời và nghỉ đêm trong những chiếc lều Mông Cổ tiện nghi — nơi bạn vừa thưởng thức ẩm thực, vừa lưu giữ trọn vẹn khoảnh khắc bên gia đình và bạn bè.</p>
+      <a href="#khong-gian" class="btn" style="margin-top:8px;">Ngắm không gian 📸</a>
     </div>
   </div>
 </section>
@@ -44,43 +54,43 @@ permalink: /
 <!-- ===== TRẢI NGHIỆM ===== -->
 <section id="trai-nghiem" class="exp">
   <div class="container">
-    <div class="section-title">
-      <div class="kicker">Không chỉ là một bữa ăn</div>
+    <div class="section-title reveal">
+      <span class="script-accent">Không chỉ là một bữa ăn</span>
       <h2>Trải nghiệm tại Lalasea</h2>
     </div>
     <div class="exp-grid">
-      <div class="exp-card">
-        <div class="ei">🦐</div>
-        <h3>Ẩm thực hải sản</h3>
-        <p>Hải sản tươi sống chế biến theo hương vị đặc trưng vùng biển Hà Tiên.</p>
+      <div class="exp-card reveal">
+        <div class="bg"><img src="/anh/img4.jpg" alt="Khu bàn ăn ngoài trời" loading="lazy"></div>
+        <div class="veil"></div>
+        <div class="nd"><div class="ei">🦐</div><h3>Ẩm thực hải sản</h3><p>Hải sản tươi sống chế biến theo hương vị đặc trưng vùng biển Hà Tiên.</p></div>
       </div>
-      <div class="exp-card">
-        <div class="ei">⛺</div>
-        <h3>Cắm trại &amp; Glamping</h3>
-        <p>Nghỉ đêm bên biển trong lều Mông Cổ tiện nghi, đầy đủ máy lạnh và nội thất.</p>
+      <div class="exp-card reveal">
+        <div class="bg"><img src="/anh/img8.jpg" alt="Khu ghế lười ngắm hoàng hôn" loading="lazy"></div>
+        <div class="veil"></div>
+        <div class="nd"><div class="ei">⛺</div><h3>Cắm trại &amp; Glamping</h3><p>Nghỉ đêm bên biển trong lều Mông Cổ tiện nghi, đầy đủ máy lạnh và nội thất.</p></div>
       </div>
-      <div class="exp-card">
-        <div class="ei">🍹</div>
-        <h3>Beach Bar</h3>
-        <p>Nhâm nhi đồ uống, ngắm hoàng hôn bên bờ biển với đèn dây lung linh.</p>
+      <div class="exp-card reveal">
+        <div class="bg"><img src="/anh/img7.jpg" alt="Khu ghế bên biển" loading="lazy"></div>
+        <div class="veil"></div>
+        <div class="nd"><div class="ei">🍹</div><h3>Beach Bar</h3><p>Nhâm nhi đồ uống, ngắm hoàng hôn bên bờ biển với đèn dây lung linh.</p></div>
       </div>
-      <div class="exp-card">
-        <div class="ei">💒</div>
-        <h3>Tiệc cưới &amp; Sự kiện</h3>
-        <p>Tổ chức tiệc cưới, sự kiện ngoài trời bên biển theo yêu cầu riêng.</p>
+      <div class="exp-card reveal">
+        <div class="bg"><img src="/anh/img1.jpg" alt="Tiệc ngoài trời bên biển lúc hoàng hôn" loading="lazy"></div>
+        <div class="veil"></div>
+        <div class="nd"><div class="ei">💒</div><h3>Tiệc cưới &amp; Sự kiện</h3><p>Tổ chức tiệc cưới, sự kiện ngoài trời bên biển theo yêu cầu riêng.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== MÓN ĐẶC BIỆT ===== -->
+<!-- ===== MÓN ĐẶC BIỆT + MỜI XEM MENU ===== -->
 <section id="mon-dac-biet" class="menu-sec">
   <div class="container">
-    <div class="section-title">
-      <div class="kicker">Lalasea's Signature</div>
+    <div class="section-title reveal">
+      <span class="script-accent">Mời bạn xem món nhé!</span>
       <h2>Món đặc biệt</h2>
     </div>
-    <div class="menu-grid">
+    <div class="menu-grid reveal">
       <div class="dish">
         <div class="emoji">🍖</div>
         <h3>Sườn cay</h3>
@@ -114,9 +124,15 @@ permalink: /
         <div class="price">189.000đ</div>
       </div>
     </div>
-    <div class="menu-cta">
-      <a href="/thuc-don/" class="btn" style="font-size:17px; padding:16px 40px;">📖 Xem thực đơn đầy đủ</a>
-      <p class="note">Trọn bộ thực đơn 23 trang — lướt/vuốt qua từng trang như lật menu thật.<br>Ngoài ra Lalasea còn có <strong>Menu Tiệc</strong> đặt trước — liên hệ <a href="tel:{{ thongtin.dien_thoai_goi }}">{{ thongtin.dien_thoai }}</a>.</p>
+
+    <div class="menu-teaser reveal">
+      <a href="/thuc-don/" aria-label="Xem thực đơn"><img src="/menu/page1.png" alt="Trang bìa thực đơn Lalasea" loading="lazy"></a>
+      <a href="/thuc-don/" aria-label="Xem thực đơn"><img src="/menu/page3.png" alt="Thực đơn món khai vị" loading="lazy"></a>
+      <a href="/thuc-don/" aria-label="Xem thực đơn"><img src="/menu/page5.png" alt="Thực đơn hải sản" loading="lazy"></a>
+    </div>
+    <div class="menu-cta reveal">
+      <a href="/thuc-don/" class="btn btn-lg">📖 Xem thực đơn đầy đủ</a>
+      <p class="note">Trọn bộ {{ menuanh.trang.length }} trang — lướt/vuốt qua từng trang như lật menu thật.<br>Ngoài ra Lalasea còn có <strong>Menu Tiệc</strong> đặt trước — liên hệ <a href="tel:{{ thongtin.dien_thoai_goi }}">{{ thongtin.dien_thoai }}</a>.</p>
     </div>
   </div>
 </section>
@@ -124,13 +140,13 @@ permalink: /
 <!-- ===== THƯ VIỆN ẢNH ===== -->
 <section id="khong-gian" class="gallery">
   <div class="container">
-    <div class="section-title">
-      <div class="kicker">Không gian &amp; Món ăn</div>
+    <div class="section-title reveal">
+      <span class="script-accent">Không gian &amp; khoảnh khắc</span>
       <h2>Hình ảnh nhà hàng</h2>
     </div>
-    <div class="gallery-grid">
+    <div class="gallery-grid reveal">
       {% for item in thuvien.anh %}
-      <div class="tile"><img src="{{ item.file }}" alt="{{ item.mota }}" loading="lazy"></div>
+      <div class="tile"><img src="{{ item.file }}" alt="{{ item.mota }}" loading="lazy"><div class="cap">{{ item.mota }}</div></div>
       {% endfor %}
     </div>
   </div>
@@ -140,11 +156,11 @@ permalink: /
 {% if collections.baiviet.length > 0 %}
 <section id="tin-tuc" class="news">
   <div class="container">
-    <div class="section-title">
-      <div class="kicker">Có gì mới ở Lalasea?</div>
+    <div class="section-title reveal">
+      <span class="script-accent">Có gì mới ở Lalasea?</span>
       <h2>Tin tức &amp; Ưu đãi</h2>
     </div>
-    <div class="news-grid">
+    <div class="news-grid reveal">
       {% for bai in collections.baiviet %}{% if loop.index <= 3 %}
       <a class="news-card" href="{{ bai.url }}">
         <div class="thumb">{% if bai.data.anh_dai_dien %}<img src="{{ bai.data.anh_dai_dien }}" alt="" loading="lazy">{% endif %}</div>
@@ -157,7 +173,7 @@ permalink: /
       </a>
       {% endif %}{% endfor %}
     </div>
-    <div class="news-cta"><a href="/tin-tuc/" class="btn btn-ghost" style="border-color: var(--xanh-ngoc); color: var(--xanh-bien);">Xem tất cả tin tức</a></div>
+    <div class="news-cta reveal"><a href="/tin-tuc/" class="btn btn-ghost" style="border-color: var(--xanh-ngoc); color: var(--xanh-bien);">Xem tất cả tin tức</a></div>
   </div>
 </section>
 {% endif %}
@@ -165,11 +181,11 @@ permalink: /
 <!-- ===== ĐẶT BÀN ===== -->
 <section id="dat-ban" class="booking">
   <div class="container">
-    <div class="section-title">
-      <div class="kicker">Giữ chỗ trước</div>
+    <div class="section-title reveal">
+      <span class="script-accent">Giữ chỗ trước</span>
       <h2>Đặt bàn</h2>
     </div>
-    <form id="booking-form" class="booking-form">
+    <form id="booking-form" class="booking-form reveal">
       <div class="row">
         <label>Họ tên<input name="ten" required placeholder="Nguyễn Văn A"></label>
         <label>Số điện thoại<input name="sdt" type="tel" required placeholder="09xx xxx xxx"></label>
@@ -185,42 +201,61 @@ permalink: /
   </div>
 </section>
 
-<!-- ===== GIỜ MỞ CỬA & LIÊN HỆ ===== -->
-<section id="lien-he" class="contact">
+<!-- ===== ĐẾN LALASEA ===== -->
+<section id="lien-he" class="visit">
   <div class="container">
-    <div class="section-title">
-      <div class="kicker">Ghé thăm chúng tôi</div>
-      <h2>Giờ mở cửa &amp; Liên hệ</h2>
+    <div class="section-title reveal">
+      <span class="script-accent" style="color: var(--ngoc-nhat);">Ghé thăm chúng tôi</span>
+      <h2>Đến Lalasea</h2>
     </div>
-    <div class="contact-grid">
-      <div>
+    <div class="visit-grid">
+      <div class="visit-card reveal">
         <div class="info-row">
           <div class="ic">📍</div>
           <div><strong>Địa chỉ</strong><span>{{ thongtin.dia_chi }}</span></div>
         </div>
         <div class="info-row">
+          <div class="ic">🕘</div>
+          <div><strong>Giờ mở cửa</strong><span>{{ thongtin.gio_mo_cua }} · {{ thongtin.gio_ghi_chu }}</span></div>
+        </div>
+        <div class="info-row" style="margin-bottom:8px;">
           <div class="ic">📞</div>
-          <div><strong>Điện thoại</strong><span>{{ thongtin.dien_thoai }}</span></div>
+          <div><strong>Hotline đặt bàn / đặt tiệc</strong>
+            <a class="hotline" href="tel:{{ thongtin.dien_thoai_goi }}">{{ thongtin.dien_thoai }}</a>
+          </div>
         </div>
-        <div class="info-row">
-          <div class="ic">📘</div>
-          <div><strong>Facebook</strong><span><a href="{{ thongtin.facebook }}" target="_blank" rel="noopener">Lalasea Bistro Hà Tiên</a></span></div>
-        </div>
-        <a href="tel:{{ thongtin.dien_thoai_goi }}" class="btn" style="margin-top:10px;">Gọi đặt bàn ngay</a>
-        <a href="{{ thongtin.maps }}" target="_blank" rel="noopener" class="btn btn-ghost" style="margin:10px 0 0 10px;">Xem đường đi 🗺️</a>
+        <a href="tel:{{ thongtin.dien_thoai_goi }}" class="btn">Gọi ngay</a>
+        <a href="{{ thongtin.maps }}" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-left:10px;">Chỉ đường 🗺️</a>
       </div>
-      <div>
-        <ul class="hours-list">
-          <li><span>Thứ 2 – Chủ nhật</span><span>{{ thongtin.gio_mo_cua }}</span></li>
-          <li><span>Ngày lễ, Tết</span><span>{{ thongtin.gio_mo_cua }}</span></li>
-        </ul>
+      <div class="visit-map reveal">
+        <iframe src="https://www.google.com/maps?q=Lalasea+Bistro+QL80+To+Chau+Ha+Tien&output=embed" loading="lazy" title="Bản đồ đường đi đến Lalasea Bistro" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== GỬI ĐẶT BÀN vào Google Sheet & email nhà hàng ===== -->
+<!-- ===== BANNER TỰ TRƯỢT + GỬI ĐẶT BÀN ===== -->
 <script>
+  // Banner tự trượt ảnh
+  (function () {
+    var slides = document.querySelectorAll('#hero-slides .slide-bg');
+    var dots = document.querySelectorAll('#hero-dots button');
+    var cur = 0, timer;
+    function show(i) {
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur = (i + slides.length) % slides.length;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+    }
+    function auto() { timer = setInterval(function () { show(cur + 1); }, 5500); }
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () { clearInterval(timer); show(i); auto(); });
+    });
+    auto();
+  })();
+
+  // Gửi đặt bàn vào Google Sheet & email nhà hàng
   const BOOKING_URL = "{{ thongtin.booking_url }}";
   const form = document.getElementById('booking-form');
   const msg = document.getElementById('booking-msg');
