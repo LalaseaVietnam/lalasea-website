@@ -1,7 +1,7 @@
 ---
-title: Ngủ lều Mông Cổ bên biển — trải nghiệm glamping tại Lalasea
+title: Ngủ lều gỗ chữ A bên biển — trải nghiệm glamping tại Lalasea
 date: 2026-09-05
-mo_ta: Cắm trại kiểu sang trọng ngay bên bờ biển Hà Tiên — lều Mông Cổ đầy đủ máy lạnh, nội thất, kết hợp ăn hải sản và beach bar.
+mo_ta: Cắm trại kiểu sang trọng ngay bên bờ biển Hà Tiên — lều gỗ chữ A đầy đủ máy lạnh, nệm êm, kết hợp ăn hải sản và beach bar.
 anh_dai_dien: /anh/img8.jpg
 ---
 
@@ -11,7 +11,7 @@ Không chỉ là nhà hàng hải sản, Lalasea còn là điểm **glamping** (
 
 - **Chiều**: thưởng thức hải sản tươi vừa lên bờ, nhâm nhi đồ uống ở beach bar và ngắm hoàng hôn.
 - **Tối**: quây quần bên bàn tiệc ngoài trời dưới ánh đèn dây, nghe sóng vỗ.
-- **Đêm**: nghỉ trong lều Mông Cổ có máy lạnh và nội thất đầy đủ — cắm trại mà không thiếu tiện nghi.
+- **Đêm**: nghỉ trong lều gỗ chữ A có máy lạnh, quạt thông gió và nệm êm — cắm trại mà không thiếu tiện nghi.
 - **Sáng**: thức dậy đón bình minh ngay trên biển, nhâm nhi cà phê trước khi tiếp tục hành trình khám phá Hà Tiên.
 
 ## Giá trọn gói bao nhiêu?
