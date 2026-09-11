@@ -81,3 +81,45 @@ collections:
             widget: list
             fields:
               - { name: file, label: "Ảnh trang menu", widget: image }
+
+      - name: glamping
+        label: "🏕️ Trang Glamping (giá, gói, ảnh lều)"
+        file: src/_data/glamping.json
+        fields:
+          - name: anh
+            label: "Hình ảnh lều"
+            label_singular: "ảnh"
+            widget: list
+            required: false
+            fields:
+              - { name: file, label: "Ảnh", widget: image }
+              - { name: mota, label: "Mô tả ảnh", widget: string, required: false }
+          - { name: gia_ghi_chu, label: "Ghi chú bảng giá", widget: string }
+          - name: bang_gia
+            label: "Bảng giá"
+            label_singular: "bảng"
+            widget: list
+            fields:
+              - { name: ten, label: "Tên bảng (Ngày thường / Cuối tuần)", widget: string }
+              - { name: ngay, label: "Áp dụng ngày", widget: string }
+              - name: muc
+                label: "Các mức giá"
+                label_singular: "mức"
+                widget: list
+                fields:
+                  - { name: khach, label: "Số khách", widget: string }
+                  - { name: gia, label: "Giá", widget: string }
+          - { name: bua_sang_mota, label: "Mô tả bữa sáng", widget: string }
+          - { name: bua_sang_mon, label: "Món ăn sáng", widget: list, field: { name: mon, label: "Món", widget: string } }
+          - { name: bua_sang_nuoc, label: "Thức uống buổi sáng", widget: list, field: { name: mon, label: "Món", widget: string } }
+          - { name: bua_toi_mota, label: "Mô tả bữa tối", widget: string }
+          - name: bbq
+            label: "Món BBQ – Lẩu buổi tối"
+            label_singular: "món"
+            widget: list
+            fields:
+              - { name: mon, label: "Tên món", widget: string }
+              - { name: luong, label: "Định lượng", widget: string }
+          - { name: checkin, label: "Giờ nhận lều", widget: string }
+          - { name: checkout, label: "Giờ trả lều", widget: string }
+          - { name: luu_y, label: "Các lưu ý", widget: list, field: { name: y, label: "Lưu ý", widget: string } }

@@ -1,0 +1,136 @@
+---
+layout: layouts/base.njk
+title: Glamping – Bảng giá ngủ lều bên biển
+mo_ta: Glamping Hà Tiên tại Lalasea — ngủ lều tiện nghi có máy lạnh ngay bên bờ biển Tô Châu. Giá từ 490.000đ/người đã gồm bữa sáng + BBQ lẩu tối. Check-in 14h, hotline 0907 896 949.
+anh_dai_dien: /anh/img8.jpg
+permalink: /glamping/
+---
+
+<div class="page-hero">
+  <span class="script-accent" style="color: var(--ngoc-nhat); display:block; margin-bottom:4px;">Ngủ bên biển — thức cùng bình minh</span>
+  <h1>Glamping Lalasea</h1>
+  <p>Lều tiện nghi đầy đủ máy lạnh, nệm ấm ngay bên bờ biển Tô Châu, Hà Tiên. Chiều ăn hải sản, tối BBQ bên lửa, sáng đón bình minh trên biển.</p>
+</div>
+
+<!-- ===== BẢNG GIÁ ===== -->
+<section class="gprice">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="script-accent">Trọn gói ăn – ngủ – trải nghiệm</span>
+      <h2>Bảng giá Glamping</h2>
+    </div>
+    <p class="gprice-note reveal">{{ glamping.gia_ghi_chu }}</p>
+    <div class="gprice-grid reveal">
+      {% for bang in glamping.bang_gia %}
+      <div class="gprice-card{% if loop.index == 2 %} hot{% endif %}">
+        <div class="head">
+          <h3>{{ bang.ten }}</h3>
+          <span>{{ bang.ngay }}</span>
+        </div>
+        <div class="rows">
+          {% for m in bang.muc %}
+          <div class="row"><span class="k">{{ m.khach }}</span><span class="g">{{ m.gia }}</span></div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="gprice-note reveal" style="margin-top:28px;">💡 Đi càng đông càng tiết kiệm — nhóm 5–6 người chỉ từ <strong style="color:var(--san-ho);">490.000đ/người</strong> ngày thường.</p>
+  </div>
+</section>
+
+<!-- ===== GÓI BAO GỒM ===== -->
+<section class="gpack" style="background:#fff;">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="script-accent">Không lo đói bụng</span>
+      <h2>Gói Glamping bao gồm</h2>
+    </div>
+    <div class="gpack-grid">
+      <div class="gpack-card reveal">
+        <div class="ph">☀️ Bữa sáng</div>
+        <p class="mota">{{ glamping.bua_sang_mota }}</p>
+        <div class="cols">
+          <div>
+            <h4>Món ăn sáng</h4>
+            <ul>{% for m in glamping.bua_sang_mon %}<li>{{ m }}</li>{% endfor %}</ul>
+          </div>
+          <div>
+            <h4>Thức uống</h4>
+            <ul>{% for m in glamping.bua_sang_nuoc %}<li>{{ m }}</li>{% endfor %}</ul>
+          </div>
+        </div>
+      </div>
+      <div class="gpack-card reveal">
+        <div class="ph">🔥 Bữa tối — BBQ &amp; Lẩu</div>
+        <p class="mota">{{ glamping.bua_toi_mota }}</p>
+        <div class="bbq-rows">
+          {% for m in glamping.bbq %}
+          <div class="row"><span class="k">{{ m.mon }}</span><span class="g">{{ m.luong }}</span></div>
+          {% endfor %}
+        </div>
+        <p class="chu-thich">⭐ Số lượng và định lượng món được phục vụ tương ứng với số khách trong lều.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HÌNH ẢNH LỀU ===== -->
+{% if glamping.anh.length > 0 %}
+<section class="gallery">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="script-accent">Bên trong chiếc lều của bạn</span>
+      <h2>Hình ảnh lều</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      {% for item in glamping.anh %}
+      <div class="tile"><img src="{{ item.file }}" alt="{{ item.mota or 'Lều glamping Lalasea Hà Tiên' }}" loading="lazy">{% if item.mota %}<div class="cap">{{ item.mota }}</div>{% endif %}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ===== QUY ĐỊNH NHẬN – TRẢ LỀU ===== -->
+<section class="grule">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="script-accent">Nhận – trả lều</span>
+      <h2>Quy định lưu trú</h2>
+    </div>
+    <div class="grule-grid reveal">
+      <div class="grule-card">
+        <div class="ic">🌤️</div>
+        <h3>Giờ nhận lều</h3>
+        <div class="time">{{ glamping.checkin }}</div>
+      </div>
+      <div class="grule-card">
+        <div class="ic">🌙</div>
+        <h3>Giờ trả lều</h3>
+        <div class="time">{{ glamping.checkout }}</div>
+      </div>
+    </div>
+    <ul class="gnote-list reveal">
+      {% for n in glamping.luu_y %}<li>{{ n }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<!-- ===== GỌI GIỮ LỀU ===== -->
+<section class="visit">
+  <div class="container" style="text-align:center; max-width:720px;">
+    <div class="section-title reveal">
+      <span class="script-accent" style="color: var(--ngoc-nhat);">Số lượng lều có hạn</span>
+      <h2>Giữ lều cho chuyến đi của bạn</h2>
+    </div>
+    <p class="reveal" style="opacity:.9; margin:-20px 0 28px;">Cuối tuần và dịp lễ thường kín lều — bạn nên gọi hoặc nhắn Zalo đặt trước.</p>
+    <div class="reveal">
+      <a class="hotline" href="tel:{{ thongtin.dien_thoai_goi }}" style="font-size: clamp(30px, 5vw, 44px);">📞 {{ thongtin.dien_thoai }}</a>
+      <div style="margin-top:22px;">
+        <a href="tel:{{ thongtin.dien_thoai_goi }}" class="btn btn-lg">Gọi giữ lều</a>
+        <a href="{{ thongtin.zalo }}" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-left:12px;">💬 Nhắn Zalo</a>
+      </div>
+    </div>
+  </div>
+</section>

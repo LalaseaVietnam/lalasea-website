@@ -421,6 +421,61 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
   body { padding-bottom: 62px; }
 }
 
+/* ===== TRANG GLAMPING — BẢNG GIÁ ===== */
+.gprice { background: var(--cat); }
+.gprice-note { text-align: center; color: var(--chu-nhat); max-width: 620px; margin: -20px auto 36px; }
+.gprice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 860px; margin: 0 auto; }
+.gprice-card { background: #fff; border-radius: var(--bo-tron); overflow: hidden; box-shadow: var(--bong-nhe); }
+.gprice-card.hot { box-shadow: 0 0 0 3px var(--san-ho), var(--bong-dam); position: relative; }
+.gprice-card.hot::before {
+  content: "Cuối tuần đông khách — đặt sớm!"; position: absolute; top: 14px; right: -38px;
+  background: var(--san-ho); color: #fff; font-size: 10.5px; font-weight: 700;
+  padding: 5px 40px; transform: rotate(35deg); letter-spacing: .3px;
+}
+.gprice-card .head { background: var(--xanh-bien); color: #fff; text-align: center; padding: 22px 16px 18px; }
+.gprice-card .head h3 { font-size: 24px; }
+.gprice-card .head span { font-size: 13px; opacity: .85; text-transform: uppercase; letter-spacing: 1.5px; }
+.gprice-card .rows { padding: 14px 24px 24px; }
+.gprice-card .row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 13px 2px; border-bottom: 1px dashed #e3dccf;
+}
+.gprice-card .row:last-child { border-bottom: none; }
+.gprice-card .row .k { font-weight: 600; color: var(--xanh-bien); }
+.gprice-card .row .g { font-weight: 700; color: var(--san-ho); font-size: 17px; }
+@media (max-width: 680px) { .gprice-grid { grid-template-columns: 1fr; } }
+
+/* ===== TRANG GLAMPING — GÓI BAO GỒM ===== */
+.gpack-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 28px; align-items: start; }
+.gpack-card { background: var(--cat); border-radius: var(--bo-tron); padding: 30px 28px; }
+.gpack-card .ph { font-family: var(--font-tieu-de); font-size: 23px; font-weight: 700; color: var(--xanh-bien); margin-bottom: 10px; }
+.gpack-card .mota { color: var(--chu-nhat); font-size: 14.5px; margin-bottom: 18px; }
+.gpack-card .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.gpack-card h4 { color: var(--xanh-ngoc); font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; border-bottom: 2px solid var(--xanh-ngoc); padding-bottom: 6px; margin-bottom: 10px; }
+.gpack-card ul { list-style: none; }
+.gpack-card ul li { padding: 6px 0; border-bottom: 1px dashed #e3dccf; font-size: 14.5px; color: var(--chu-dam); }
+.gpack-card ul li:last-child { border-bottom: none; }
+.bbq-rows .row { display: flex; justify-content: space-between; padding: 7px 2px; border-bottom: 1px dashed #e3dccf; font-size: 14.5px; }
+.bbq-rows .row:last-child { border-bottom: none; }
+.bbq-rows .k { color: var(--chu-dam); }
+.bbq-rows .g { color: var(--chu-nhat); white-space: nowrap; margin-left: 12px; }
+.gpack-card .chu-thich { margin-top: 14px; font-size: 13px; color: var(--san-ho-dam); font-weight: 600; }
+@media (max-width: 780px) { .gpack-grid { grid-template-columns: 1fr; } }
+@media (max-width: 460px) { .gpack-card .cols { grid-template-columns: 1fr; } }
+
+/* ===== TRANG GLAMPING — QUY ĐỊNH ===== */
+.grule { background: var(--cat); }
+.grule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 640px; margin: 0 auto 30px; }
+.grule-card { background: #fff; border-radius: var(--bo-tron); text-align: center; padding: 30px 20px; box-shadow: var(--bong-nhe); }
+.grule-card .ic { font-size: 38px; }
+.grule-card h3 { color: var(--xanh-bien); font-size: 17px; margin: 8px 0 6px; }
+.grule-card .time { font-family: var(--font-tieu-de); font-size: clamp(22px, 3vw, 28px); font-weight: 700; color: var(--san-ho); }
+.gnote-list { max-width: 640px; margin: 0 auto; list-style: none; }
+.gnote-list li { padding: 10px 0 10px 30px; position: relative; color: var(--chu-nhat); font-size: 14.5px; border-bottom: 1px dashed #e3dccf; }
+.gnote-list li:last-child { border-bottom: none; }
+.gnote-list li::before { content: "🔔"; position: absolute; left: 0; font-size: 15px; }
+@media (max-width: 460px) { .grule-grid { grid-template-columns: 1fr; } }
+
 /* ===== CÂU HỎI THƯỜNG GẶP ===== */
 .faq { background: #fff; }
 .faq-list details {

@@ -1,0 +1,62 @@
+{
+  "anh": [],
+  "gia_ghi_chu": "Giá được tính theo số lượng khách ở cùng lều — đã bao gồm bữa sáng và bữa tối BBQ – lẩu.",
+  "bang_gia": [
+    {
+      "ten": "Ngày thường",
+      "ngay": "Thứ 2 → Thứ 5",
+      "muc": [
+        { "khach": "01 khách", "gia": "790.000đ" },
+        { "khach": "02 khách", "gia": "690.000đ/người" },
+        { "khach": "03–04 khách", "gia": "590.000đ/người" },
+        { "khach": "05–06 khách", "gia": "490.000đ/người" }
+      ]
+    },
+    {
+      "ten": "Cuối tuần",
+      "ngay": "Thứ 6 → Chủ nhật",
+      "muc": [
+        { "khach": "01 khách", "gia": "890.000đ" },
+        { "khach": "02 khách", "gia": "790.000đ/người" },
+        { "khach": "03–04 khách", "gia": "690.000đ/người" },
+        { "khach": "05–06 khách", "gia": "590.000đ/người" }
+      ]
+    }
+  ],
+  "bua_sang_mota": "Mỗi khách tự chọn 01 món ăn sáng + 01 thức uống.",
+  "bua_sang_mon": [
+    "Mì bò chua cay",
+    "Mì hải sản chua cay",
+    "Bánh mì cá mòi ốp la",
+    "Bánh mì cá mòi",
+    "Bánh mì ốp la"
+  ],
+  "bua_sang_nuoc": [
+    "Cà phê phin", "Cà phê sữa", "Trà đường", "Trà chanh", "Sting",
+    "Pepsi", "Ô Long", "Không Độ", "Bò Cụng", "Nước suối"
+  ],
+  "bua_toi_mota": "BBQ nướng – lẩu, phục vụ theo tiêu chuẩn dành cho 01 khách và tăng tương ứng theo số lượng khách trong lều.",
+  "bbq": [
+    { "mon": "Bào ngư", "luong": "01 con" },
+    { "mon": "Xúc xích", "luong": "01 cây" },
+    { "mon": "Cánh gà khúc giữa", "luong": "03 khúc" },
+    { "mon": "Đậu hũ trứng", "luong": "02 miếng" },
+    { "mon": "Tôm", "luong": "02 con" },
+    { "mon": "Nghêu", "luong": "250g" },
+    { "mon": "Mực tuộc", "luong": "Theo định lượng" },
+    { "mon": "Đùi ếch", "luong": "Theo định lượng" },
+    { "mon": "Nước lẩu thái – Rau lẩu – Bún", "luong": "Theo định lượng" },
+    { "mon": "Cơm chiên hải sản", "luong": "Theo định lượng" },
+    { "mon": "Salad trộn dầu giấm", "luong": "Theo định lượng" },
+    { "mon": "Đậu bắp", "luong": "Theo định lượng" },
+    { "mon": "Trái cây", "luong": "Theo định lượng" },
+    { "mon": "Trà đá", "luong": "Theo định lượng" }
+  ],
+  "checkin": "Từ 14:00",
+  "checkout": "Trước 12:00 ngày hôm sau",
+  "luu_y": [
+    "Thời gian lưu trú được tính theo 01 đêm, áp dụng giờ nhận – trả lều như trên.",
+    "Khách có nhu cầu nhận lều sớm hoặc trả lều muộn, vui lòng liên hệ Lalasea để được hỗ trợ tùy tình trạng lều thực tế.",
+    "Lalasea không có khu vực lưu trú / nghỉ qua đêm dành riêng cho tài xế."
+  ]
+}
