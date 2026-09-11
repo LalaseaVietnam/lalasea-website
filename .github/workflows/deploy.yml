@@ -9,7 +9,6 @@ on:
   push:
     branches:
       - main
-      - claude/wordpress-lalasea-handover-3l40cq
   workflow_dispatch:
 
 permissions:
