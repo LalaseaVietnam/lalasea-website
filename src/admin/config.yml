@@ -46,6 +46,7 @@ collections:
         fields:
           - { name: ten, label: "Tên nhà hàng", widget: string }
           - { name: khau_hieu, label: "Khẩu hiệu (dòng nhỏ trên banner)", widget: string }
+          - { name: site_url, label: "Địa chỉ website (không sửa trừ khi đổi tên miền)", widget: string }
           - { name: mo_ta, label: "Mô tả website (cho Google)", widget: text }
           - { name: dien_thoai, label: "Số điện thoại (hiển thị)", widget: string }
           - { name: dien_thoai_goi, label: "Số điện thoại (để bấm gọi, viết liền)", widget: string }

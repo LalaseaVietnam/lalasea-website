@@ -1,6 +1,21 @@
 ---
 layout: layouts/base.njk
+og_type: article
 ---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ title | dump | safe }},
+  "description": {{ mo_ta | dump | safe }},
+  "image": "{{ thongtin.site_url }}{{ anh_dai_dien or '/hero.jpg' }}",
+  "datePublished": "{{ page.date.toISOString() }}",
+  "author": { "@type": "Organization", "name": "{{ thongtin.ten }}" },
+  "publisher": { "@type": "Organization", "name": "{{ thongtin.ten }}", "logo": { "@type": "ImageObject", "url": "{{ thongtin.site_url }}/favicon.svg" } },
+  "mainEntityOfPage": "{{ thongtin.site_url }}{{ page.url }}"
+}
+</script>
 
 <article>
   <div class="post-hero">

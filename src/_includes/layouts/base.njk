@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if title %}{{ title }} — {{ thongtin.ten }}{% else %}{{ thongtin.ten }} — Nhà hàng Hải sản Hà Tiên{% endif %}</title>
+  {%- set tieu_de %}{% if title %}{{ title }} | {{ thongtin.ten }} Hà Tiên{% else %}{{ thongtin.ten }} — Nhà hàng Hải sản Hà Tiên bên biển Tô Châu{% endif %}{% endset %}
+  <title>{{ tieu_de | safe }}</title>
   <meta name="description" content="{{ mo_ta or thongtin.mo_ta }}">
-  <meta property="og:title" content="{% if title %}{{ title }} — {{ thongtin.ten }}{% else %}{{ thongtin.ten }} — Nhà hàng Hải sản Hà Tiên{% endif %}">
+  <link rel="canonical" href="{{ thongtin.site_url }}{{ page.url }}">
+  <meta property="og:title" content="{{ tieu_de | safe }}">
   <meta property="og:description" content="{{ mo_ta or thongtin.mo_ta }}">
-  <meta property="og:image" content="https://lalasea.vn{{ anh_dai_dien or '/hero.jpg' }}">
-  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ thongtin.site_url }}{{ anh_dai_dien or '/hero.jpg' }}">
+  <meta property="og:url" content="{{ thongtin.site_url }}{{ page.url }}">
+  <meta property="og:type" content="{{ og_type or 'website' }}">
+  <meta property="og:site_name" content="{{ thongtin.ten }}">
+  <meta property="og:locale" content="vi_VN">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,12 +25,22 @@
     "@context": "https://schema.org",
     "@type": "Restaurant",
     "name": "{{ thongtin.ten }}",
-    "servesCuisine": "Hải sản, Ẩm thực Việt Nam",
+    "alternateName": "Lalasea Bistro Hà Tiên",
+    "description": "{{ thongtin.mo_ta }}",
+    "servesCuisine": ["Hải sản", "Ẩm thực Việt Nam", "Đồ nướng", "Lẩu"],
+    "priceRange": "50.000đ – 500.000đ",
     "telephone": "+84{{ thongtin.dien_thoai_goi | replace('0', '', 1) }}",
     "address": { "@type": "PostalAddress", "streetAddress": "QL80, Tô Châu", "addressLocality": "Hà Tiên", "addressRegion": "An Giang", "addressCountry": "VN" },
-    "openingHours": "Mo-Su 09:00-23:00",
-    "url": "https://lalasea.vn",
-    "image": "https://lalasea.vn/hero.jpg"
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "09:00", "closes": "23:00"
+    },
+    "acceptsReservations": "True",
+    "hasMenu": "{{ thongtin.site_url }}/thuc-don/",
+    "url": "{{ thongtin.site_url }}/",
+    "image": "{{ thongtin.site_url }}/hero.jpg",
+    "sameAs": ["{{ thongtin.facebook }}", "{{ thongtin.tiktok }}"]
   }
   </script>
 </head>
