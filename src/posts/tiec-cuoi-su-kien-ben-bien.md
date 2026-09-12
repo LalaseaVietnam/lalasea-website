@@ -11,7 +11,7 @@ Bạn đang tìm một địa điểm tổ chức tiệc **khác biệt** ở H�
 
 - **Không gian bên biển** — sân tiệc ngoài trời, đèn dây lung linh khi hoàng hôn buông, phông nền tự nhiên đẹp không cần trang trí nhiều.
 - **Menu Tiệc đặt trước** — đầy đủ các phần khai vị, gà – vịt, bò – heo, hải sản, lẩu và tráng miệng, điều chỉnh theo ngân sách của bạn.
-- **Trọn gói trải nghiệm** — khách của bạn có thể kết hợp nghỉ đêm trong lều gỗ chữ A tiện nghi, thức dậy đón bình minh ngay trên biển.
+- **Trọn gói trải nghiệm** — khách của bạn có thể kết hợp nghỉ đêm trong lều gỗ chữ A tiện nghi ngay trong khuôn viên, sáng đi bộ vài bước ra khu bàn ăn bên biển đón bình minh.
 
 ## Đặt tiệc như thế nào?
 

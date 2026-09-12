@@ -1,18 +1,18 @@
 ---
-title: Ngủ lều gỗ chữ A bên biển — trải nghiệm glamping tại Lalasea
+title: Ngủ lều gỗ chữ A tiện nghi — trải nghiệm glamping tại Lalasea Hà Tiên
 date: 2026-09-05
-mo_ta: Cắm trại kiểu sang trọng ngay bên bờ biển Hà Tiên — lều gỗ chữ A đầy đủ máy lạnh, nệm êm, kết hợp ăn hải sản và beach bar.
-anh_dai_dien: /anh/img8.jpg
+mo_ta: Cắm trại kiểu sang trọng tại Hà Tiên — lều gỗ chữ A máy lạnh, nệm êm trong khuôn viên nhà hàng Lalasea, cách biển chỉ vài chục mét, kết hợp ăn hải sản và beach bar.
+anh_dai_dien: /uploads/585bccbb09ef89b1d0fe5.jpg
 ---
 
-Không chỉ là nhà hàng hải sản, Lalasea còn là điểm **glamping** (cắm trại tiện nghi) hiếm hoi ngay bên bờ biển Tô Châu, Hà Tiên.
+Không chỉ là nhà hàng hải sản, Lalasea còn là điểm **glamping** (cắm trại tiện nghi) hiếm hoi ở Hà Tiên. Khu lều gỗ nằm ngay trong khuôn viên nhà hàng tại Tô Châu, cách biển chỉ vài chục mét — đi bộ vài bước là ra tới khu bàn ăn sát biển.
 
 ## Trải nghiệm một đêm ở Lalasea
 
 - **Chiều**: thưởng thức hải sản tươi vừa lên bờ, nhâm nhi đồ uống ở beach bar và ngắm hoàng hôn.
 - **Tối**: quây quần bên bàn tiệc ngoài trời dưới ánh đèn dây, nghe sóng vỗ.
 - **Đêm**: nghỉ trong lều gỗ chữ A có máy lạnh, quạt thông gió và nệm êm — cắm trại mà không thiếu tiện nghi.
-- **Sáng**: thức dậy đón bình minh ngay trên biển, nhâm nhi cà phê trước khi tiếp tục hành trình khám phá Hà Tiên.
+- **Sáng**: thức dậy, đi bộ vài chục mét ra khu bàn ăn bên biển đón bình minh, nhâm nhi cà phê trước khi tiếp tục hành trình khám phá Hà Tiên.
 
 ## Giá trọn gói bao nhiêu?
 
