@@ -158,15 +158,6 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
   .hero-slides .slide-bg.active { animation: none; }
 }
 
-/* ===== DẢI ĐIỂM NỔI BẬT ===== */
-.features { background: #fff; border-bottom: 1px solid #efe9dd; }
-.features .container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding-top: 56px; padding-bottom: 56px; }
-.feature { text-align: center; }
-.feature .fi { font-size: 42px; }
-.feature h3 { color: var(--xanh-bien); font-size: 20px; margin: 12px 0 6px; }
-.feature p { color: var(--chu-nhat); font-size: 15px; }
-@media (max-width: 720px) { .features .container { grid-template-columns: 1fr; gap: 28px; } }
-
 /* ===== GIỚI THIỆU (ảnh ghép chồng) ===== */
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 70px); align-items: center; }
 .about-collage { position: relative; padding-bottom: 56px; padding-right: 40px; }
