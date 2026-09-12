@@ -13,6 +13,10 @@ export default function (eleventyConfig) {
     "src/favicon.svg": "favicon.svg"
   });
 
+  // Hai trang quản trị chỉ copy nguyên trạng, không đưa vào sơ đồ trang web
+  eleventyConfig.ignores.add("src/admin/**");
+  eleventyConfig.ignores.add("src/quan-tri/**");
+
   // Tự thêm tiền tố đường dẫn khi chạy trên github.io (trước khi gắn tên miền riêng)
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
