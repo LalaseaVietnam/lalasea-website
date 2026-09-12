@@ -152,6 +152,35 @@ permalink: /
   </div>
 </section>
 
+<!-- ===== KHÁCH NÓI GÌ VỀ LALASEA ===== -->
+<section id="danh-gia" class="dgia">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="script-accent">Niềm vui của khách là 5 sao của Lalasea</span>
+      <h2>Khách nói gì về Lalasea</h2>
+    </div>
+    {% if danhgia.khach.length > 0 %}
+    <div class="dgia-grid reveal">
+      {% for d in danhgia.khach %}
+      <div class="dgia-card">
+        <div class="sao">{% for i in range(0, d.sao) %}★{% endfor %}</div>
+        <p class="loi">"{{ d.loi }}"</p>
+        <div class="ten">— {{ d.ten }} · <span>Google Maps</span></div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="dgia-cta reveal">
+      <p>Bạn đã ghé Lalasea? Một đánh giá của bạn là món quà lớn với chúng tôi 💙</p>
+      <div>
+        <a href="{{ thongtin.google_review }}" target="_blank" rel="noopener" class="btn btn-lg">⭐ Đánh giá trên Google</a>
+        <a href="{{ thongtin.maps }}" target="_blank" rel="noopener" class="btn btn-ghost dgia-ghost">Xem tất cả đánh giá</a>
+      </div>
+      <p class="gop-y">Có điều chưa hài lòng? <a href="{{ thongtin.zalo }}" target="_blank" rel="noopener">Nhắn Zalo góp ý riêng với quản lý</a> — chúng tôi lắng nghe và sửa ngay.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ===== TIN TỨC MỚI ===== -->
 {% if collections.baiviet.length > 0 %}
 <section id="tin-tuc" class="news">

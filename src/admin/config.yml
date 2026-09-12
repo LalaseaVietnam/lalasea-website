@@ -57,6 +57,7 @@ collections:
           - { name: tiktok, label: "Link TikTok", widget: string }
           - { name: zalo, label: "Link Zalo", widget: string }
           - { name: maps, label: "Link Google Maps", widget: string }
+          - { name: google_review, label: "Link viết đánh giá Google", widget: string }
           - { name: booking_url, label: "Link nhận đặt bàn (Google Apps Script)", widget: string, required: false }
 
       - name: thuvien
@@ -81,6 +82,20 @@ collections:
             widget: list
             fields:
               - { name: file, label: "Ảnh trang menu", widget: image }
+
+      - name: danhgia
+        label: "⭐ Đánh giá của khách (trích từ Google)"
+        file: src/_data/danhgia.json
+        fields:
+          - name: khach
+            label: "Danh sách đánh giá hiển thị trên trang chủ"
+            label_singular: "đánh giá"
+            widget: list
+            required: false
+            fields:
+              - { name: ten, label: "Tên khách (như trên Google)", widget: string }
+              - { name: sao, label: "Số sao (1-5)", widget: number, default: 5, min: 1, max: 5, value_type: int }
+              - { name: loi, label: "Lời đánh giá (chép đúng nguyên văn từ Google)", widget: text }
 
       - name: glamping
         label: "🏕️ Trang Glamping (giá, gói, ảnh lều)"
