@@ -22,7 +22,9 @@ collections:
     label_singular: "bài viết"
     folder: src/posts
     create: true
-    delete: true
+    # Phân quyền: không ai xóa được bài từ trang admin (kể cả quản lý).
+    # Cần xóa bài -> chủ nhà hàng nhắn Claude hoặc xóa file trên GitHub.
+    delete: false
     slug: "{{slug}}"
     summary: "{{title}} — {{date}}"
     sortable_fields:

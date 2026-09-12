@@ -7,6 +7,9 @@
   <title>{{ tieu_de | safe }}</title>
   <meta name="description" content="{{ mo_ta or thongtin.mo_ta }}">
   <link rel="canonical" href="{{ thongtin.site_url }}{{ page.url }}">
+  {%- if khong_index %}
+  <meta name="robots" content="noindex, nofollow">
+  {%- endif %}
   <meta property="og:title" content="{{ tieu_de | safe }}">
   <meta property="og:description" content="{{ mo_ta or thongtin.mo_ta }}">
   <meta property="og:image" content="{{ thongtin.site_url }}{{ anh_dai_dien or '/hero.jpg' }}">
