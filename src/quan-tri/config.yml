@@ -1,0 +1,140 @@
+# ============================================================
+# CẤU HÌNH TRANG QUẢN TRỊ NỘI DUNG (Sveltia CMS)
+# Trang admin cho phép đăng bài, sửa thông tin nhà hàng,
+# thay ảnh menu & thư viện — không cần biết code.
+# ============================================================
+backend:
+  name: github
+  repo: lalaseavietnam/lalasea-website
+  branch: main
+  automatic_deployments: true
+
+site_url: https://lalasea.vn
+display_url: https://lalasea.vn
+logo_url: https://lalasea.vn/favicon.svg
+
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: baiviet
+    label: "📰 Tin tức & Ưu đãi"
+    label_singular: "bài viết"
+    folder: src/posts
+    create: true
+    delete: true   # Trang của chủ nhà hàng: có đủ quyền xóa
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+    sortable_fields:
+      fields: [date, title]
+      default:
+        field: date
+        direction: descending
+    fields:
+      - { name: title, label: "Tiêu đề bài viết", widget: string }
+      - { name: date, label: "Ngày đăng", widget: datetime, time_format: false, date_format: "YYYY-MM-DD" }
+      - { name: mo_ta, label: "Mô tả ngắn (hiện ở trang danh sách tin)", widget: text }
+      - { name: anh_dai_dien, label: "Ảnh đại diện", widget: image, required: false }
+      - { name: body, label: "Nội dung bài viết", widget: markdown }
+
+  - name: caidat
+    label: "⚙️ Thông tin nhà hàng"
+    files:
+      - name: thongtin
+        label: "Thông tin chung (SĐT, địa chỉ, giờ mở cửa...)"
+        file: src/_data/thongtin.json
+        fields:
+          - { name: ten, label: "Tên nhà hàng", widget: string }
+          - { name: khau_hieu, label: "Khẩu hiệu (dòng nhỏ trên banner)", widget: string }
+          - { name: site_url, label: "Địa chỉ website (không sửa trừ khi đổi tên miền)", widget: string }
+          - { name: mo_ta, label: "Mô tả website (cho Google)", widget: text }
+          - { name: dien_thoai, label: "Số điện thoại (hiển thị)", widget: string }
+          - { name: dien_thoai_goi, label: "Số điện thoại (để bấm gọi, viết liền)", widget: string }
+          - { name: dia_chi, label: "Địa chỉ", widget: string }
+          - { name: gio_mo_cua, label: "Giờ mở cửa", widget: string }
+          - { name: gio_ghi_chu, label: "Ghi chú giờ mở cửa", widget: string }
+          - { name: facebook, label: "Link Facebook", widget: string }
+          - { name: tiktok, label: "Link TikTok", widget: string }
+          - { name: zalo, label: "Link Zalo", widget: string }
+          - { name: maps, label: "Link Google Maps", widget: string }
+          - { name: google_review, label: "Link viết đánh giá Google", widget: string }
+          - { name: booking_url, label: "Link nhận đặt bàn (Google Apps Script)", widget: string, required: false }
+
+      - name: thuvien
+        label: "Thư viện ảnh trang chủ"
+        file: src/_data/thuvien.json
+        fields:
+          - name: anh
+            label: "Danh sách ảnh"
+            label_singular: "ảnh"
+            widget: list
+            fields:
+              - { name: file, label: "Ảnh", widget: image }
+              - { name: mota, label: "Mô tả ảnh", widget: string }
+
+      - name: menuanh
+        label: "Các trang menu (ảnh thực đơn)"
+        file: src/_data/menuanh.json
+        fields:
+          - name: trang
+            label: "Danh sách trang menu (theo thứ tự)"
+            label_singular: "trang menu"
+            widget: list
+            fields:
+              - { name: file, label: "Ảnh trang menu", widget: image }
+
+      - name: danhgia
+        label: "⭐ Đánh giá của khách (trích từ Google)"
+        file: src/_data/danhgia.json
+        fields:
+          - name: khach
+            label: "Danh sách đánh giá hiển thị trên trang chủ"
+            label_singular: "đánh giá"
+            widget: list
+            required: false
+            fields:
+              - { name: ten, label: "Tên khách (như trên Google)", widget: string }
+              - { name: sao, label: "Số sao (1-5)", widget: number, default: 5, min: 1, max: 5, value_type: int }
+              - { name: loi, label: "Lời đánh giá (chép đúng nguyên văn từ Google)", widget: text }
+
+      - name: glamping
+        label: "🏕️ Trang Glamping (giá, gói, ảnh lều)"
+        file: src/_data/glamping.json
+        fields:
+          - name: anh
+            label: "Hình ảnh lều"
+            label_singular: "ảnh"
+            widget: list
+            required: false
+            fields:
+              - { name: file, label: "Ảnh", widget: image }
+              - { name: mota, label: "Mô tả ảnh", widget: string, required: false }
+          - { name: gia_ghi_chu, label: "Ghi chú bảng giá", widget: string }
+          - name: bang_gia
+            label: "Bảng giá"
+            label_singular: "bảng"
+            widget: list
+            fields:
+              - { name: ten, label: "Tên bảng (Ngày thường / Cuối tuần)", widget: string }
+              - { name: ngay, label: "Áp dụng ngày", widget: string }
+              - name: muc
+                label: "Các mức giá"
+                label_singular: "mức"
+                widget: list
+                fields:
+                  - { name: khach, label: "Số khách", widget: string }
+                  - { name: gia, label: "Giá", widget: string }
+          - { name: bua_sang_mota, label: "Mô tả bữa sáng", widget: string }
+          - { name: bua_sang_mon, label: "Món ăn sáng", widget: list, field: { name: mon, label: "Món", widget: string } }
+          - { name: bua_sang_nuoc, label: "Thức uống buổi sáng", widget: list, field: { name: mon, label: "Món", widget: string } }
+          - { name: bua_toi_mota, label: "Mô tả bữa tối", widget: string }
+          - name: bbq
+            label: "Món BBQ – Lẩu buổi tối"
+            label_singular: "món"
+            widget: list
+            fields:
+              - { name: mon, label: "Tên món", widget: string }
+              - { name: luong, label: "Định lượng", widget: string }
+          - { name: checkin, label: "Giờ nhận lều", widget: string }
+          - { name: checkout, label: "Giờ trả lều", widget: string }
+          - { name: luu_y, label: "Các lưu ý", widget: list, field: { name: y, label: "Lưu ý", widget: string } }

@@ -9,6 +9,7 @@ export default function (eleventyConfig) {
     "hero.jpg": "hero.jpg",
     "src/css": "css",
     "src/admin": "admin",
+    "src/quan-tri": "quan-tri",
     "src/favicon.svg": "favicon.svg"
   });
 
