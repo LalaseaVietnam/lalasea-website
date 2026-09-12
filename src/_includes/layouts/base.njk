@@ -51,11 +51,10 @@
 
   {# Logo Lalasea — định nghĩa một lần, dùng lại nhiều chỗ #}
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="lalasea-logo" viewBox="0 0 220 430">
+    <symbol id="lalasea-logo" viewBox="0 0 220 470">
       <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round">
         <rect x="35" y="55" width="150" height="300" rx="75"/>
-        <line x1="20" y1="150" x2="20" y2="210"/>
-        <line x1="200" y1="150" x2="200" y2="210"/>
+        <path d="M 20 150 L 20 320 A 90 90 0 0 0 200 320 L 200 150"/>
         <circle cx="110" cy="180" r="12"/>
         <g stroke-width="3">
           <line x1="110" y1="156" x2="110" y2="126" transform="rotate(0 110 180)"/>
@@ -81,24 +80,24 @@
         <path d="M60 315 q10 -9 20 0 t20 0 t20 0 t20 0 t20 0"/>
         <path d="M68 333 q9 -8 18 0 t18 0 t18 0 t18 0"/>
       </g>
-      {# Chữ LALASEA xếp theo cung tròn — từng chữ đặt và xoay riêng cho đều #}
-      <g font-family="Georgia,serif" font-size="25" font-weight="bold" fill="currentColor" text-anchor="middle">
-        <text x="110" y="52" transform="rotate(-42 110 195)">L</text>
-        <text x="110" y="52" transform="rotate(-28 110 195)">A</text>
-        <text x="110" y="52" transform="rotate(-14 110 195)">L</text>
-        <text x="110" y="52" transform="rotate(0 110 195)">A</text>
-        <text x="110" y="52" transform="rotate(14 110 195)">S</text>
-        <text x="110" y="52" transform="rotate(28 110 195)">E</text>
-        <text x="110" y="52" transform="rotate(42 110 195)">A</text>
+      {# Chữ LALASEA ôm sát vòm — từng chữ đặt và xoay quanh tâm vòm trên của khung #}
+      <g font-family="Georgia,serif" font-size="19" font-weight="bold" fill="currentColor" text-anchor="middle">
+        <text x="110" y="41" transform="rotate(-48 110 130)">L</text>
+        <text x="110" y="41" transform="rotate(-32 110 130)">A</text>
+        <text x="110" y="41" transform="rotate(-16 110 130)">L</text>
+        <text x="110" y="41" transform="rotate(0 110 130)">A</text>
+        <text x="110" y="41" transform="rotate(16 110 130)">S</text>
+        <text x="110" y="41" transform="rotate(32 110 130)">E</text>
+        <text x="110" y="41" transform="rotate(48 110 130)">A</text>
       </g>
-      <text x="110" y="410" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="bold" letter-spacing="8" fill="currentColor">BISTRO</text>
+      <text x="110" y="455" text-anchor="middle" font-family="Georgia,serif" font-size="30" letter-spacing="9" fill="currentColor">BISTRO</text>
     </symbol>
   </svg>
 
   <header class="site-header">
     <nav class="site-nav">
       <a href="/" class="brand" aria-label="Lalasea Bistro — Trang chủ">
-        <svg class="logo-svg" width="26" height="51"><use href="#lalasea-logo"/></svg>
+        <svg class="logo-svg" width="26" height="56"><use href="#lalasea-logo"/></svg>
         <span class="wordmark">LALASEA <span>BISTRO</span></span>
       </a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Mở menu" aria-expanded="false">
@@ -122,7 +121,7 @@
 
   {% if not an_footer %}
   <footer class="site-footer">
-    <svg class="logo-svg" width="44" height="86"><use href="#lalasea-logo"/></svg>
+    <svg class="logo-svg" width="44" height="94"><use href="#lalasea-logo"/></svg>
     <div class="socials">
       <a href="{{ thongtin.facebook }}" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H17V3.6c-.3 0-1.3-.1-2.45-.1-2.4 0-4.05 1.5-4.05 4.2v2.2H7.8V13h2.7v8h3z"/></svg>
