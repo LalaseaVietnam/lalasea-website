@@ -81,10 +81,16 @@
         <path d="M60 315 q10 -9 20 0 t20 0 t20 0 t20 0 t20 0"/>
         <path d="M68 333 q9 -8 18 0 t18 0 t18 0 t18 0"/>
       </g>
-      <defs><path id="arcTop" d="M 48 120 A 62 78 0 0 1 172 120" fill="none"/></defs>
-      <text font-family="Georgia,serif" font-size="24" font-weight="bold" letter-spacing="5" fill="currentColor">
-        <textPath href="#arcTop" startOffset="50%" text-anchor="middle">LALASEA</textPath>
-      </text>
+      {# Chữ LALASEA xếp theo cung tròn — từng chữ đặt và xoay riêng cho đều #}
+      <g font-family="Georgia,serif" font-size="25" font-weight="bold" fill="currentColor" text-anchor="middle">
+        <text x="110" y="52" transform="rotate(-42 110 195)">L</text>
+        <text x="110" y="52" transform="rotate(-28 110 195)">A</text>
+        <text x="110" y="52" transform="rotate(-14 110 195)">L</text>
+        <text x="110" y="52" transform="rotate(0 110 195)">A</text>
+        <text x="110" y="52" transform="rotate(14 110 195)">S</text>
+        <text x="110" y="52" transform="rotate(28 110 195)">E</text>
+        <text x="110" y="52" transform="rotate(42 110 195)">A</text>
+      </g>
       <text x="110" y="410" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="bold" letter-spacing="8" fill="currentColor">BISTRO</text>
     </symbol>
   </svg>
