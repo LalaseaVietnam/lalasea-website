@@ -23,6 +23,9 @@
 
 html { scroll-behavior: smooth; }
 
+/* Khóa trang không cho lắc ngang trên điện thoại — clip không phá header sticky */
+html, body { overflow-x: clip; }
+
 body {
   font-family: var(--font-chu);
   color: var(--chu-dam);
@@ -344,7 +347,7 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
 .menu-viewer .viewer { position: relative; flex: 1; display: flex; flex-direction: column; }
 .menu-viewer .track {
   display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
-  flex: 1; -webkit-overflow-scrolling: touch;
+  flex: 1; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
 }
 .menu-viewer .track::-webkit-scrollbar { display: none; }
 .menu-viewer .slide { min-width: 100%; scroll-snap-align: center; display: flex; align-items: center; justify-content: center; padding: 24px 16px; }
@@ -538,6 +541,7 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
   .exp-grid, .menu-grid, .dgia-grid, #tin-tuc .news-grid {
     display: flex; gap: 14px;
     overflow-x: auto; scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch; scrollbar-width: none;
     max-width: none;
     margin: 0 -20px; padding: 4px 20px 16px;
@@ -573,6 +577,7 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
     grid-auto-columns: 60%;
     gap: 10px;
     overflow-x: auto; scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch; scrollbar-width: none;
     margin: 0 -20px; padding: 0 20px 16px;
     scroll-padding-left: 20px;
