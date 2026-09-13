@@ -80,7 +80,7 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
 .logo-svg { display: block; }
 .logo-svg line, .logo-svg path, .logo-svg rect, .logo-svg circle { vector-effect: non-scaling-stroke; }
 
-.nav-links { display: flex; gap: 26px; align-items: center; }
+.nav-links { display: flex; gap: 20px; align-items: center; }
 .nav-links a { font-size: 15px; opacity: .92; transition: opacity .15s; padding: 4px 0; }
 .nav-links a:hover { opacity: 1; }
 .nav-links a:not(.btn) { position: relative; }
@@ -97,7 +97,7 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
 .nav-toggle.active span:nth-child(2) { opacity: 0; }
 .nav-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
-@media (max-width: 860px) {
+@media (max-width: 1000px) {
   .nav-toggle { display: block; }
   .nav-links {
     display: none; position: absolute; top: 100%; left: 0; right: 0;
