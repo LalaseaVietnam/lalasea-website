@@ -7,6 +7,7 @@ export default function (eleventyConfig) {
     "menu": "menu",
     "uploads": "uploads",
     "hero.jpg": "hero.jpg",
+    "cc97fe9ea5cf05654fd1deeed594a344.txt": "cc97fe9ea5cf05654fd1deeed594a344.txt",
     "src/css": "css",
     "src/admin": "admin",
     "src/quan-tri": "quan-tri",
