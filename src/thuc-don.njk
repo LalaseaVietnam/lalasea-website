@@ -6,6 +6,12 @@ permalink: /thuc-don/
 an_footer: true
 ---
 
+<div class="page-hero">
+  <div class="kicker">Xem menu &amp; bảng giá</div>
+  <h1>Thực đơn Lalasea Bistro – Hải sản Hà&nbsp;Tiên</h1>
+  <p>Trọn bộ {{ menuanh.trang.length }} trang thực đơn kèm giá: hải sản tươi sống, ốc – sò – nghêu, món nướng, lẩu, đặc sản khô và đồ uống — phục vụ 09:00–23:00 mỗi ngày bên bờ biển Tô Châu, Hà&nbsp;Tiên.</p>
+</div>
+
 <div class="menu-viewer">
   <div class="viewer">
     <button class="navbtn prev" id="prev" aria-label="Trang trước">‹</button>
@@ -19,6 +25,37 @@ an_footer: true
   <div class="counter"><span id="cur">1</span> / {{ menuanh.trang.length }}</div>
   <div class="hint"><span class="desktop">Dùng nút ‹ › hoặc phím mũi tên để lật trang</span><span class="mobile">Vuốt trái/phải để lật trang</span></div>
 </div>
+
+<!-- ===== GIỚI THIỆU THỰC ĐƠN (phần chữ giúp Google hiểu nội dung menu) ===== -->
+<section class="menu-about">
+  <div class="wrap">
+    <h2>Thực đơn Lalasea Bistro có gì?</h2>
+    <p>Lalasea Bistro là nhà hàng hải sản bên bờ biển Tô Châu, Hà Tiên (An Giang), phục vụ hải sản tươi mỗi ngày từ 09:00 đến 23:00. Dưới đây là các nhóm món chính trong thực đơn — lướt bộ ảnh menu phía trên để xem đầy đủ từng món kèm giá.</p>
+
+    <h3>Món đặc biệt của quán</h3>
+    <p>Bốn món làm nên tên tuổi Lalasea: sườn cay, cà ri cua (theo thời giá), hải sản xô đầy ắp tôm – mực – nghêu – cua, và gỏi cá trích chuẩn vị biển Hà Tiên.</p>
+
+    <h3>Ốc, sò &amp; nghêu</h3>
+    <p>Ốc hương, ốc bulot, ốc móng tay, ốc bươu đen, sò huyết, sò dương, sò tộ, nghêu, bào ngư… chế biến đủ kiểu: cháy tỏi, rang muối, nướng mỡ hành, nướng phô mai, sốt trứng muối, sốt bơ cay, hấp Thái, hấp sả.</p>
+
+    <h3>Hải sản tươi sống</h3>
+    <p>Tôm, cua, ghẹ, mực và cá theo mùa được giữ tươi sống mỗi ngày — chọn con nào chế biến con đó, nướng, hấp hay cháy tỏi tùy khẩu vị của bạn.</p>
+
+    <h3>Món lai rai</h3>
+    <p>Còi dương mai nướng muối ớt, ếch chiên giòn, ếch rang muối Hong Kong, lườn ngỗng xông khói, bò lúc lắc, bò né, sườn xào chua ngọt, sụn gà rang muối, cánh gà chiên nước mắm…</p>
+
+    <h3>Đặc sản khô Hà Tiên</h3>
+    <p>Tôm khô nhâm sả, khô cá lóc trộn xoài, khô mực Hoàng Bào, mực một nắng, cá đục một nắng mắm me — vừa hợp lai rai tại bàn, vừa mua về làm quà.</p>
+
+    <h3>Lẩu &amp; món nướng</h3>
+    <p>Lẩu Thái, lẩu Tomyum, lẩu mắm, lẩu cá bớp, lẩu cua đồng, lẩu nấm, lẩu khổ qua bò viên đồng giá 289.000đ. Món nướng có ba chỉ bò Mỹ, bò tảng, vú heo nướng và combo BBQ đủ tôm, bạch tuộc, bò, ếch, xúc xích.</p>
+
+    <h3>Menu tiệc đặt trước</h3>
+    <p>Ngoài menu hằng ngày, Lalasea nhận tiệc cưới, sinh nhật, liên hoan công ty với menu tiệc riêng phục vụ theo phần: gà, vịt, cơm, lẩu và các món tiệc đặt trước.</p>
+
+    <p>Giá trong menu có thể thay đổi theo thời điểm; một số món hải sản tính theo thời giá trong ngày. Để đặt bàn hoặc đặt tiệc, gọi / nhắn Zalo <a href="tel:{{ thongtin.dien_thoai_goi }}">{{ thongtin.dien_thoai }}</a> hoặc xem trang <a href="/lien-he/">Liên hệ &amp; đường đi</a>.</p>
+  </div>
+</section>
 
 <script>
   const track = document.getElementById('track');
