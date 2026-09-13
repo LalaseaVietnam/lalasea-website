@@ -135,6 +135,6 @@ collections:
             fields:
               - { name: mon, label: "Tên món", widget: string }
               - { name: luong, label: "Định lượng", widget: string }
-          - { name: checkin, label: "Giờ nhận lều", widget: string }
-          - { name: checkout, label: "Giờ trả lều", widget: string }
+          - { name: checkin, label: "Thời gian nhận lều (Check-in)", widget: string }
+          - { name: checkout, label: "Thời gian trả lều (Check-out)", widget: string }
           - { name: luu_y, label: "Các lưu ý", widget: list, field: { name: y, label: "Lưu ý", widget: string } }
