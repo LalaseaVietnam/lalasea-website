@@ -55,3 +55,16 @@ jobs:
       - name: Đưa website lên mạng
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Báo IndexNow: mỗi lần web đổi nội dung, chủ động thông báo cho Bing
+      # (nguồn dữ liệu của ChatGPT) và các máy tìm kiếm hỗ trợ, thay vì chờ
+      # bot tự quay lại. Bước này lỗi cũng không ảnh hưởng việc xuất bản.
+      - name: Báo máy tìm kiếm qua IndexNow
+        continue-on-error: true
+        run: |
+          KEY="cc97fe9ea5cf05654fd1deeed594a344"
+          URLS=$(curl -sS https://lalasea.vn/sitemap.xml | grep -o '<loc>[^<]*</loc>' | sed 's/<[^>]*>//g' | sed 's/.*/"&"/' | paste -sd, -)
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"lalasea.vn\",\"key\":\"$KEY\",\"keyLocation\":\"https://lalasea.vn/$KEY.txt\",\"urlList\":[$URLS]}" \
+            -w "\nIndexNow HTTP %{http_code}\n"
