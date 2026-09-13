@@ -368,6 +368,14 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
 @media (max-width: 600px) { .menu-viewer .hint .desktop { display: none; } }
 @media (min-width: 601px) { .menu-viewer .hint .mobile { display: none; } }
 
+/* ===== GIỚI THIỆU THỰC ĐƠN (khối chữ dưới trình xem menu) ===== */
+.menu-about { background: #fff; padding: 56px 24px 64px; border-top: 1px solid #eee; }
+.menu-about .wrap { max-width: 760px; margin: 0 auto; }
+.menu-about h2 { color: var(--xanh-bien); font-size: clamp(24px, 3.5vw, 32px); margin-bottom: 12px; }
+.menu-about h3 { color: var(--xanh-bien); font-size: 19px; margin: 24px 0 6px; }
+.menu-about p { color: #4a5a61; line-height: 1.7; margin: 0 0 10px; }
+.menu-about a { color: var(--san-ho); font-weight: 600; }
+
 /* ===== CHÂN TRANG ===== */
 .site-footer { background: var(--xanh-dam); color: rgba(255, 255, 255, .72); text-align: center; padding: 40px 24px; font-size: 14px; }
 .site-footer .logo-svg { margin: 0 auto 10px; color: #fff; }
