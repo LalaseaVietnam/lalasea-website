@@ -16,3 +16,5 @@ Bạn đang tìm một địa điểm tổ chức tiệc **khác biệt** ở H�
 ## Đặt tiệc như thế nào?
 
 Gọi hoặc nhắn Zalo cho nhà hàng qua số **0907 896 949** để được tư vấn menu và báo giá theo số lượng khách. Nên đặt trước ít nhất vài ngày để nhà hàng chuẩn bị chu đáo nhất cho bạn.
+
+👉 Xem chi tiết dịch vụ [tổ chức tiệc & sự kiện tại Lalasea](/tiec-su-kien/) — sân khấu hướng biển, bàn ghế có sẵn, form nhận tư vấn tiệc.

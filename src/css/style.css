@@ -368,6 +368,64 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
 @media (max-width: 600px) { .menu-viewer .hint .desktop { display: none; } }
 @media (min-width: 601px) { .menu-viewer .hint .mobile { display: none; } }
 
+/* ===== TRANG TIỆC & SỰ KIỆN ===== */
+.tsk-hero {
+  position: relative; color: #fff; text-align: center;
+  padding: clamp(60px, 9vw, 104px) 24px;
+  background: linear-gradient(rgba(9, 42, 58, .74), rgba(9, 42, 58, .74)), url("/anh/img1.jpg") center / cover no-repeat, var(--xanh-dam);
+}
+.tsk-hero .crumb { font-size: 13px; opacity: .8; margin-bottom: 18px; }
+.tsk-hero .crumb a { color: #fff; text-decoration: underline; }
+.tsk-hero .kicker { color: var(--ngoc-nhat); text-transform: uppercase; letter-spacing: 3.5px; font-size: 13px; font-weight: 700; }
+.tsk-hero h1 { font-size: clamp(28px, 5vw, 46px); margin: 10px auto 14px; max-width: 800px; text-shadow: 0 3px 14px rgba(0, 0, 0, .35); }
+.tsk-hero p { max-width: 760px; margin: 0 auto 28px; opacity: .95; line-height: 1.7; text-shadow: 0 2px 8px rgba(0, 0, 0, .3); }
+.tsk-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.tsk-hero .btn-ghost { border-color: #fff; color: #fff; }
+
+.tsk-sec { padding: clamp(48px, 7vw, 76px) 0; }
+.tsk-sec-cat { background: var(--cat); }
+.tsk-usp { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 20px; }
+.tsk-card { background: #fff; border-radius: var(--bo-tron); padding: 26px 22px; box-shadow: var(--bong-nhe); }
+.tsk-card .ic { font-size: 34px; margin-bottom: 8px; }
+.tsk-card h3 { color: var(--xanh-bien); font-size: 17px; margin-bottom: 8px; }
+.tsk-card p { color: var(--chu-nhat); font-size: 14.5px; line-height: 1.65; }
+.tsk-band { text-align: center; margin-top: 32px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.tsk-lead { max-width: 760px; margin: 28px auto 0; text-align: center; color: var(--chu-nhat); line-height: 1.75; }
+
+.tsk-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 860px; margin: 0 auto; }
+.tsk-compare .col { background: #fff; border-radius: var(--bo-tron); padding: 26px 24px; box-shadow: var(--bong-nhe); }
+.tsk-compare .col.hl { border: 2px solid var(--xanh-ngoc); }
+.tsk-compare h3 { color: var(--xanh-bien); font-size: 18px; margin-bottom: 10px; text-align: center; }
+.tsk-compare ul { list-style: none; }
+.tsk-compare li { padding: 10px 0 10px 28px; position: relative; color: var(--chu-nhat); font-size: 14.5px; border-bottom: 1px dashed #e8e2d6; }
+.tsk-compare li:last-child { border-bottom: none; }
+.tsk-compare li::before { content: "•"; position: absolute; left: 6px; color: #b7aa93; }
+.tsk-compare ul.ok li::before { content: "✓"; color: var(--xanh-ngoc); font-weight: 700; left: 2px; }
+@media (max-width: 640px) { .tsk-compare { grid-template-columns: 1fr; } }
+
+.tsk-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+.tsk-step { background: #fff; border-radius: var(--bo-tron); padding: 26px 22px; box-shadow: var(--bong-nhe); text-align: center; }
+.tsk-step .num {
+  width: 42px; height: 42px; margin: 0 auto 10px; border-radius: 50%;
+  background: var(--xanh-bien); color: #fff; font-weight: 700; font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+}
+.tsk-step h3 { color: var(--xanh-bien); font-size: 16px; margin-bottom: 6px; }
+.tsk-step p { color: var(--chu-nhat); font-size: 14px; line-height: 1.6; }
+
+.tsk-note {
+  max-width: 760px; margin: 28px auto 0; background: #eef8f9;
+  border-left: 4px solid var(--xanh-ngoc); border-radius: 10px;
+  padding: 14px 18px; font-size: 14.5px; color: var(--chu-nhat);
+}
+.tsk-note a { color: var(--xanh-ngoc); font-weight: 700; }
+
+.booking-form select {
+  width: 100%; margin-top: 6px; padding: 13px 15px; border: 1px solid #ddd5c8;
+  border-radius: 12px; font-size: 15px; font-family: inherit; background: #fff; color: inherit;
+}
+.booking-form select:focus { outline: 2px solid var(--xanh-ngoc); border-color: transparent; }
+
 /* ===== GIỚI THIỆU THỰC ĐƠN (khối chữ dưới trình xem menu) ===== */
 .menu-about { background: #fff; padding: 56px 24px 64px; border-top: 1px solid #eee; }
 .menu-about .wrap { max-width: 760px; margin: 0 auto; }
