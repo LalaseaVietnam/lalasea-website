@@ -1,0 +1,28 @@
+---
+# ============================================================
+# TRANG CHUYỂN HƯỚNG (redirect) CHO CÁC ĐƯỜNG DẪN CŨ
+# Danh sách cặp cũ → mới nằm trong src/_data/chuyenhuong.json
+# (sửa được từ trang quản trị, mục "Chuyển hướng trang cũ").
+# GitHub Pages không hỗ trợ 301 từ máy chủ nên dùng trang mồi
+# meta-refresh + canonical — Google xử lý tương đương redirect.
+# ============================================================
+pagination:
+  data: chuyenhuong.danh_sach
+  size: 1
+  alias: ch
+permalink: "{{ ch.cu }}{% if not ch.cu.endsWith('/') %}/{% endif %}index.html"
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={{ thongtin.site_url }}{{ ch.moi }}">
+  <link rel="canonical" href="{{ thongtin.site_url }}{{ ch.moi.split('#')[0] }}">
+  <title>Đang chuyển đến trang mới…</title>
+  <script>location.replace("{{ thongtin.site_url }}{{ ch.moi }}");</script>
+</head>
+<body>
+  <p>Trang này đã chuyển về địa chỉ mới: <a href="{{ thongtin.site_url }}{{ ch.moi }}">{{ thongtin.site_url }}{{ ch.moi }}</a></p>
+</body>
+</html>

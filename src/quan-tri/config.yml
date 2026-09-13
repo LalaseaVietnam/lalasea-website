@@ -138,3 +138,16 @@ collections:
           - { name: checkin, label: "Thời gian nhận lều (Check-in)", widget: string }
           - { name: checkout, label: "Thời gian trả lều (Check-out)", widget: string }
           - { name: luu_y, label: "Các lưu ý", widget: list, field: { name: y, label: "Lưu ý", widget: string } }
+
+      - name: chuyenhuong
+        label: "↪️ Chuyển hướng trang cũ"
+        file: src/_data/chuyenhuong.json
+        fields:
+          - name: danh_sach
+            label: "Danh sách chuyển hướng (đường dẫn cũ → trang mới)"
+            label_singular: "chuyển hướng"
+            widget: list
+            required: false
+            fields:
+              - { name: cu, label: "Đường dẫn cũ (ví dụ: /gioi-thieu-menu/)", widget: string }
+              - { name: moi, label: "Đường dẫn mới (ví dụ: /thuc-don/)", widget: string }
