@@ -302,6 +302,21 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
 .post-body ul, .post-body ol { margin: 0 0 20px 24px; color: #33474f; font-size: 17px; }
 .post-body li { margin-bottom: 8px; }
 .post-body a { color: var(--xanh-ngoc); font-weight: 600; text-decoration: underline; }
+/* Bảng trong bài viết — mọi cột tự xuống dòng để vừa màn hình điện thoại */
+.post-body table {
+  width: 100%; margin: 24px 0; border-collapse: collapse; font-size: 16px; color: #33474f;
+  background: #fff; border-radius: 12px; overflow: hidden; box-shadow: var(--bong-nhe);
+}
+.post-body thead th {
+  background: var(--xanh-bien); color: #fff; text-align: left;
+  font-family: var(--font-chu); font-weight: 600; font-size: 14px;
+  letter-spacing: .04em; padding: 12px 16px; white-space: nowrap;
+}
+.post-body tbody td { padding: 12px 16px; border-bottom: 1px solid var(--cat); vertical-align: top; }
+.post-body tbody tr:last-child td { border-bottom: none; }
+.post-body tbody tr:nth-child(even) { background: #fbf9f4; }
+.post-body tbody td:first-child { font-weight: 600; color: var(--xanh-bien); }
+
 .post-body blockquote { border-left: 4px solid var(--xanh-ngoc); padding: 6px 0 6px 20px; margin: 24px 0; color: var(--chu-nhat); font-style: italic; }
 .post-back { text-align: center; padding-bottom: 60px; }
 
