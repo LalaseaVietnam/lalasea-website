@@ -1,6 +1,16 @@
 {
   "danh_sach": [
-    { "cu": "/gioi-thieu-menu/", "moi": "/thuc-don/" },
-    { "cu": "/blog-gioi-thieu-lalasea/", "moi": "/#gioi-thieu" }
+    {
+      "cu": "/gioi-thieu-menu/",
+      "moi": "/thuc-don/"
+    },
+    {
+      "cu": "/blog-gioi-thieu-lalasea/",
+      "moi": "/#gioi-thieu"
+    },
+    {
+      "cu": "/tin-tuc/glamping-leu-mong-co/",
+      "moi": "/tin-tuc/glamping-leu-go-ha-tien/"
+    }
   ]
 }
