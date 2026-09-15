@@ -17,7 +17,7 @@ permalink: /tin-tuc/
     <div class="news-grid">
       {% for bai in collections.baiviet %}
       <a class="news-card" href="{{ bai.url }}">
-        <div class="thumb">{% if bai.data.anh_dai_dien %}<img src="{{ bai.data.anh_dai_dien }}" alt="" loading="lazy">{% endif %}</div>
+        <div class="thumb">{% if bai.data.anh_dai_dien %}<img src="{{ bai.data.anh_dai_dien }}" alt="{{ bai.data.title }}" loading="lazy">{% endif %}</div>
         <div class="body">
           <div class="date">{{ bai.date | ngayVN }}</div>
           <h3>{{ bai.data.title }}</h3>
