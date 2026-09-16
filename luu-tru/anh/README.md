@@ -63,6 +63,20 @@ Chỉ ảnh nằm trong `anh/` và `uploads/` mới được xuất bản lên w
 | `bun-hai-san-lalasea-ha-tien.jpg` | `07/mon-an-01` | Thẻ Ẩm thực trang chủ, thư viện ảnh |
 | `trang-tri-sinh-nhat-lalasea-ha-tien.jpg` | `05/trang-tri-06` | Thư viện ảnh trang chủ |
 | `trang-tri-cau-hon-lalasea-ha-tien.jpg` | `05/trang-tri-10` | Thư viện ảnh trang chủ |
+| `hoang-hon-bien-to-chau-lalasea-ha-tien.jpg` | `13/tong-hop-08` | Banner trang chủ, thư viện ảnh |
+| `ngam-hoang-hon-ben-bien-lalasea-ha-tien.jpg` | `13/tong-hop-30` | Thư viện ảnh trang chủ |
+| `beach-bar-lalasea-ha-tien.jpg` | `13/tong-hop-04` | Thẻ Beach Bar trang chủ |
+| `tiec-cuoi-san-khau-hoa-trang-lalasea-ha-tien.jpg` | `10/tiec-20-21-14` | Trang Tiệc & Sự kiện |
+| `tiec-cuoi-buoi-toi-lalasea-ha-tien.jpg` | `10/tiec-20-21-12` | Trang Tiệc & Sự kiện |
+| `san-khau-tiec-cuoi-banh-cuoi-lalasea-ha-tien.jpg` | `10/tiec-20-21-10` | Trang Tiệc & Sự kiện |
+
+**Đã duyệt xong toàn bộ 14 thư mục (234 ảnh).** Kết luận về ảnh món ăn:
+cả kho chỉ có đúng **một** tấm lấy món ăn làm chủ thể chính —
+`07/mon-an-01` (tô bún hải sản), và ảnh chỉ 960x1280 nên không làm
+banner được. Không có ảnh cận cảnh hải sản xô, cà ri cua, sườn cay hay
+gỏi cá trích — đúng bốn món quán tự quảng cáo là BEST SELLER trên biển
+hiệu ngoài trời (thấy trong `10/tiec-20-21-17`). Đây là việc cần chụp
+bổ sung, không lấp được bằng kho hiện có.
 
 **Lưu ý phân loại:** trang trí sinh nhật và cầu hôn là dịch vụ cho nhóm bạn,
 gia đình ăn uống bình thường — **không xếp vào trang Tiệc & Sự kiện**. Trang đó
