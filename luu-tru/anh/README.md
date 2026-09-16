@@ -40,3 +40,40 @@ Chỉ ảnh nằm trong `anh/` và `uploads/` mới được xuất bản lên w
   Ba album `11`, `12`, `13` mới lấy được 30 ảnh đầu — Google Photos giới
   hạn người xem chưa đăng nhập ở 30 ảnh mỗi album. Muốn lấy đủ, tải album
   về máy từ tài khoản Google rồi đưa lên GitHub.
+
+## Ảnh đã đưa lên web (tính đến 16/09/2026)
+
+13 tấm đã chọn, nén và chép sang `anh/` — **không chép lại nữa**:
+
+| File trong `anh/` | Lấy từ kho | Đang dùng ở |
+|---|---|---|
+| `hoang-hon-vong-bai-co-lalasea-ha-tien.jpg` | `01/ngoai-troi-06` (đã cắt watermark) | Banner trang chủ, thư viện ảnh |
+| `tiec-ngoai-troi-ben-bien-lalasea-ha-tien.jpg` | `09/decor-tet-07` | Trang Tiệc (ảnh chính + chia sẻ), thẻ trang chủ, thư viện |
+| `khong-gian-mo-sat-bien-lalasea-ha-tien.jpg` | `09/decor-tet-10` | Thư viện ảnh trang chủ |
+| `view-bien-lalasea-bistro-ha-tien.jpg` | `09/decor-tet-02` | (chưa dùng — sẵn sàng) |
+| `loi-vao-nha-hang-lalasea-ha-tien.jpg` | `09/decor-tet-09` | Thư viện ảnh trang chủ |
+| `bang-hieu-lalasea-bistro-ha-tien.jpg` | `09/decor-tet-11` | Thư viện ảnh trang chủ |
+| `cong-chinh-lalasea-quoc-lo-80-ha-tien.jpg` | `09/decor-tet-04` | (chưa dùng — hợp trang Liên hệ) |
+| `khu-tiec-ban-tron-ngoai-troi-lalasea-ha-tien.jpg` | `09/decor-tet-13` | Trang Tiệc & Sự kiện |
+| `phong-vip-non-la-lalasea-ha-tien.jpg` | `02/phong-vip-04` | Trang Tiệc, thư viện ảnh |
+| `phong-vip-ban-dai-lalasea-ha-tien.jpg` | `02/phong-vip-01` | Trang Tiệc & Sự kiện |
+| `phong-vip-trang-do-lalasea-ha-tien.jpg` | `02/phong-vip-10` | Trang Tiệc & Sự kiện |
+| `sanh-tiec-may-lanh-lalasea-ha-tien.jpg` | `03/sanh-tiec-02` | Trang Tiệc, thư viện ảnh |
+| `tiec-doan-buffet-lalasea-ha-tien.jpg` | `04/tiec-doan-13` | Trang Tiệc & Sự kiện |
+
+## Ảnh KHÔNG được dùng (đã kiểm tra, có lý do)
+
+- **Có mặt khách nhận diện rõ:** phần lớn thư mục `04-khach-doan`, `11-tet-tay`, và `sanh-tiec-24/25`. Muốn dùng phải xin phép khách.
+- **Có standee in mặt em bé con khách** ("Mr Gạo 1st Birthday"): 13 ảnh trong `03-sanh-tiec` — các số 05, 06, 09, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 21. An toàn tuyệt đối chỉ có 01, 02, 22.
+- **Lộ logo công ty khách trên áo đồng phục:** `04/tiec-doan-01` đến `04`.
+- **Có watermark fanpage "KIÊN GIANG TÔI":** `01/ngoai-troi-04, 05, 06`. Chủ quán xác nhận ảnh của quán nên dùng được, nhưng phải cắt bỏ watermark ở góc trên và giữa ảnh trước.
+- **Ghi sai tỉnh cũ:** `02/phong-vip-14` có name card in "Kiên Giang" — không dùng cho trang Liên hệ vì mâu thuẫn với địa chỉ An Giang hiện tại trên web.
+
+## Thư mục chưa duyệt hết
+
+Đã duyệt xong: `01`, `02`, `03`, `04`, `08`, `09`, `11`, `12`.
+Chưa duyệt: `05-trang-tri-sinh-nhat-cau-hon`, `06-check-in-bai-bien`, `07-mon-an`, `10-tiec-20-21`, `13-tong-hop` — khoảng 80 ảnh.
+
+## Việc còn thiếu quan trọng nhất
+
+**Cả kho 234 ảnh không có tấm nào chụp riêng món ăn.** Mục "Món đặc biệt" ở trang chủ vẫn phải dùng biểu tượng thay ảnh. Cần chụp bổ sung 4 món chủ lực: sườn cay, cà ri cua, hải sản xô, gỏi cá trích — chụp ngang, ánh sáng ban ngày hoặc đèn vàng ấm.
