@@ -5,7 +5,7 @@ mo_ta: Cắm trại kiểu sang trọng tại Hà Tiên — lều gỗ chữ A m
 anh_dai_dien: /uploads/585bccbb09ef89b1d0fe5.jpg
 ---
 
-Không chỉ là nhà hàng hải sản, Lalasea còn là điểm **glamping** (cắm trại tiện nghi) hiếm hoi ở Hà Tiên. Khu lều gỗ nằm ngay trong khuôn viên nhà hàng tại Tô Châu, cách biển chỉ vài chục mét — đi bộ vài bước là ra tới khu bàn ăn sát biển.
+Không chỉ là nhà hàng bên biển, Lalasea còn là điểm **glamping** (cắm trại tiện nghi) hiếm hoi ở Hà Tiên. Khu lều gỗ nằm ngay trong khuôn viên nhà hàng tại Tô Châu, cách biển chỉ vài chục mét — đi bộ vài bước là ra tới khu bàn ăn sát biển.
 
 ## Trải nghiệm một đêm ở Lalasea
 
