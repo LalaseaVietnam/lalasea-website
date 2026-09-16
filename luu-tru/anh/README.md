@@ -60,6 +60,19 @@ Chỉ ảnh nằm trong `anh/` và `uploads/` mới được xuất bản lên w
 | `phong-vip-trang-do-lalasea-ha-tien.jpg` | `02/phong-vip-10` | Trang Tiệc & Sự kiện |
 | `sanh-tiec-may-lanh-lalasea-ha-tien.jpg` | `03/sanh-tiec-02` | Trang Tiệc, thư viện ảnh |
 | `tiec-doan-buffet-lalasea-ha-tien.jpg` | `04/tiec-doan-13` | Trang Tiệc & Sự kiện |
+| `bun-hai-san-lalasea-ha-tien.jpg` | `07/mon-an-01` | Thẻ Ẩm thực trang chủ, thư viện ảnh |
+| `trang-tri-sinh-nhat-lalasea-ha-tien.jpg` | `05/trang-tri-06` | Thư viện ảnh trang chủ |
+| `trang-tri-cau-hon-lalasea-ha-tien.jpg` | `05/trang-tri-10` | Thư viện ảnh trang chủ |
+
+**Lưu ý phân loại:** trang trí sinh nhật và cầu hôn là dịch vụ cho nhóm bạn,
+gia đình ăn uống bình thường — **không xếp vào trang Tiệc & Sự kiện**. Trang đó
+chỉ dành cho tiệc cưới, liên hoan công ty, tiệc đoàn.
+
+**Thư mục `06-check-in-bai-bien`:** cả 12 ảnh đều có watermark fanpage
+"KIÊN GIANG TÔI" ở góc trên và giữa ảnh. Chủ quán xác nhận ảnh của quán nên
+dùng được, nhưng phải cắt watermark trước. Đáng dùng nhất: `check-in-08`
+(cột chỉ đường Phú Quốc / Mũi Nai / Phnôm Pênh) và `check-in-12`
+(tường chữ "LA LA SEA bistro", khổ ngang).
 
 ## Ảnh KHÔNG được dùng (đã kiểm tra, có lý do)
 
