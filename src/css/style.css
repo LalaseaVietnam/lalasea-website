@@ -449,6 +449,27 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
 .menu-about p { color: #4a5a61; line-height: 1.7; margin: 0 0 10px; }
 .menu-about a { color: var(--san-ho); font-weight: 600; }
 
+/* Ba món best seller — ảnh vuông kèm tên và giá */
+.mon-noi-bat {
+  list-style: none; padding: 0; margin: 18px 0 16px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.mon-noi-bat li {
+  background: var(--cat); border-radius: 14px; overflow: hidden;
+  box-shadow: var(--bong-nhe);
+}
+.mon-noi-bat img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+.mon-noi-bat .nd { padding: 11px 13px 13px; display: flex; flex-direction: column; gap: 3px; }
+.mon-noi-bat .ten { font-weight: 700; color: var(--xanh-bien); font-size: 15px; }
+.mon-noi-bat .gia { color: var(--chu-nhat); font-size: 12.5px; line-height: 1.45; }
+
+/* Màn hình hẹp: ảnh nhỏ bên trái, chữ bên phải cho đỡ dài trang */
+@media (max-width: 560px) {
+  .mon-noi-bat { grid-template-columns: 1fr; gap: 12px; }
+  .mon-noi-bat li { display: grid; grid-template-columns: 112px 1fr; align-items: center; }
+  .mon-noi-bat .nd { padding: 10px 14px; }
+}
+
 /* ===== CHÂN TRANG ===== */
 .site-footer { background: var(--xanh-dam); color: rgba(255, 255, 255, .72); text-align: center; padding: 40px 24px; font-size: 14px; }
 .site-footer .logo-svg { margin: 0 auto 10px; color: #fff; }

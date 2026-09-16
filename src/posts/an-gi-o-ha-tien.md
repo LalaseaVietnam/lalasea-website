@@ -35,6 +35,8 @@ Bún nhâm nhẹ bụng, hợp ăn giữa buổi hoặc trưa nóng khi chưa mu
 
 Cá trích tươi lọc xương, thái mỏng, bóp với hành tây và nước cốt chanh cho tái, trộn cùng dừa nạo và rau thơm. Cuốn bánh tráng với rau sống, chấm nước mắm me hoặc nước chấm đậu phộng.
 
+![Gỏi cá trích Hà Tiên tại Lalasea Bistro — cá trích phi lê xếp hình hoa quanh ớt tươi, dọn trên mâm inox kèm bánh tráng và rau sống](/anh/goi-ca-trich-ha-tien-lalasea-bistro.jpg)
+
 Đây là món hợp nhất khi ngồi gần biển vào buổi chiều — **cá phải thật tươi thì mới ngọt và không tanh**, nên hãy chọn quán gần bờ, nơi cá vừa lên ghe. Ở Lalasea, [gỏi cá trích](/thuc-don/) là một trong bốn món được gọi nhiều nhất.
 
 ## 5. Hải sản tươi — ghẹ, sò, ốc, tôm tích, mực
