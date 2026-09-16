@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {%- set tieu_de %}{% if title %}{{ title }} | {{ thongtin.ten }} Hà Tiên{% else %}{{ thongtin.ten }} — Nhà hàng Hải sản Hà Tiên bên biển Tô Châu{% endif %}{% endset %}
+  {%- set tieu_de %}{% if title %}{{ title }} | {{ thongtin.ten }} Hà Tiên{% else %}{{ thongtin.ten }} — Nhà hàng bên biển Tô Châu, Hà Tiên{% endif %}{% endset %}
   <title>{{ tieu_de | safe }}</title>
   <meta name="description" content="{{ mo_ta or thongtin.mo_ta }}">
   <link rel="canonical" href="{{ thongtin.site_url }}{{ page.url }}">
@@ -32,8 +32,8 @@
     "name": "{{ thongtin.ten }}",
     "alternateName": ["Lalasea Bistro Hà Tiên", "Quán Lalasea", "Lalasea Bistro Camping"],
     "description": "{{ thongtin.mo_ta }}",
-    "servesCuisine": ["Hải sản", "Ẩm thực Việt Nam", "Đồ nướng", "Lẩu"],
-    "priceRange": "50.000đ – 500.000đ",
+    "servesCuisine": ["Ẩm thực Việt Nam", "Hải sản", "Đồ nướng", "Lẩu"],
+    "priceRange": "20.000đ – 500.000đ",
     "telephone": "+84{{ thongtin.dien_thoai_goi | replace('0', '', 1) }}",
     "address": { "@type": "PostalAddress", "streetAddress": "QL80, Tô Châu", "addressLocality": "Hà Tiên", "addressRegion": "An Giang", "addressCountry": "VN" },
     "openingHoursSpecification": {
