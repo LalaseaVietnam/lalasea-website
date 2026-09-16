@@ -32,6 +32,7 @@ Chỉ ảnh nằm trong `anh/` và `uploads/` mới được xuất bản lên w
 | `11-tet-tay` | Tết Tây (1–3/1) | Tin tức, Tiệc |
 | `12-noel` | Noel | Tin tức mùa Noel |
 | `13-tong-hop` | Tổng hợp | Thư viện ảnh |
+| `14-mon-an-tu-video` | Khung hình cắt từ video TikTok của quán — sườn cay, hải sản xô, gỏi cá trích | Thực đơn, Trang chủ, Bài viết |
 
 ## Nguồn
 
@@ -40,6 +41,11 @@ Chỉ ảnh nằm trong `anh/` và `uploads/` mới được xuất bản lên w
   Ba album `11`, `12`, `13` mới lấy được 30 ảnh đầu — Google Photos giới
   hạn người xem chưa đăng nhập ở 30 ảnh mỗi album. Muốn lấy đủ, tải album
   về máy từ tài khoản Google rồi đưa lên GitHub.
+- `14`: khung hình tách từ 3 video TikTok của chính quán
+  (`@lalasea_bistro`, video `7529494618468027655` sườn cay,
+  `7643796563894029588` hải sản xô, `7642668230397529365` gỏi cá trích).
+  Lấy ở bản nét nhất TikTok phát (720p và 1080p), tên file ghi kèm mốc giây
+  để sau này tìm lại đúng khung. Video gốc không lưu trong kho vì nặng.
 
 ## Ảnh đã đưa lên web (tính đến 16/09/2026)
 
@@ -69,14 +75,20 @@ Chỉ ảnh nằm trong `anh/` và `uploads/` mới được xuất bản lên w
 | `tiec-cuoi-san-khau-hoa-trang-lalasea-ha-tien.jpg` | `10/tiec-20-21-14` | Trang Tiệc & Sự kiện |
 | `tiec-cuoi-buoi-toi-lalasea-ha-tien.jpg` | `10/tiec-20-21-12` | Trang Tiệc & Sự kiện |
 | `san-khau-tiec-cuoi-banh-cuoi-lalasea-ha-tien.jpg` | `10/tiec-20-21-10` | Trang Tiệc & Sự kiện |
+| `suon-cay-thai-lan-lalasea-ha-tien.jpg` | `14/suon-cay-7.0s` (cắt vuông) | Trang Thực đơn, thư viện ảnh, schema Menu |
+| `hai-san-xo-lalasea-ha-tien.jpg` | `14/hai-san-xo-51.0s` (cắt vuông) | Trang Thực đơn, thư viện ảnh, schema Menu |
+| `goi-ca-trich-lalasea-ha-tien.jpg` | `14/goi-ca-trich-40.75s` (cắt vuông) | Trang Thực đơn, thư viện ảnh, schema Menu |
+| `goi-ca-trich-ha-tien-lalasea-bistro.jpg` | `14/goi-ca-trich-40.75s` (cắt ngang 4:3) | Bài "Ăn gì ở Hà Tiên" |
 
-**Đã duyệt xong toàn bộ 14 thư mục (234 ảnh).** Kết luận về ảnh món ăn:
+**Đã duyệt xong toàn bộ 14 thư mục (234 ảnh).** Trong số ảnh chụp thật,
 cả kho chỉ có đúng **một** tấm lấy món ăn làm chủ thể chính —
-`07/mon-an-01` (tô bún hải sản), và ảnh chỉ 960x1280 nên không làm
-banner được. Không có ảnh cận cảnh hải sản xô, cà ri cua, sườn cay hay
-gỏi cá trích — đúng bốn món quán tự quảng cáo là BEST SELLER trên biển
-hiệu ngoài trời (thấy trong `10/tiec-20-21-17`). Đây là việc cần chụp
-bổ sung, không lấp được bằng kho hiện có.
+`07/mon-an-01` (tô bún hải sản), khổ 960x1280 nên không làm banner được.
+
+Ba trong bốn món BEST SELLER (biển hiệu ngoài trời, thấy trong
+`10/tiec-20-21-17`) nay đã có ảnh, tách từ video TikTok của quán —
+xem thư mục `14-mon-an-tu-video`. Ảnh chỉ ở khổ 800x800 vì nguồn video
+gốc là 576x1024, đủ đẹp cho thẻ món nhưng **không đủ nét làm banner**.
+Chụp ảnh thật vẫn hơn hẳn khi có điều kiện.
 
 **Lưu ý phân loại:** trang trí sinh nhật và cầu hôn là dịch vụ cho nhóm bạn,
 gia đình ăn uống bình thường — **không xếp vào trang Tiệc & Sự kiện**. Trang đó
@@ -103,4 +115,10 @@ Chưa duyệt: `05-trang-tri-sinh-nhat-cau-hon`, `06-check-in-bai-bien`, `07-mon
 
 ## Việc còn thiếu quan trọng nhất
 
-**Cả kho 234 ảnh không có tấm nào chụp riêng món ăn.** Mục "Món đặc biệt" ở trang chủ vẫn phải dùng biểu tượng thay ảnh. Cần chụp bổ sung 4 món chủ lực: sườn cay, cà ri cua, hải sản xô, gỏi cá trích — chụp ngang, ánh sáng ban ngày hoặc đèn vàng ấm.
+**Cà ri cua vẫn chưa có ảnh nào** — cả kho ảnh lẫn video đều không có. Đây là
+món duy nhất trong bốn món BEST SELLER còn trống.
+
+Ba món kia đã có ảnh từ video nhưng chỉ 800x800. Khi có dịp, chụp lại cả bốn
+món bằng điện thoại: **để ngang, ban ngày hoặc dưới đèn vàng ấm, chụp chếch từ
+trên xuống, nền là mặt bàn gỗ** — một tấm như vậy thay được ngay ảnh cắt từ
+video và dùng làm banner được.
