@@ -1,12 +1,44 @@
 {
   "anh": [
-    { "file": "/anh/img1.jpg", "mota": "Không gian tiệc bên biển lúc hoàng hôn" },
-    { "file": "/anh/img4.jpg", "mota": "Khu bàn ăn ngoài trời view núi" },
-    { "file": "/anh/img3.jpg", "mota": "Beach Bar buổi tối với đèn dây lung linh" },
-    { "file": "/anh/img5.jpg", "mota": "Bãi cỏ picnic bên bờ biển Tô Châu" },
-    { "file": "/anh/img7.jpg", "mota": "Cột chỉ đường và khu ghế bên biển" },
-    { "file": "/anh/img8.jpg", "mota": "Khu ghế lười ngắm hoàng hôn" },
-    { "file": "/anh/img2.jpg", "mota": "Lalasea về đêm rực rỡ ánh đèn" },
-    { "file": "/anh/img10.jpg", "mota": "Bãi cỏ xanh mát bên bờ biển Tô Châu" }
+    {
+      "file": "/anh/hoang-hon-vong-bai-co-lalasea-ha-tien.jpg",
+      "mota": "Võng và xích đu mây sát mép biển lúc hoàng hôn"
+    },
+    {
+      "file": "/anh/tiec-ngoai-troi-ben-bien-lalasea-ha-tien.jpg",
+      "mota": "Khu tiệc ngoài trời nhìn thẳng ra biển"
+    },
+    {
+      "file": "/anh/phong-vip-non-la-lalasea-ha-tien.jpg",
+      "mota": "Phòng VIP với dãy nón lá phát sáng"
+    },
+    {
+      "file": "/anh/khong-gian-mo-sat-bien-lalasea-ha-tien.jpg",
+      "mota": "Không gian mở sát biển Tô Châu"
+    },
+    {
+      "file": "/anh/sanh-tiec-may-lanh-lalasea-ha-tien.jpg",
+      "mota": "Sảnh tiệc máy lạnh trong nhà"
+    },
+    {
+      "file": "/anh/loi-vao-nha-hang-lalasea-ha-tien.jpg",
+      "mota": "Lối vào rợp cây xanh"
+    },
+    {
+      "file": "/anh/img3.jpg",
+      "mota": "Beach Bar buổi tối với đèn dây lung linh"
+    },
+    {
+      "file": "/anh/img2.jpg",
+      "mota": "Lalasea về đêm rực rỡ ánh đèn"
+    },
+    {
+      "file": "/anh/bang-hieu-lalasea-bistro-ha-tien.jpg",
+      "mota": "Bảng hiệu Lalasea Bistro bên lối vào"
+    },
+    {
+      "file": "/anh/img7.jpg",
+      "mota": "Cột chỉ đường và khu ghế bên biển"
+    }
   ]
 }
