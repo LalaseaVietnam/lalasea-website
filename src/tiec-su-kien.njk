@@ -269,10 +269,6 @@ anh_dai_dien: /anh/tiec-ngoai-troi-ben-bien-lalasea-ha-tien.jpg
         </label>
         <label>Ngày dự kiến<input name="ngay" type="date"></label>
       </div>
-      <div class="row">
-        <label>Số lượng khách dự kiến<input name="sokhach" type="number" min="1" placeholder="Ví dụ: 50"></label>
-        <label>Ngân sách dự kiến (nếu có)<input name="ngansach" placeholder="Ví dụ: 400.000đ/khách hoặc tổng 20 triệu"></label>
-      </div>
       <label>Yêu cầu khác<textarea name="yeucau" rows="3" placeholder="Ví dụ: cần khu vực riêng, có văn nghệ, trang trí sinh nhật..."></textarea></label>
       <button type="submit" class="btn">Nhận tư vấn tiệc</button>
       <p id="event-msg" class="booking-msg"></p>
@@ -345,8 +341,6 @@ anh_dai_dien: /anh/tiec-ngoai-troi-ben-bien-lalasea-ha-tien.jpg
       data.thoigian = data.ngay || '';
       data.ghichu = 'TƯ VẤN TIỆC — Loại: ' + (data.loai_tiec || '?')
         + (data.ngay ? ' · Ngày dự kiến: ' + data.ngay : '')
-        + (data.sokhach ? ' · Khách: ' + data.sokhach : '')
-        + (data.ngansach ? ' · Ngân sách: ' + data.ngansach : '')
         + (data.yeucau ? ' · Yêu cầu: ' + data.yeucau : '');
       fetch(BOOKING_URL, {
         method: 'POST',
