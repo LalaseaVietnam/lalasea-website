@@ -76,7 +76,7 @@ Không phải bữa nào cũng phải là đặc sản. Hà Tiên có hủ tiế
 Nếu bạn muốn gói bữa tối vào một chỗ vừa có hải sản tươi vừa ngắm được hoàng hôn, [Lalasea Bistro](/) nằm trên **Quốc lộ 80, phường Tô Châu**, ngay bên bờ biển và cách trung tâm Hà Tiên vài phút chạy xe.
 
 - **Không gian mở sát biển** — bàn ăn ngoài trời dưới đèn dây, có beach bar ngắm hoàng hôn.
-- **Thực đơn đa dạng** — hải sản, ốc sò, món nướng, lẩu, bò, gà và cơm; món ăn từ 20.000đ tới khoảng 500.000đ cho các phần hải sản lớn. [Xem trọn bộ 14 trang thực đơn kèm giá](/thuc-don/).
+- **Thực đơn đa dạng** — hải sản, ốc sò, món nướng, lẩu, bò, gà và cơm; phần lớn món chính trong khoảng 100.000đ – 300.000đ tùy món. [Xem trọn bộ 14 trang thực đơn kèm giá](/thuc-don/).
 - **Ở lại qua đêm** — trong khuôn viên có khu [glamping lều gỗ máy lạnh](/glamping/), trọn gói từ 490.000đ/người đã gồm bữa sáng và bữa tối BBQ – lẩu.
 - **Đi đoàn đông hoặc tổ chức tiệc** — Lalasea nhận [tiệc cưới, sinh nhật và liên hoan](/tiec-su-kien/) ngoài trời bên biển.
 
