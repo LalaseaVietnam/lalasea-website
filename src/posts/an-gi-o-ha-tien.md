@@ -82,6 +82,6 @@ Nếu bạn muốn gói bữa tối vào một chỗ vừa có hải sản tươ
 - **Ở lại qua đêm** — trong khuôn viên có khu [glamping lều gỗ máy lạnh](/glamping/), trọn gói từ 490.000đ/người đã gồm bữa sáng và bữa tối BBQ – lẩu.
 - **Đi đoàn đông hoặc tổ chức tiệc** — Lalasea nhận [tiệc cưới, sinh nhật và liên hoan](/tiec-su-kien/) ngoài trời bên biển.
 
-Nhà hàng mở cửa **09:00 – 23:00 tất cả các ngày**, kể cả lễ và Tết. Cuối tuần khá đông, bạn nên gọi hoặc nhắn Zalo **0907 896 949** giữ bàn trước, đặc biệt nếu muốn ngồi khu sát biển lúc hoàng hôn.
+Nhà hàng mở cửa **tất cả các ngày, kể cả lễ và Tết** — Thứ Hai đến Thứ Sáu từ 08:00, Thứ Bảy và Chủ Nhật từ 07:00, đóng cửa lúc 23:00. Cuối tuần khá đông, bạn nên gọi hoặc nhắn Zalo **0907 896 949** giữ bàn trước, đặc biệt nếu muốn ngồi khu sát biển lúc hoàng hôn.
 
 Xem [đường đi và bản đồ](/lien-he/) nếu bạn đang trên đường tới Hà Tiên — quán nằm ngay trục Quốc lộ 80, rất tiện cho khách đi phà ra Phú Quốc ghé ăn trước giờ tàu chạy. 🌊
