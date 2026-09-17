@@ -51,7 +51,8 @@ collections:
           - { name: dien_thoai, label: "Số điện thoại (hiển thị)", widget: string }
           - { name: dien_thoai_goi, label: "Số điện thoại (để bấm gọi, viết liền)", widget: string }
           - { name: dia_chi, label: "Địa chỉ", widget: string }
-          - { name: gio_mo_cua, label: "Giờ mở cửa", widget: string }
+          - { name: gio_mo_cua, label: "Giờ mở cửa (Thứ Hai – Thứ Sáu)", widget: string }
+          - { name: gio_cuoi_tuan, label: "Giờ mở cửa (Thứ Bảy & Chủ Nhật)", widget: string }
           - { name: gio_ghi_chu, label: "Ghi chú giờ mở cửa", widget: string }
           - { name: facebook, label: "Link Facebook", widget: string }
           - { name: tiktok, label: "Link TikTok", widget: string }

@@ -38,11 +38,18 @@
     "address": { "@type": "PostalAddress", "streetAddress": "QL80, Tô Châu", "addressLocality": "Hà Tiên", "addressRegion": "An Giang", "addressCountry": "VN" },
     "geo": { "@type": "GeoCoordinates", "latitude": {{ thongtin.vi_do }}, "longitude": {{ thongtin.kinh_do }} },
     "hasMap": "{{ thongtin.maps }}",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "09:00", "closes": "23:00"
-    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00", "closes": "23:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "07:00", "closes": "23:00"
+      }
+    ],
     "acceptsReservations": "True",
     "hasMenu": "{{ thongtin.site_url }}/thuc-don/",
     "url": "{{ thongtin.site_url }}/",
