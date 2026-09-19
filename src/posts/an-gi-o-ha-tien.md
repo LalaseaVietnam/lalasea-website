@@ -73,6 +73,8 @@ Không phải bữa nào cũng phải là đặc sản. Hà Tiên có hủ tiế
 | Chiều tối | Hải sản tươi + gỏi cá trích, ngồi gần biển đón hoàng hôn |
 | Khuya | Ốc nướng, hủ tiếu hoặc đồ ăn vặt gần chợ đêm |
 
+Còn giữa các bữa thì đi đâu? Xem bài cùng bộ: [Chơi gì ở Hà Tiên? Lịch trình một ngày trọn vẹn cho người đi lần đầu](/tin-tuc/choi-gi-o-ha-tien/) — có kèm khoảng cách từng điểm và khung giờ nên đi.
+
 ## Ăn tối bên biển ở Lalasea Bistro
 
 Nếu bạn muốn gói bữa tối vào một chỗ vừa có hải sản tươi vừa ngắm được hoàng hôn, [Lalasea Bistro](/) nằm trên **Quốc lộ 80, phường Tô Châu**, ngay bên bờ biển và cách trung tâm Hà Tiên vài phút chạy xe.
