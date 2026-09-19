@@ -33,6 +33,7 @@ Chỉ ảnh nằm trong `anh/` và `uploads/` mới được xuất bản lên w
 | `12-noel` | Noel | Tin tức mùa Noel |
 | `13-tong-hop` | Tổng hợp | Thư viện ảnh |
 | `14-mon-an-tu-video` | Khung hình cắt từ video TikTok của quán — sườn cay, hải sản xô, gỏi cá trích | Thực đơn, Trang chủ, Bài viết |
+| `15-khung-video-dot-2` | Khung hình cắt từ 6 video TikTok đợt 2 — chỗ check-in, hoàng hôn, bảng hiệu, BBQ, lẩu, đêm diễn | Bài viết, Trang chủ |
 
 ## Nguồn
 
@@ -46,6 +47,11 @@ Chỉ ảnh nằm trong `anh/` và `uploads/` mới được xuất bản lên w
   `7643796563894029588` hải sản xô, `7642668230397529365` gỏi cá trích).
   Lấy ở bản nét nhất TikTok phát (720p và 1080p), tên file ghi kèm mốc giây
   để sau này tìm lại đúng khung. Video gốc không lưu trong kho vì nặng.
+- `15`: khung hình tách từ 6 video TikTok đợt 2 (`7679995716554525972`,
+  `7683075659131833620`, `7670505091278851348`, `7663351115966074120`,
+  `7677917780296961300`, `7680398143506140437`). Bốn video ở 1080x1920,
+  riêng `7663351115966074120` chỉ có bản 576x1024 nên ảnh hoàng hôn vòm cổng
+  phải phóng to — đẹp nhưng không đủ nét làm banner lớn.
 
 ## Ảnh đã đưa lên web (tính đến 16/09/2026)
 
@@ -79,6 +85,14 @@ Chỉ ảnh nằm trong `anh/` và `uploads/` mới được xuất bản lên w
 | `hai-san-xo-lalasea-ha-tien.jpg` | `14/hai-san-xo-51.0s` (cắt vuông) | Trang Thực đơn, thư viện ảnh, schema Menu |
 | `goi-ca-trich-lalasea-ha-tien.jpg` | `14/goi-ca-trich-40.75s` (cắt vuông) | Trang Thực đơn, thư viện ảnh, schema Menu |
 | `goi-ca-trich-ha-tien-lalasea-bistro.jpg` | `14/goi-ca-trich-40.75s` (cắt ngang 4:3) | Bài "Ăn gì ở Hà Tiên" |
+| `hoang-hon-vang-lalasea-ha-tien.jpg` | `15/hoang-hon-vom-cong` | Ảnh đại diện bài "Chơi gì ở Hà Tiên", thư viện |
+| `chu-lalasea-ben-bien-ha-tien.jpg` | `15/bo-ke-nhin-bien` | Bài "Chơi gì ở Hà Tiên", thư viện |
+| `bang-hieu-lalasea-ghe-vang-ha-tien.jpg` | `15/ghe-vang-tuong-soc` | Bài "Chơi gì ở Hà Tiên", thư viện |
+| `bang-chi-duong-van-luot-lalasea-ha-tien.jpg` | `15/ban-chi-duong-van-luot` | Bài "Chơi gì ở Hà Tiên", thư viện |
+| `lau-hai-san-lalasea-ha-tien.jpg` | `15/lau-hai-san-do` | Bài "Chơi gì ở Hà Tiên", thư viện |
+| `bbq-nuong-lalasea-ha-tien.jpg` | `15/bbq-xien-nuong` | Thư viện ảnh trang chủ |
+| `ky-uc-ha-tien-san-khau-lalasea.jpg` | `15/mua-ao-dai-san-khau` | Bài "Chơi gì ở Hà Tiên", thư viện |
+| `bang-go-coffee-restaurant-camping-lalasea.jpg` | `15/bang-go-coffee-camping` | Bài "Chơi gì ở Hà Tiên", thư viện |
 
 **Đã duyệt xong toàn bộ 14 thư mục (234 ảnh).** Trong số ảnh chụp thật,
 cả kho chỉ có đúng **một** tấm lấy món ăn làm chủ thể chính —
@@ -107,6 +121,7 @@ dùng được, nhưng phải cắt watermark trước. Đáng dùng nhất: `ch
 - **Lộ logo công ty khách trên áo đồng phục:** `04/tiec-doan-01` đến `04`.
 - **Có watermark fanpage "KIÊN GIANG TÔI":** `01/ngoai-troi-04, 05, 06`. Chủ quán xác nhận ảnh của quán nên dùng được, nhưng phải cắt bỏ watermark ở góc trên và giữa ảnh trước.
 - **Ghi sai tỉnh cũ:** `02/phong-vip-14` có name card in "Kiên Giang" — không dùng cho trang Liên hệ vì mâu thuẫn với địa chỉ An Giang hiện tại trên web.
+- **Có mặt khách ngồi ăn nhận diện rõ:** trong `15-khung-video-dot-2` là `hoang-hon-ban-an`, `hoang-hon-nui`, `hoang-hon-tu-ban-an`, `cay-va-bien-xanh`. Cảnh đẹp nhưng khách nhìn thẳng ống kính — muốn dùng phải xin phép.
 
 ## Thư mục chưa duyệt hết
 
