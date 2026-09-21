@@ -47,12 +47,14 @@ Các khối nội dung có thể dùng `#fff` để tách khỏi nền cát.
 
 ## 3. Chữ
 
-Hai bộ chữ, tải từ Google Fonts:
+Ba bộ chữ, tải từ Google Fonts:
 
 - `--font-tieu-de`: **Playfair Display** (có chân) — chỉ dùng cho `h1`–`h4`
 - `--font-chu`: **Be Vietnam Pro** (không chân) — mọi thứ còn lại
+- `"Pacifico"` (viết tay) — **chỉ** dùng cho `.script-accent` và `.hero .script`,
+  tức dòng chữ nhỏ kiểu viết tay phía trên tiêu đề mục. Không dùng cho gì khác.
 
-Cả hai đều có đủ dấu tiếng Việt. Không thêm bộ chữ thứ ba.
+Cả ba đều có đủ dấu tiếng Việt. Không thêm bộ chữ thứ tư.
 
 **Cỡ chữ luôn co giãn bằng `clamp()`** — không đặt một con số cứng cho tiêu đề.
 Thang đang dùng:
@@ -110,16 +112,59 @@ mốc trên. Không sửa hàng loạt một lần — dễ vỡ bố cục ở 
 
 ## 6. Nút bấm
 
-Chỉ có hai loại:
+Hai **kiểu** nút, mỗi kiểu có thêm lớp phụ chỉnh cỡ hoặc ngữ cảnh:
 
-- `.btn` — nền san hô, chữ trắng, bo tròn `40px`. **Hành động chính.**
-- `.btn-ghost` — nền trong suốt, viền trắng mờ. Hành động phụ, đặt trên ảnh tối.
+| Lớp | Vai trò |
+|---|---|
+| `.btn` | Nền san hô, **chữ `--xanh-dam`**, bo tròn `40px`. Hành động chính. |
+| `.btn-ghost` | Nền trong suốt, viền trắng mờ, chữ trắng. Hành động phụ **trên ảnh tối**. |
+| `.btn-ghost.nen-sang` | Bản dùng **trên nền sáng**: chữ và viền `--xanh-bien`. |
+| `.btn-lg` | Chỉ chỉnh cỡ — to hơn, in hoa. Dùng kèm `.btn`. |
+| `.btn-nav` | Chỉ chỉnh cỡ — nhỏ hơn, cho thanh menu. Dùng kèm `.btn`. |
 
-Nút nhấc lên `2px` khi hover. Không tạo loại nút thứ ba.
+Nút nhấc lên `2px` khi hover. Không tạo kiểu nút thứ ba.
+
+**Chữ trên nút chính là `--xanh-dam`, không phải trắng.** Chữ trắng trên nền
+san hô chỉ đạt 2,78:1 — không đọc được dưới nắng, và không đạt chuẩn. Xanh đậm
+đạt 5,21:1 mà vẫn giữ nguyên màu san hô của thương hiệu.
+
+**Nút ghost đặt trên nền sáng phải thêm lớp `.nen-sang`.** Quên lớp này thì chữ
+trắng nằm trên nền cát, tỷ lệ 1,13:1 — khách nhìn không ra nút. Đã từng xảy ra
+thật ở trang Tiệc. Không chữa bằng `style` inline từng chỗ.
 
 ---
 
-## 7. Ảnh
+## 7. Tương phản màu và vùng bấm
+
+Mọi chữ phải đạt chuẩn **WCAG AA**: tỷ lệ tương phản **≥ 4,5:1** với nền, hoặc
+**≥ 3:1** nếu chữ lớn (từ 24px, hoặc từ 18,66px và in đậm).
+
+Các cặp màu **đã đo và đạt**:
+
+| Chữ | Trên nền | Tỷ lệ |
+|---|---|---|
+| `--xanh-dam` | `--san-ho` (nút chính) | 5,21:1 |
+| `--xanh-bien` | `--cat` (nút ghost nền sáng) | 7,94:1 |
+| `--chu-nhat` | trắng | 5,55:1 |
+| trắng | `--xanh-bien` | 8,94:1 |
+
+Các cặp **chưa đạt, đừng dùng cho chữ nhỏ**:
+
+| Chữ | Trên nền | Tỷ lệ |
+|---|---|---|
+| trắng | `--san-ho` | 2,78:1 ❌ |
+| `--san-ho` | trắng hoặc `--cat` | 2,47–2,78:1 ❌ |
+| `--xanh-ngoc` | `--cat` | 2,99:1 ❌ |
+| trắng | `--cat` | 1,13:1 ❌ |
+
+**Vùng bấm trên điện thoại tối thiểu 44×44px.** Nếu phần nhìn thấy nhỏ hơn
+(ví dụ chấm chuyển ảnh chỉ 10px), thì giữ nguyên phần nhìn thấy và mở rộng vùng
+bấm bằng `width/height: 44px` + `display: grid; place-items: center`, vẽ phần
+nhìn thấy bằng `::before`.
+
+---
+
+## 8. Ảnh
 
 **Nơi để ảnh.**
 
@@ -149,7 +194,7 @@ Không nhồi từ khóa. Không để `alt` trống trừ khi ảnh thuần tra
 
 ---
 
-## 8. Những điều KHÔNG được làm
+## 9. Những điều KHÔNG được làm
 
 Đây là các lỗi đã từng xảy ra trên chính website này.
 
@@ -183,11 +228,14 @@ Không nhồi từ khóa. Không để `alt` trống trừ khi ảnh thuần tra
   — `hidden` sẽ phá thanh menu dính (sticky).
 - ❌ Để bảng hoặc dải ảnh ngang làm trang cuộn ngang. Chúng phải nằm trong khối
   riêng có `overflow-x: auto`.
-- ❌ Thêm bộ chữ thứ ba, màu thứ mười, hay loại nút thứ ba.
+- ❌ Thêm bộ chữ thứ tư, màu thứ mười, hay kiểu nút thứ ba.
+- ❌ Dùng `.btn-ghost` trên nền sáng mà quên lớp `.nen-sang`.
+- ❌ Để chữ trắng trên nền `--san-ho`. Chữ nút chính là `--xanh-dam`.
+- ❌ Viết `style="color: ..."` inline để chữa cháy màu. Sửa ở CSS bằng lớp dùng lại được.
 
 ---
 
-## 9. Dữ liệu có cấu trúc (schema)
+## 10. Dữ liệu có cấu trúc (schema)
 
 Web này được tối ưu cho cả Google lẫn các engine AI (ChatGPT, Gemini, Claude).
 Mọi trang đều phải giữ được:
@@ -204,7 +252,7 @@ template.
 
 ---
 
-## 10. Kiểm tra trước khi đẩy lên
+## 11. Kiểm tra trước khi đẩy lên
 
 Mỗi lần sửa giao diện, chạy đủ bốn bước:
 
