@@ -6,6 +6,35 @@ anh_dai_dien: /uploads/585bccbb09ef89b1d0fe5.jpg
 permalink: /glamping/
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Campground",
+  "@id": "{{ thongtin.site_url }}/glamping/#glamping",
+  "name": "Glamping Lalasea",
+  "alternateName": ["Lalasea Bistro Camping", "Camping Lalasea Hà Tiên", "Lều gỗ Lalasea"],
+  "description": "Khu glamping lều gỗ chữ A có máy lạnh nằm trong khuôn viên nhà hàng Lalasea Bistro, cách bờ biển Tô Châu vài chục mét. Giá trọn gói đã gồm bữa tối BBQ – lẩu và bữa sáng.",
+  "url": "{{ thongtin.site_url }}/glamping/",
+  "image": "{{ thongtin.site_url }}{{ anh_dai_dien }}",
+  "telephone": "+84{{ thongtin.dien_thoai_goi | replace('0', '', 1) }}",
+  "address": { "@type": "PostalAddress", "streetAddress": "QL80, Tô Châu", "addressLocality": "Hà Tiên", "addressRegion": "An Giang", "addressCountry": "VN" },
+  "geo": { "@type": "GeoCoordinates", "latitude": {{ thongtin.vi_do }}, "longitude": {{ thongtin.kinh_do }} },
+  "priceRange": "490.000đ – 890.000đ / người",
+  "checkinTime": "14:00",
+  "checkoutTime": "12:00",
+  "petsAllowed": false,
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Máy lạnh trong lều", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Bữa sáng", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Bữa tối BBQ – lẩu", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Nhà hàng tại chỗ", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Sát bờ biển", "value": true }
+  ],
+  "containedInPlace": { "@id": "{{ thongtin.site_url }}/#nhahang" },
+  "sameAs": ["{{ thongtin.facebook }}", "{{ thongtin.tiktok }}", "{{ thongtin.maps }}"]
+}
+</script>
+
 <div class="page-hero">
   <span class="script-accent" style="display:block; margin-bottom:4px;">Ngủ giữa khuôn viên xanh — thức cùng bình minh</span>
   <h1>Glamping Lalasea</h1>
