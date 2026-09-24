@@ -38,6 +38,19 @@ trực tiếp trong component** — luôn dùng biến.
 | `--chu-dam` | `#12333f` | Chữ thân bài |
 | `--chu-nhat` | `#5a6b72` | Chữ phụ, chú thích |
 
+Bốn biến nữa là **màu chức năng** — không mang bản sắc, chỉ để dựng viền và nền
+nhạt. Trước đây chúng là năm mã be gần giống nhau viết cứng rải rác khắp file CSS.
+
+| Biến | Mã màu | Dùng cho |
+|---|---|---|
+| `--vien-cat` | `#e3dccf` | Mọi viền và đường kẻ phân cách trên nền sáng |
+| `--nen-cat-nhat` | `#fbf9f4` | Nền rất nhạt, ví dụ dòng xen kẽ trong bảng |
+| `--sao-vang` | `#ffc94d` | Ngôi sao đánh giá |
+| `--zalo` | `#0068ff` | Màu thương hiệu Zalo — của họ, không phải của quán |
+
+`#fff` viết trực tiếp thì được: nó là chữ trắng trên nền tối và nền thẻ, không
+phải một lựa chọn bảng màu. Mọi mã màu khác đều phải là biến.
+
 **Quy tắc màu san hô.** `--san-ho` là màu đắt nhất trên trang. Mỗi màn hình
 chỉ nên có **một** thứ màu san hô. Dùng nhiều thì không còn chỗ nào nổi bật nữa.
 
@@ -102,22 +115,34 @@ phẳng lì, không còn thứ tự quan trọng.
 
 ## 5. Điểm ngắt màn hình
 
-**Hiện trạng cần sửa dần:** file CSS đang có **14 mốc `max-width` khác nhau**
-(460, 540, 560, 600, 620, 640, 680, 700, 720, 780, 820, 860, 900, 1000px) trải trên 23 khối `@media`.
-Đây là hệ quả của việc mỗi lần thêm khối mới lại chọn một con số mới.
+CSS từng có **14 mốc `max-width` khác nhau** (460, 540, 560, 600, 620, 640, 680,
+700, 720, 780, 820, 860, 900, 1000px) — mỗi lần thêm khối mới lại chọn một con số
+mới. Nay gom còn **4 mốc**, mỗi mốc có lý do đo được:
 
-**Từ nay chỉ dùng ba mốc:**
-
-| Mốc | Dùng khi |
+| Mốc | Vì sao đúng con số này |
 |---|---|
-| `max-width: 560px` | Điện thoại — xếp về một cột |
-| `max-width: 820px` | Máy tính bảng — giảm số cột |
-| `min-width: 821px` | Máy tính — bố cục đầy đủ |
+| `560px` | Điện thoại — lưới về một cột, chữ và khoảng cách thu gọn |
+| `700px` | Ranh giới **dải vuốt ngang ↔ lưới**. Rộng hơn 700px thì lưới 2×2 dùng hết chỗ; hẹp hơn thì dải vuốt hợp hơn |
+| `820px` | Máy tính bảng — giảm số cột của các lưới còn lại |
+| `1000px` | Thanh menu gập thành nút ☰. Đo được: logo + 8 mục menu cần **939px**, gập sớm hơn là tràn |
 
-Khi sửa một khối cũ, đổi luôn điểm ngắt của khối đó sang mốc gần nhất trong ba
-mốc trên. Không sửa hàng loạt một lần — dễ vỡ bố cục ở chỗ không ngờ.
+**Vì sao không gom được về 3 mốc.** Mục tiêu ban đầu là 3, nhưng thử rồi đo lại
+thì không đạt được mà không làm hỏng chỗ khác:
 
----
+- Đẩy mốc dải vuốt từ 700 xuống 560: trang chủ ở 620px **dài thêm 66%**.
+- Đẩy lên 820: máy tính bảng 780px mất lưới 2×2, chỉ còn một thẻ to chiếm gần
+  hết màn hình — phí chỗ và giấu nội dung.
+- Gập thanh menu ở 820 thay vì 1000: menu tràn ra ngoài, vì nó cần 939px.
+
+Ba mốc 560 / 700 / 820 là **ba chế độ bố cục có thật** của web này, cộng một mốc
+do nội dung thanh menu quyết định. Bốn con số có lý do vẫn tốt hơn ba con số ép.
+
+**Khi thêm khối mới, chỉ được dùng bốn mốc này.** Muốn thêm mốc thứ năm thì phải
+đo và ghi lý do vào bảng trên, như bốn mốc hiện có.
+
+**Khối `@media` để ngay cạnh phần CSS nó sửa**, không gom hết về cuối file — đọc
+tới đâu thấy quy tắc màn hình nhỏ tới đó, và không sợ đảo thứ tự làm đổi quy tắc
+nào thắng.
 
 ## 6. Nút bấm
 
@@ -260,7 +285,10 @@ trang đó. Chủ quán sửa được ở trang quản trị.
   — `hidden` sẽ phá thanh menu dính (sticky).
 - ❌ Để bảng hoặc dải ảnh ngang làm trang cuộn ngang. Chúng phải nằm trong khối
   riêng có `overflow-x: auto`.
-- ❌ Thêm bộ chữ thứ tư, màu thứ mười, hay kiểu nút thứ ba.
+- ❌ Thêm bộ chữ thứ tư hay kiểu nút thứ ba.
+- ❌ Thêm màu thương hiệu mới. Thêm **màu chức năng** thì được, nhưng phải đặt
+  thành biến trong `:root` kèm chú thích, không viết cứng trong component.
+- ❌ Đặt một mốc `@media` ngoài bốn mốc 560 / 700 / 820 / 1000.
 - ❌ Dùng `.btn-ghost` trên nền sáng mà quên lớp `.nen-sang`.
 - ❌ Để chữ trắng trên nền `--san-ho`. Chữ nút chính là `--xanh-dam`.
 - ❌ Viết `style="color: ..."` inline để chữa cháy màu. Sửa ở CSS bằng lớp dùng lại được.
