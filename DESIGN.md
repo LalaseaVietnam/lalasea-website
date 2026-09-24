@@ -29,7 +29,8 @@ trực tiếp trong component** — luôn dùng biến.
 |---|---|---|
 | `--xanh-bien` | `#0b4f6c` | Màu chủ đạo: tiêu đề mục, chữ nhấn |
 | `--xanh-dam` | `#072d3d` | Nền thanh menu, chân trang, khối tối |
-| `--xanh-ngoc` | `#1b9aaa` | Liên kết trong bài viết, viền nhấn |
+| `--xanh-ngoc` | `#1b9aaa` | Viền nhấn, biểu tượng, và **chữ trên nền tối** |
+| `--xanh-ngoc-dam` | `#13707b` | **Chữ trên nền sáng**: liên kết, chữ viết tay, chữ nhỏ in hoa |
 | `--ngoc-nhat` | `#7fe3ef` | Chữ nhỏ trên nền tối (kicker, khẩu hiệu) |
 | `--san-ho` | `#ff6b6b` | **Chỉ dùng cho nút hành động** (đặt bàn, gọi điện) |
 | `--san-ho-dam` | `#e85555` | Trạng thái hover của nút |
@@ -39,6 +40,14 @@ trực tiếp trong component** — luôn dùng biến.
 
 **Quy tắc màu san hô.** `--san-ho` là màu đắt nhất trên trang. Mỗi màn hình
 chỉ nên có **một** thứ màu san hô. Dùng nhiều thì không còn chỗ nào nổi bật nữa.
+
+Cụ thể: san hô **chỉ** làm nền nút hành động. **Giá tiền dùng `--xanh-bien`**,
+không dùng san hô — vừa đạt tương phản, vừa để dành san hô cho nút Đặt bàn.
+
+**Sáng hay tối quyết định chọn `--xanh-ngoc` hay `--xanh-ngoc-dam`.** Trên nền
+cát hoặc trắng thì dùng bản đậm; trong các khối nền tối (`.dgia`, `.visit`,
+`.contact`, các `*-hero`) thì dùng `--ngoc-nhat`. CSS đã có sẵn quy tắc lật màu
+cho `.script-accent` — thêm khối nền tối mới thì nhớ thêm tên lớp vào quy tắc đó.
 
 **Nền không bao giờ là `#fff` thuần** cho cả trang. Nền trang là `--cat`.
 Các khối nội dung có thể dùng `#fff` để tách khỏi nền cát.
@@ -144,7 +153,11 @@ Các cặp màu **đã đo và đạt**:
 | Chữ | Trên nền | Tỷ lệ |
 |---|---|---|
 | `--xanh-dam` | `--san-ho` (nút chính) | 5,21:1 |
-| `--xanh-bien` | `--cat` (nút ghost nền sáng) | 7,94:1 |
+| `--xanh-bien` | `--cat` (giá tiền, nút ghost nền sáng) | 7,94:1 |
+| `--xanh-ngoc-dam` | `--cat` | 5,14:1 |
+| `--xanh-ngoc-dam` | trắng | 5,78:1 |
+| `--ngoc-nhat` | `--xanh-dam` | 9,74:1 |
+| `--ngoc-nhat` | `--xanh-bien` | 6,02:1 |
 | `--chu-nhat` | trắng | 5,55:1 |
 | trắng | `--xanh-bien` | 8,94:1 |
 
@@ -154,13 +167,24 @@ Các cặp **chưa đạt, đừng dùng cho chữ nhỏ**:
 |---|---|---|
 | trắng | `--san-ho` | 2,78:1 ❌ |
 | `--san-ho` | trắng hoặc `--cat` | 2,47–2,78:1 ❌ |
-| `--xanh-ngoc` | `--cat` | 2,99:1 ❌ |
+| `--xanh-ngoc` | `--cat` hoặc trắng | 2,99–3,36:1 ❌ |
+| `--xanh-ngoc-dam` | nền tối | 2,50:1 ❌ |
 | trắng | `--cat` | 1,13:1 ❌ |
 
-**Vùng bấm trên điện thoại tối thiểu 44×44px.** Nếu phần nhìn thấy nhỏ hơn
-(ví dụ chấm chuyển ảnh chỉ 10px), thì giữ nguyên phần nhìn thấy và mở rộng vùng
-bấm bằng `width/height: 44px` + `display: grid; place-items: center`, vẽ phần
-nhìn thấy bằng `::before`.
+**Vùng bấm.** Chuẩn WCAG 2.2 mức AA yêu cầu **24×24px**; **44×44px** là mức
+khuyến nghị và là mục tiêu của web này cho mọi nút đứng riêng. Nếu phần nhìn thấy
+nhỏ hơn (ví dụ chấm chuyển ảnh chỉ 10px), giữ nguyên phần nhìn thấy và mở rộng
+vùng bấm bằng `width/height: 44px` + `display: grid; place-items: center`, vẽ
+phần nhìn thấy bằng `::before`.
+
+Liên kết nằm lọt trong câu văn được miễn — ví dụ đường dẫn "Trang chủ" trên thanh
+điều hướng phụ. Đây là ngoại lệ chính WCAG 2.2 nêu, không phải lỗi bỏ sót.
+
+**Viền focus.** CSS có sẵn một quy tắc `:focus-visible` dùng chung cho mọi thẻ
+`a`, `button`, `input`, `textarea`, `select`, `summary`: viền sáng `--cat` bên
+trong, quầng `--xanh-bien` bên ngoài. Hai lớp lồng nhau nên luôn nhìn thấy dù nền
+sáng hay tối. **Đừng tắt `outline` ở bất kỳ phần tử nào** — người dùng bàn phím
+sẽ lạc.
 
 ---
 
@@ -185,12 +209,20 @@ ngang: `hoang-hon-vang-lalasea-ha-tien.jpg`. Tên file là tín hiệu SEO thậ
 | Thẻ món ăn | `800×800` (1:1) | JPEG chất lượng 88 |
 | Ảnh banner | rộng tối thiểu `1600px` | JPEG |
 
-**Thẻ `<img>` phải có `width` và `height`** để trang không nhảy khi tải. Nhưng
-khi đặt `aspect-ratio` trong CSS thì **bắt buộc thêm `height: auto`**, nếu không
-thuộc tính `height="800"` sẽ ghi đè và làm ảnh cao vống lên.
+**Không cần gõ `width`/`height` bằng tay.** `eleventy.config.js` có một transform
+tên `kichThuocAnh` tự đọc kích thước thật từ file ảnh rồi gắn vào mọi thẻ `<img>`
+chưa có, kể cả ảnh viết bằng Markdown trong bài. Nếu build in ra cảnh báo
+`[kichThuocAnh] khong doc duoc` thì nghĩa là đường dẫn ảnh sai.
+
+Khi đặt `aspect-ratio` trong CSS thì **bắt buộc thêm `height: auto`**, nếu không
+thuộc tính `height` do transform gắn vào sẽ ghi đè và làm ảnh cao vống lên.
 
 **`alt` phải mô tả thật những gì có trong ảnh**, kèm tên quán và địa danh.
 Không nhồi từ khóa. Không để `alt` trống trừ khi ảnh thuần trang trí.
+
+Riêng 14 trang ảnh thực đơn, `alt` lấy từ trường `mota` trong
+`src/_data/menuanh.json` — mỗi trang kể đúng nhóm món và vài mức giá có trên
+trang đó. Chủ quán sửa được ở trang quản trị.
 
 ---
 
@@ -232,6 +264,10 @@ Không nhồi từ khóa. Không để `alt` trống trừ khi ảnh thuần tra
 - ❌ Dùng `.btn-ghost` trên nền sáng mà quên lớp `.nen-sang`.
 - ❌ Để chữ trắng trên nền `--san-ho`. Chữ nút chính là `--xanh-dam`.
 - ❌ Viết `style="color: ..."` inline để chữa cháy màu. Sửa ở CSS bằng lớp dùng lại được.
+- ❌ Dùng `--san-ho` làm màu chữ cho giá tiền. Giá tiền là `--xanh-bien`.
+- ❌ Dùng `--xanh-ngoc` làm màu chữ trên nền sáng. Bản chữ là `--xanh-ngoc-dam`.
+- ❌ Đặt `outline: none` mà không thay bằng viền focus khác nhìn thấy được.
+- ❌ Bỏ qua thứ tự tiêu đề: sau `h2` phải là `h3`, không nhảy thẳng xuống `h4`.
 
 ---
 

@@ -275,7 +275,7 @@ anh_dai_dien: /anh/tiec-ngoai-troi-ben-bien-lalasea-ha-tien.jpg
       <label>Yêu cầu khác<textarea name="yeucau" rows="3" placeholder="Ví dụ: cần khu vực riêng, có văn nghệ, trang trí sinh nhật..."></textarea></label>
       <button type="submit" class="btn">Nhận tư vấn tiệc</button>
       <p id="event-msg" class="booking-msg"></p>
-      <p style="text-align:center; font-size:14px; color:var(--chu-nhat); margin-top:6px;">Hoặc liên hệ nhanh: <a href="tel:{{ thongtin.dien_thoai_goi }}" style="color:var(--xanh-ngoc); font-weight:700;">{{ thongtin.dien_thoai }}</a> · <a href="{{ thongtin.zalo }}" target="_blank" rel="noopener" style="color:var(--xanh-ngoc); font-weight:700;">Nhắn Zalo</a></p>
+      <p class="lien-he-nhanh">Hoặc liên hệ nhanh: <a href="tel:{{ thongtin.dien_thoai_goi }}">{{ thongtin.dien_thoai }}</a> · <a href="{{ thongtin.zalo }}" target="_blank" rel="noopener">Nhắn Zalo</a></p>
     </form>
   </div>
 </section>
@@ -284,7 +284,7 @@ anh_dai_dien: /anh/tiec-ngoai-troi-ben-bien-lalasea-ha-tien.jpg
 <section class="visit tsk-sec">
   <div class="container" style="text-align:center; max-width:720px;">
     <div class="section-title reveal">
-      <span class="script-accent" style="color: var(--ngoc-nhat);">Hẹn gặp bạn tại Lalasea</span>
+      <span class="script-accent">Hẹn gặp bạn tại Lalasea</span>
       <h2>Ghé xem không gian trước khi đặt tiệc</h2>
     </div>
     <p class="reveal" style="opacity:.9; margin:-20px 0 28px;">{{ thongtin.dia_chi }} · Mở cửa tất cả các ngày: Thứ Hai – Thứ Sáu {{ thongtin.gio_mo_cua }}, Thứ Bảy &amp; Chủ Nhật {{ thongtin.gio_cuoi_tuan }}. Bạn có thể ghé xem không gian và sân khấu trực tiếp trước khi quyết định.</p>

@@ -83,6 +83,7 @@ collections:
             widget: list
             fields:
               - { name: file, label: "Ảnh trang menu", widget: image }
+              - { name: mota, label: "Mô tả trang này (cho người khiếm thị và Google đọc)", widget: text, required: false }
 
       - name: danhgia
         label: "⭐ Đánh giá của khách (trích từ Google)"
