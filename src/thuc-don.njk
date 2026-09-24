@@ -18,7 +18,7 @@ an_footer: true
     <button class="navbtn next" id="next" aria-label="Trang sau">›</button>
     <div class="track" id="track">
       {% for trang in menuanh.trang %}
-      <div class="slide"><img src="{{ trang.file }}" alt="Menu trang {{ loop.index }}"{% if loop.index > 1 %} loading="lazy"{% endif %}></div>
+      <div class="slide"><img src="{{ trang.file }}" alt="{{ trang.mota or 'Thực đơn Lalasea Bistro Hà Tiên — trang ' + loop.index }}"{% if loop.index > 1 %} loading="lazy"{% endif %}></div>
       {% endfor %}
     </div>
   </div>

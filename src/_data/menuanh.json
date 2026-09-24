@@ -1,46 +1,60 @@
 {
   "trang": [
     {
-      "file": "/menu/page1.png"
+      "file": "/menu/page1.png",
+      "mota": "Trang bìa thực đơn Lalasea Bistro Hà Tiên — logo quán và lời giới thiệu"
     },
     {
-      "file": "/menu/page2.png"
+      "file": "/menu/page2.png",
+      "mota": "Thực đơn món đặc biệt của Lalasea: sườn cay Thái Lan 289–489K theo size, cà ri cua theo thời giá, hải sản xô 289–489K, gỏi cá trích 189K"
     },
     {
-      "file": "/menu/page3.png"
+      "file": "/menu/page3.png",
+      "mota": "Thực đơn khai vị và món ăn nhẹ: gỏi sứa hải sản, gỏi xoài tôm khô, rau luộc trứng hồng đào, khoai môn chiên nước mắm, chả giò tôm, đậu hũ phô mai"
     },
     {
-      "file": "/menu/page4.png"
+      "file": "/menu/page4.png",
+      "mota": "Thực đơn món lai rai bò, heo và gà: bò lúc lắc, bò né, sườn xào chua ngọt, sụn gà rang muối Hong Kong, cánh gà chiên nước mắm"
     },
     {
-      "file": "/menu/page5.png"
+      "file": "/menu/page5.png",
+      "mota": "Thực đơn lai rai còi dương mai, ếch và lườn ngỗng: còi nướng muối ớt, ếch chiên giòn, ếch rang muối Hong Kong, lườn ngỗng xông khói"
     },
     {
-      "file": "/menu/page6.png"
+      "file": "/menu/page6.png",
+      "mota": "Thực đơn đặc sản khô Hà Tiên: tôm khô nhâm sả, khô cá lóc trộn xoài, khô mực Hoàng Bào, mực một nắng 169K, cá đục một nắng mắm me"
     },
     {
-      "file": "/menu/page7.png"
+      "file": "/menu/page7.png",
+      "mota": "Thực đơn sò và nghêu: sò huyết, sò dẹo, sò dương, sò tộ, nghêu, bào ngư — chế biến cháy tỏi, nướng mỡ hành, nướng phô mai, hấp sả"
     },
     {
-      "file": "/menu/page8.png"
+      "file": "/menu/page8.png",
+      "mota": "Thực đơn hàu và cá: hàu nướng 30K một con, combo hàu 7 vị 180K, cá bớp chiên sả, cá bớp kho tiêu, cá trứng chiên giòn"
     },
     {
-      "file": "/menu/page9.png"
+      "file": "/menu/page9.png",
+      "mota": "Thực đơn các loại ốc: ốc hương, ốc bươu đen, ốc vôi, ốc bulot, ốc móng tay — cháy tỏi, rang muối, sốt bơ cay, hấp Thái"
     },
     {
-      "file": "/menu/page10.png"
+      "file": "/menu/page10.png",
+      "mota": "Thực đơn hải sản tươi sống: mực trứng, tôm tít bề bề, mực và bạch tuộc, tôm, cua và ghẹ tính theo thời giá trong ngày"
     },
     {
-      "file": "/menu/page11.png"
+      "file": "/menu/page11.png",
+      "mota": "Thực đơn món ăn no: cơm chiên tỏi, cơm chiên hải sản, cơm chiên ghẹ, cơm trắng, mì xào bò, miến xào ốc móng tay"
     },
     {
-      "file": "/menu/page12.png"
+      "file": "/menu/page12.png",
+      "mota": "Thực đơn lẩu và món nướng: bảy loại lẩu đồng giá 289K, ba chỉ bò Mỹ nướng, combo BBQ 249K, vú heo nướng, bò tảng nướng"
     },
     {
-      "file": "/menu/page13.png"
+      "file": "/menu/page13.png",
+      "mota": "Thực đơn nước phần một: cà phê, soda, mojito, trà trái cây và nước thốt nốt"
     },
     {
-      "file": "/menu/page14.png"
+      "file": "/menu/page14.png",
+      "mota": "Thực đơn nước phần hai: nước ngọt, nước tăng lực, bia Heineken, Tiger, Sài Gòn, Bivina và soju"
     }
   ]
 }
