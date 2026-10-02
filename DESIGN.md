@@ -239,8 +239,18 @@ tên `kichThuocAnh` tự đọc kích thước thật từ file ảnh rồi gắ
 chưa có, kể cả ảnh viết bằng Markdown trong bài. Nếu build in ra cảnh báo
 `[kichThuocAnh] khong doc duoc` thì nghĩa là đường dẫn ảnh sai.
 
-Khi đặt `aspect-ratio` trong CSS thì **bắt buộc thêm `height: auto`**, nếu không
-thuộc tính `height` do transform gắn vào sẽ ghi đè và làm ảnh cao vống lên.
+Hai thuộc tính đó giúp trình duyệt chừa sẵn chỗ cho ảnh (đỡ nhảy layout), nhưng
+cũng là cái bẫy: chúng trở thành kích thước hiển thị thật nếu CSS không ghi đè.
+Ba quy tắc bắt buộc:
+
+1. Dòng nền ở đầu `style.css` — `img { max-width: 100%; height: auto; display:
+   block; }` — là thứ giữ đúng tỉ lệ cho **mọi** ảnh. **Không được xóa
+   `height: auto`**, bỏ đi là ảnh bài viết bị kéo cao vống lên.
+2. Khi đặt `aspect-ratio` trong CSS cũng phải kèm `height: auto`.
+3. Khi khống chế ảnh bằng `max-height` (ảnh dọc trên màn hình ngang, như bộ ảnh
+   thực đơn) thì phải thêm **cả `width: auto`**. `max-height` chỉ bóp chiều cao
+   chứ không tự thu chiều ngang theo, nên nếu `width` còn giữ giá trị từ thuộc
+   tính thì ảnh bị kéo bẹt ngang — đúng lỗi đã xảy ra với 14 trang thực đơn.
 
 **`alt` phải mô tả thật những gì có trong ảnh**, kèm tên quán và địa danh.
 Không nhồi từ khóa. Không để `alt` trống trừ khi ảnh thuần trang trí.
