@@ -18,7 +18,13 @@
   <meta property="og:site_name" content="{{ thongtin.ten }}">
   <meta property="og:locale" content="vi_VN">
   <meta name="twitter:card" content="summary_large_image">
+  {# Biểu tượng web. Google KHÔNG đọc được SVG (chỉ nhận BMP, GIF, ICO, PNG, JPEG,
+     PPM, TIFF) nên bắt buộc phải có bản PNG/ICO, không thì kết quả tìm kiếm hiện
+     biểu tượng mặc định. Ảnh phải vuông và nên lớn hơn 48x48. #}
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

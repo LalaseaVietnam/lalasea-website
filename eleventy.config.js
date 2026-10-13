@@ -51,7 +51,10 @@ export default function (eleventyConfig) {
     "src/css": "css",
     "src/admin": "admin",
     "src/quan-tri": "quan-tri",
-    "src/favicon.svg": "favicon.svg"
+    "src/favicon.svg": "favicon.svg",
+    "src/favicon.ico": "favicon.ico",
+    "src/icon-192.png": "icon-192.png",
+    "src/apple-touch-icon.png": "apple-touch-icon.png"
   });
 
   // Hai trang quản trị chỉ copy nguyên trạng, không đưa vào sơ đồ trang web
