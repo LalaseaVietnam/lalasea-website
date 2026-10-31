@@ -2,79 +2,105 @@
   "anh": [
     {
       "file": "/uploads/585bccbb09ef89b1d0fe5.jpg",
-      "mota": ""
+      "mota": "",
+      "mota_en": ""
     },
     {
       "file": "/uploads/4da9224ee71a67443e0b2.jpg",
-      "mota": ""
+      "mota": "",
+      "mota_en": ""
     },
     {
       "file": "/uploads/5a58e7b822eca2b2fbfd1.jpg",
-      "mota": ""
+      "mota": "",
+      "mota_en": ""
     },
     {
       "file": "/uploads/70e11d01d855580b01443.jpg",
-      "mota": ""
+      "mota": "",
+      "mota_en": ""
     },
     {
       "file": "/uploads/647d059ac0ce409019df4.jpg",
-      "mota": ""
+      "mota": "",
+      "mota_en": ""
     }
   ],
   "gia_ghi_chu": "Giá được tính theo số lượng khách ở cùng lều — đã bao gồm bữa sáng và bữa tối BBQ – lẩu.",
+  "gia_ghi_chu_en": "Prices depend on how many guests share a tent and include breakfast and a BBQ – hotpot dinner.",
   "bang_gia": [
     {
       "ten": "Ngày thường",
+      "ten_en": "Weekdays",
       "ngay": "Thứ 2 → Thứ 5",
+      "ngay_en": "Monday → Thursday",
       "muc": [
         {
           "khach": "01 khách",
+          "khach_en": "1 guest",
           "gia": "790.000đ"
         },
         {
           "khach": "02 khách",
+          "khach_en": "2 guests",
           "gia": "690.000đ/người"
         },
         {
           "khach": "03–04 khách",
+          "khach_en": "3–4 guests",
           "gia": "590.000đ/người"
         },
         {
           "khach": "05–06 khách",
+          "khach_en": "5–6 guests",
           "gia": "490.000đ/người"
         }
       ]
     },
     {
       "ten": "Cuối tuần",
+      "ten_en": "Weekends",
       "ngay": "Thứ 6 → Chủ nhật",
+      "ngay_en": "Friday → Sunday",
       "muc": [
         {
           "khach": "01 khách",
+          "khach_en": "1 guest",
           "gia": "890.000đ"
         },
         {
           "khach": "02 khách",
+          "khach_en": "2 guests",
           "gia": "790.000đ/người"
         },
         {
           "khach": "03–04 khách",
+          "khach_en": "3–4 guests",
           "gia": "690.000đ/người"
         },
         {
           "khach": "05–06 khách",
+          "khach_en": "5–6 guests",
           "gia": "590.000đ/người"
         }
       ]
     }
   ],
   "bua_sang_mota": "Mỗi khách tự chọn 01 món ăn sáng + 01 thức uống.",
+  "bua_sang_mota_en": "Each guest chooses 1 breakfast dish + 1 drink.",
   "bua_sang_mon": [
     "Mì bò chua cay",
     "Mì hải sản chua cay",
     "Bánh mì cá mòi ốp la",
     "Bánh mì cá mòi",
     "Bánh mì ốp la"
+  ],
+  "bua_sang_mon_en": [
+    "Hot and sour beef noodles",
+    "Hot and sour seafood noodles",
+    "Bánh mì with sardines and fried egg",
+    "Bánh mì with sardines",
+    "Bánh mì with fried egg"
   ],
   "bua_sang_nuoc": [
     "Cà phê phin",
@@ -88,70 +114,118 @@
     "Bò Cụng",
     "Nước suối"
   ],
+  "bua_sang_nuoc_en": [
+    "Vietnamese drip coffee",
+    "Coffee with condensed milk",
+    "Sweet iced tea",
+    "Lemon tea",
+    "Sting",
+    "Pepsi",
+    "Oolong tea",
+    "Không Độ green tea",
+    "Bò Cụng (Thai Red Bull)",
+    "Bottled water"
+  ],
   "bua_toi_mota": "BBQ nướng – lẩu, phục vụ theo tiêu chuẩn dành cho 01 khách và tăng tương ứng theo số lượng khách trong lều.",
+  "bua_toi_mota_en": "BBQ grill and hotpot. Portions below are per guest and scale up with the number of guests in the tent.",
   "bbq": [
     {
       "mon": "Bào ngư",
-      "luong": "01 con"
+      "mon_en": "Abalone",
+      "luong": "01 con",
+      "luong_en": "1 piece"
     },
     {
       "mon": "Xúc xích",
-      "luong": "01 cây"
+      "mon_en": "Sausage",
+      "luong": "01 cây",
+      "luong_en": "1 piece"
     },
     {
       "mon": "Cánh gà khúc giữa",
-      "luong": "03 khúc"
+      "mon_en": "Chicken mid-wings",
+      "luong": "03 khúc",
+      "luong_en": "3 pieces"
     },
     {
       "mon": "Đậu hũ trứng",
-      "luong": "02 miếng"
+      "mon_en": "Egg tofu",
+      "luong": "02 miếng",
+      "luong_en": "2 pieces"
     },
     {
       "mon": "Tôm",
-      "luong": "02 con"
+      "mon_en": "Shrimp",
+      "luong": "02 con",
+      "luong_en": "2 pieces"
     },
     {
       "mon": "Nghêu",
-      "luong": "250g"
+      "mon_en": "Clams",
+      "luong": "250g",
+      "luong_en": "250g"
     },
     {
       "mon": "Mực tuộc",
-      "luong": "Theo định lượng"
+      "mon_en": "Baby octopus",
+      "luong": "Theo định lượng",
+      "luong_en": "Standard portion"
     },
     {
       "mon": "Đùi ếch",
-      "luong": "Theo định lượng"
+      "mon_en": "Frog legs",
+      "luong": "Theo định lượng",
+      "luong_en": "Standard portion"
     },
     {
       "mon": "Nước lẩu thái – Rau lẩu – Bún",
-      "luong": "Theo định lượng"
+      "mon_en": "Thai hotpot broth – hotpot greens – rice noodles",
+      "luong": "Theo định lượng",
+      "luong_en": "Standard portion"
     },
     {
       "mon": "Cơm chiên hải sản",
-      "luong": "Theo định lượng"
+      "mon_en": "Seafood fried rice",
+      "luong": "Theo định lượng",
+      "luong_en": "Standard portion"
     },
     {
       "mon": "Salad trộn dầu giấm",
-      "luong": "Theo định lượng"
+      "mon_en": "Salad with vinaigrette",
+      "luong": "Theo định lượng",
+      "luong_en": "Standard portion"
     },
     {
       "mon": "Đậu bắp",
-      "luong": "Theo định lượng"
+      "mon_en": "Okra",
+      "luong": "Theo định lượng",
+      "luong_en": "Standard portion"
     },
     {
       "mon": "Trái cây",
-      "luong": "Theo định lượng"
+      "mon_en": "Fruit",
+      "luong": "Theo định lượng",
+      "luong_en": "Standard portion"
     },
     {
       "mon": "Trà đá",
-      "luong": "Theo định lượng"
+      "mon_en": "Iced tea",
+      "luong": "Theo định lượng",
+      "luong_en": "Standard portion"
     }
   ],
   "checkin": "Từ 14:00",
+  "checkin_en": "From 14:00",
   "checkout": "Trước 12:00 ngày hôm sau",
+  "checkout_en": "Before 12:00 the next day",
   "luu_y": [
     "Thời gian lưu trú được tính theo 01 đêm, áp dụng thời gian nhận – trả lều như trên.",
     "Khách có nhu cầu nhận lều sớm hoặc trả lều muộn, vui lòng liên hệ Lalasea qua số điện thoại / Zalo 0907 896 949 để được hỗ trợ tùy tình trạng lều thực tế.",
     "Lalasea không có khu vực lưu trú / nghỉ qua đêm dành riêng cho tài xế."
+  ],
+  "luu_y_en": [
+    "Stays are charged per night, using the check-in and check-out times above.",
+    "For early check-in or late check-out, please contact Lalasea by phone / Zalo on +84 907 896 949 — we'll help where tent availability allows.",
+    "Lalasea has no separate overnight accommodation for drivers."
   ]
 }

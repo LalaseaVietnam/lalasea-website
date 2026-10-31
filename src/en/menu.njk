@@ -1,0 +1,241 @@
+---
+title: Menu & Prices
+mo_ta: Lalasea Bistro Ha Tien menu and prices — seafood, snails and shellfish, grilled dishes, hotpot, beef, chicken, rice and drinks, every dish named in Vietnamese and English. See all 14 menu pages. Bookings +84 907 896 949.
+permalink: /en/menu/
+ban_dich: /thuc-don/
+an_footer: true
+---
+{#- Bản tiếng Anh của src/thuc-don.njk. Tên món tiếng Anh lấy đúng theo tên in
+    trên thực đơn của quán (ảnh trong thư mục menu/), không tự dịch lại. -#}
+
+<div class="page-hero">
+  <div class="kicker">Menu &amp; prices</div>
+  <h1>Lalasea Bistro Menu – Beachfront Restaurant in Ha&nbsp;Tien</h1>
+  <p>All {{ menuanh.trang.length }} menu pages with prices, every dish named in Vietnamese and English: live seafood, snails and shellfish, grilled dishes, hotpot, Ha Tien dried specialties and drinks — served 08:00–23:00 every day, from 07:00 at weekends, on To Chau beach, Ha&nbsp;Tien.</p>
+</div>
+
+<div class="menu-viewer">
+  <div class="viewer">
+    <button class="navbtn prev" id="prev" aria-label="Previous page">‹</button>
+    <button class="navbtn next" id="next" aria-label="Next page">›</button>
+    <div class="track" id="track">
+      {% for trang in menuanh.trang %}
+      <div class="slide"><img src="{{ trang.file }}" alt="{{ trang.mota_en or ('Lalasea Bistro Ha Tien menu — page ' + loop.index) }}"{% if loop.index > 1 %} loading="lazy"{% endif %}></div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="counter"><span id="cur">1</span> / {{ menuanh.trang.length }}</div>
+  <div class="hint"><span class="desktop">Use the ‹ › buttons or arrow keys to turn the page</span><span class="mobile">Swipe left/right to turn the page</span></div>
+</div>
+
+<!-- ===== MENU OVERVIEW (text so search engines understand the menu) ===== -->
+<section class="menu-about">
+  <div class="wrap">
+    <h2>What's on the Lalasea Bistro menu?</h2>
+    <p>Lalasea Bistro is an open-air restaurant on To Chau beach in Ha Tien (An Giang province, Vietnam), open from 08:00 to 23:00 every day, and from 07:00 on Saturdays and Sundays. As well as live seafood, the menu has grilled dishes, hotpot, beef, chicken and rice, so it works well for big groups with different tastes. Below are the main sections of the menu — swipe through the menu photos above to see every dish with its price.</p>
+
+    <h3>Lalasea's signature dishes</h3>
+    <p>The four dishes Lalasea is known for: spicy pork ribs, crab in curry sauce, a mixed seafood bucket piled with shrimp, squid, clams and crab, and herring salad made the Ha Tien coastal way.</p>
+
+    <ul class="mon-noi-bat">
+      <li>
+        <img src="/anh/suon-cay-thai-lan-lalasea-ha-tien.jpg" width="800" height="800" loading="lazy"
+             alt="Spicy Thai-style pork ribs at Lalasea Bistro Ha Tien — tender ribs piled high, topped with herbs and fresh chilli, served in a hot pan">
+        <div class="nd">
+          <span class="ten">Spicy Pork Ribs <span lang="vi">(Sườn cay)</span></span>
+          <span class="gia">289,000 / 389,000 / 489,000 VND by size</span>
+        </div>
+      </li>
+      <li>
+        <img src="/anh/hai-san-xo-lalasea-ha-tien.jpg" width="800" height="800" loading="lazy"
+             alt="Mixed seafood bucket at Lalasea Bistro Ha Tien — crab, shrimp, clams, sausage and corn in curry sauce, poured from the bucket onto a steel tray">
+        <div class="nd">
+          <span class="ten">Mixed Seafood Bucket <span lang="vi">(Hải sản xô)</span></span>
+          <span class="gia">289,000 / 389,000 / 489,000 VND by size</span>
+        </div>
+      </li>
+      <li>
+        <img src="/anh/goi-ca-trich-lalasea-ha-tien.jpg" width="800" height="800" loading="lazy"
+             alt="Ha Tien herring salad at Lalasea Bistro — herring fillets arranged like a flower around fresh chilli, with rice paper and fresh herbs">
+        <div class="nd">
+          <span class="ten">Herring Salad <span lang="vi">(Gỏi cá trích)</span></span>
+          <span class="gia">189,000 VND</span>
+        </div>
+      </li>
+    </ul>
+    <p>The fourth — <strong>crab in curry sauce</strong> — is sold at the day's market price because it depends on the fresh crab bought that morning; order ahead so the restaurant can quote a price and save you a portion.</p>
+
+    <h3>Snails, cockles &amp; clams</h3>
+    <p>Babylon snail, bulot snail, razor clam, black apple snail, blood cockle, cockle, giant clam, clam, abalone… cooked every way: wok-fried with garlic, roasted with rock salt, grilled with scallion oil, grilled with cheese, salted egg yolk sauce, spicy butter sauce, Thai style steamed, steamed with lemongrass.</p>
+
+    <h3>Live seafood</h3>
+    <p>Shrimp, crab, blue crab, squid and seasonal fish are kept live every day — pick your seafood and how you'd like it cooked.</p>
+
+    <h3>Small plates to share</h3>
+    <p>Grilled scallops with chili salt, crispy fried frog, Hong Kong-style salt &amp; pepper frog, smoked goose breast, diced beef steak, Vietnamese sizzling beef, sweet and sour pork ribs, Hong Kong-style salt &amp; pepper chicken cartilage, fish sauce-glazed chicken wings…</p>
+
+    <h3>Ha Tien dried specialties</h3>
+    <p>Lemongrass marinated dried shrimp, mango salad with dried snakehead fish, fish sauce-glazed dried squid with crispy taro strings, sun-dried squid, sun-dried sand whiting with tamarind sauce — great for snacking at the table, and to take home as gifts.</p>
+
+    <h3>Hotpot &amp; grill</h3>
+    <p>Thai hotpot, Tomyum hotpot, fermented fish hotpot, cobia fish hotpot, field crab hotpot, mushroom hotpot and bitter melon &amp; beef ball hotpot, all at 289,000 VND. From the grill: grilled beef short plate, grilled thick-cut beef steak, grilled pork udder, and a BBQ combo with shrimp, octopus, beef, frog and sausage.</p>
+
+    <h3>Pre-order party menu</h3>
+    <p>Besides the everyday menu, Lalasea hosts weddings, birthdays and company parties with a separate party menu served by the portion: chicken, duck, rice, hotpot and other pre-ordered party dishes. See <a href="/en/events/">Events at Lalasea</a> for details.</p>
+
+    <p>Menu prices may change over time; some seafood dishes are sold at the day's market price. To book a table or a party, call / message on Zalo <a href="tel:+84{{ thongtin.dien_thoai_goi | replace('0', '', 1) }}">{{ thongtin.dien_thoai | sdtQuocTe }}</a> or see <a href="/en/contact/">Contact &amp; directions</a>.</p>
+  </div>
+</section>
+
+<script>
+  const track = document.getElementById('track');
+  const cur = document.getElementById('cur');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const total = {{ menuanh.trang.length }};
+
+  function page() { return Math.round(track.scrollLeft / track.clientWidth); }
+  function update() {
+    const p = page();
+    cur.textContent = p + 1;
+    prev.disabled = p <= 0;
+    next.disabled = p >= total - 1;
+  }
+  function go(dir) { track.scrollTo({ left: (page() + dir) * track.clientWidth, behavior: 'smooth' }); }
+
+  prev.addEventListener('click', () => go(-1));
+  next.addEventListener('click', () => go(1));
+  track.addEventListener('scroll', () => window.requestAnimationFrame(update));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') go(-1);
+    if (e.key === 'ArrowRight') go(1);
+  });
+  update();
+</script>
+
+{#- Cùng 8 nhóm, 47 món như schema bản tiếng Việt. name = tên tiếng Anh in trên menu,
+    alternateName = tên tiếng Việt, để khách tìm bằng tên nào cũng ra. -#}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "@id": "https://lalasea.vn/en/menu/#menu",
+  "name": "Lalasea Bistro Ha Tien Menu",
+  "inLanguage": "en",
+  "description": "Menu of Lalasea Bistro on To Chau beach, Ha Tien: live seafood, snails and shellfish, grilled dishes, hotpot, small plates, dried specialties and a pre-order party menu.",
+  "provider": { "@id": "https://lalasea.vn/#nhahang" },
+  "hasMenuSection": [
+    {
+      "@type": "MenuSection",
+      "name": "Lalasea's Signature",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Spicy Pork Ribs", "alternateName": "Sườn cay", "image": "{{ thongtin.site_url }}/anh/suon-cay-thai-lan-lalasea-ha-tien.jpg",
+          "offers": [
+            { "@type": "Offer", "price": "289000", "priceCurrency": "VND", "name": "Size M" },
+            { "@type": "Offer", "price": "389000", "priceCurrency": "VND", "name": "Size L" },
+            { "@type": "Offer", "price": "489000", "priceCurrency": "VND", "name": "Size XL" }
+          ] },
+        { "@type": "MenuItem", "name": "Crab in Curry Sauce", "alternateName": "Cà ri cua", "description": "Market price" },
+        { "@type": "MenuItem", "name": "Mixed Seafood Bucket", "alternateName": "Hải sản xô", "image": "{{ thongtin.site_url }}/anh/hai-san-xo-lalasea-ha-tien.jpg", "description": "A bucket full of shrimp, squid, clams and crab",
+          "offers": [
+            { "@type": "Offer", "price": "289000", "priceCurrency": "VND", "name": "Size M" },
+            { "@type": "Offer", "price": "389000", "priceCurrency": "VND", "name": "Size L" },
+            { "@type": "Offer", "price": "489000", "priceCurrency": "VND", "name": "Size XL" }
+          ] },
+        { "@type": "MenuItem", "name": "Herring Salad", "alternateName": "Gỏi cá trích", "image": "{{ thongtin.site_url }}/anh/goi-ca-trich-lalasea-ha-tien.jpg", "description": "Made the Ha Tien coastal way",
+          "offers": [ { "@type": "Offer", "price": "189000", "priceCurrency": "VND" } ] }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Snails, cockles & clams",
+      "description": "Cooked to order: wok-fried with garlic, roasted with rock salt, grilled with scallion oil, grilled with cheese, salted egg yolk sauce, spicy butter sauce, Thai style steamed, steamed with lemongrass.",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Babylon Snail", "alternateName": "Ốc hương" },
+        { "@type": "MenuItem", "name": "Bulot Snail", "alternateName": "Ốc bulot" },
+        { "@type": "MenuItem", "name": "Razor Clam", "alternateName": "Ốc móng tay" },
+        { "@type": "MenuItem", "name": "Black Apple Snail", "alternateName": "Ốc bươu đen" },
+        { "@type": "MenuItem", "name": "Blood Cockle", "alternateName": "Sò huyết" },
+        { "@type": "MenuItem", "name": "Cockle", "alternateName": "Sò dương" },
+        { "@type": "MenuItem", "name": "Giant Clam", "alternateName": "Sò tộ" },
+        { "@type": "MenuItem", "name": "Clam", "alternateName": "Nghêu" },
+        { "@type": "MenuItem", "name": "Abalone", "alternateName": "Bào ngư" }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Live seafood",
+      "description": "Kept live every day; choose your seafood and how it is cooked. Many items are sold at the day's market price.",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Shrimp", "alternateName": "Tôm" },
+        { "@type": "MenuItem", "name": "Crab", "alternateName": "Cua" },
+        { "@type": "MenuItem", "name": "Blue Crab", "alternateName": "Ghẹ" },
+        { "@type": "MenuItem", "name": "Squid", "alternateName": "Mực" },
+        { "@type": "MenuItem", "name": "Seasonal fish", "alternateName": "Cá theo mùa" }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Small plates to share",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Grilled Scallops with Chili Salt", "alternateName": "Còi dương mai nướng muối ớt" },
+        { "@type": "MenuItem", "name": "Crispy Fried Frog", "alternateName": "Ếch chiên giòn" },
+        { "@type": "MenuItem", "name": "Hong Kong-Style Salt & Pepper Frog", "alternateName": "Ếch rang muối Hong Kong" },
+        { "@type": "MenuItem", "name": "Smoked Goose Breast", "alternateName": "Lườn ngỗng xông khói" },
+        { "@type": "MenuItem", "name": "Diced Beef Steak", "alternateName": "Bò lúc lắc" },
+        { "@type": "MenuItem", "name": "Vietnamese Sizzling Beef", "alternateName": "Bò né" },
+        { "@type": "MenuItem", "name": "Sweet and Sour Pork Ribs", "alternateName": "Sườn xào chua ngọt" },
+        { "@type": "MenuItem", "name": "Hong Kong-Style Salt & Pepper Chicken Cartilage", "alternateName": "Sụn gà rang muối" },
+        { "@type": "MenuItem", "name": "Fish Sauce-Glazed Chicken Wings", "alternateName": "Cánh gà chiên nước mắm" }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Ha Tien dried specialties",
+      "description": "For snacking at the table or taking home as gifts.",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Lemongrass Marinated Dried Shrimp", "alternateName": "Tôm khô nhâm sả" },
+        { "@type": "MenuItem", "name": "Mango Salad with Dried Snakehead Fish", "alternateName": "Khô cá lóc trộn xoài" },
+        { "@type": "MenuItem", "name": "Fish Sauce-Glazed Dried Squid with Crispy Taro Strings", "alternateName": "Khô mực Hoàng Bào" },
+        { "@type": "MenuItem", "name": "Sun-dried Squid", "alternateName": "Mực một nắng" },
+        { "@type": "MenuItem", "name": "Sun-dried Sand Whiting with Tamarind Sauce", "alternateName": "Cá đục một nắng mắm me" }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Hotpot",
+      "description": "Every hotpot is 289,000 VND.",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Thai Hotpot", "alternateName": "Lẩu Thái", "offers": [ { "@type": "Offer", "price": "289000", "priceCurrency": "VND" } ] },
+        { "@type": "MenuItem", "name": "Tomyum Hotpot", "alternateName": "Lẩu Tomyum", "offers": [ { "@type": "Offer", "price": "289000", "priceCurrency": "VND" } ] },
+        { "@type": "MenuItem", "name": "Fermented Fish Hotpot", "alternateName": "Lẩu mắm", "offers": [ { "@type": "Offer", "price": "289000", "priceCurrency": "VND" } ] },
+        { "@type": "MenuItem", "name": "Cobia Fish Hotpot", "alternateName": "Lẩu cá bớp", "offers": [ { "@type": "Offer", "price": "289000", "priceCurrency": "VND" } ] },
+        { "@type": "MenuItem", "name": "Field Crab Hotpot", "alternateName": "Lẩu cua đồng", "offers": [ { "@type": "Offer", "price": "289000", "priceCurrency": "VND" } ] },
+        { "@type": "MenuItem", "name": "Mushroom Hotpot", "alternateName": "Lẩu nấm", "offers": [ { "@type": "Offer", "price": "289000", "priceCurrency": "VND" } ] },
+        { "@type": "MenuItem", "name": "Bitter Melon & Beef Ball Hotpot", "alternateName": "Lẩu khổ qua bò viên", "offers": [ { "@type": "Offer", "price": "289000", "priceCurrency": "VND" } ] }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Grill",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Grilled Beef Short Plate", "alternateName": "Ba chỉ bò Mỹ nướng" },
+        { "@type": "MenuItem", "name": "Grilled Thick-Cut Beef Steak", "alternateName": "Bò tảng nướng" },
+        { "@type": "MenuItem", "name": "Grilled Pork Udder", "alternateName": "Vú heo nướng" },
+        { "@type": "MenuItem", "name": "BBQ Combo (shrimp, octopus, beef, frog, sausage)", "alternateName": "Combo BBQ" }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Pre-order party menu",
+      "description": "Weddings, birthdays and company parties — served by the portion, ordered in advance.",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Chicken dishes", "alternateName": "Món gà" },
+        { "@type": "MenuItem", "name": "Duck dishes", "alternateName": "Món vịt" },
+        { "@type": "MenuItem", "name": "Rice", "alternateName": "Cơm" },
+        { "@type": "MenuItem", "name": "Party hotpot", "alternateName": "Lẩu tiệc" }
+      ]
+    }
+  ]
+}
+</script>

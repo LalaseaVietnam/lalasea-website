@@ -2,59 +2,73 @@
   "trang": [
     {
       "file": "/menu/page1.png",
-      "mota": "Trang bìa thực đơn Lalasea Bistro Hà Tiên — logo quán và lời giới thiệu"
+      "mota": "Trang bìa thực đơn Lalasea Bistro Hà Tiên — logo quán và lời giới thiệu",
+      "mota_en": "Lalasea Bistro Ha Tien menu cover — restaurant logo and welcome note"
     },
     {
       "file": "/menu/page2.png",
-      "mota": "Thực đơn món đặc biệt của Lalasea: sườn cay Thái Lan 289–489K theo size, cà ri cua theo thời giá, hải sản xô 289–489K, gỏi cá trích 189K"
+      "mota": "Thực đơn món đặc biệt của Lalasea: sườn cay Thái Lan 289–489K theo size, cà ri cua theo thời giá, hải sản xô 289–489K, gỏi cá trích 189K",
+      "mota_en": "Lalasea's signature dishes: spicy pork ribs 289–489K by size, crab in curry sauce at market price, mixed seafood bucket 289–489K, herring salad 189K"
     },
     {
       "file": "/menu/page3.png",
-      "mota": "Thực đơn khai vị và món ăn nhẹ: gỏi sứa hải sản, gỏi xoài tôm khô, rau luộc trứng hồng đào, khoai môn chiên nước mắm, chả giò tôm, đậu hũ phô mai"
+      "mota": "Thực đơn khai vị và món ăn nhẹ: gỏi sứa hải sản, gỏi xoài tôm khô, rau luộc trứng hồng đào, khoai môn chiên nước mắm, chả giò tôm, đậu hũ phô mai",
+      "mota_en": "Appetizers and snacks: jellyfish seafood salad, mango salad with dried shrimp, boiled vegetables with soft-boiled egg, fish sauce-glazed fried taro, Lalasea signature shrimp spring rolls, cheese fish tofu"
     },
     {
       "file": "/menu/page4.png",
-      "mota": "Thực đơn món lai rai bò, heo và gà: bò lúc lắc, bò né, sườn xào chua ngọt, sụn gà rang muối Hong Kong, cánh gà chiên nước mắm"
+      "mota": "Thực đơn món lai rai bò, heo và gà: bò lúc lắc, bò né, sườn xào chua ngọt, sụn gà rang muối Hong Kong, cánh gà chiên nước mắm",
+      "mota_en": "Beef, pork and chicken: diced beef steak, Vietnamese sizzling beef, sweet and sour pork ribs, Hong Kong-style salt & pepper chicken cartilage, fish sauce-glazed chicken wings"
     },
     {
       "file": "/menu/page5.png",
-      "mota": "Thực đơn lai rai còi dương mai, ếch và lườn ngỗng: còi nướng muối ớt, ếch chiên giòn, ếch rang muối Hong Kong, lườn ngỗng xông khói"
+      "mota": "Thực đơn lai rai còi dương mai, ếch và lườn ngỗng: còi nướng muối ớt, ếch chiên giòn, ếch rang muối Hong Kong, lườn ngỗng xông khói",
+      "mota_en": "Scallops, frog and goose breast: grilled scallops with chili salt, crispy fried frog, Hong Kong-style salt & pepper frog, smoked goose breast"
     },
     {
       "file": "/menu/page6.png",
-      "mota": "Thực đơn đặc sản khô Hà Tiên: tôm khô nhâm sả, khô cá lóc trộn xoài, khô mực Hoàng Bào, mực một nắng 169K, cá đục một nắng mắm me"
+      "mota": "Thực đơn đặc sản khô Hà Tiên: tôm khô nhâm sả, khô cá lóc trộn xoài, khô mực Hoàng Bào, mực một nắng 169K, cá đục một nắng mắm me",
+      "mota_en": "Ha Tien dried specialties: lemongrass marinated dried shrimp, mango salad with dried snakehead fish, fish sauce-glazed dried squid with crispy taro strings, sun-dried squid 169K, sun-dried sand whiting with tamarind sauce"
     },
     {
       "file": "/menu/page7.png",
-      "mota": "Thực đơn sò và nghêu: sò huyết, sò dẹo, sò dương, sò tộ, nghêu, bào ngư — chế biến cháy tỏi, nướng mỡ hành, nướng phô mai, hấp sả"
+      "mota": "Thực đơn sò và nghêu: sò huyết, sò dẹo, sò dương, sò tộ, nghêu, bào ngư — chế biến cháy tỏi, nướng mỡ hành, nướng phô mai, hấp sả",
+      "mota_en": "Cockles and clams: blood cockle, ark clam, cockle, giant clam, clam, abalone — roasted with garlic, grilled with scallion oil, grilled with cheese, steamed with lemongrass"
     },
     {
       "file": "/menu/page8.png",
-      "mota": "Thực đơn hàu và cá: hàu nướng 30K một con, combo hàu 7 vị 180K, cá bớp chiên sả, cá bớp kho tiêu, cá trứng chiên giòn"
+      "mota": "Thực đơn hàu và cá: hàu nướng 30K một con, combo hàu 7 vị 180K, cá bớp chiên sả, cá bớp kho tiêu, cá trứng chiên giòn",
+      "mota_en": "Oysters and fish: grilled oysters 30K each, 7-flavour oyster combo 180K, fried cobia with lemongrass, braised cobia with pepper, crispy fried capelin"
     },
     {
       "file": "/menu/page9.png",
-      "mota": "Thực đơn các loại ốc: ốc hương, ốc bươu đen, ốc vôi, ốc bulot, ốc móng tay — cháy tỏi, rang muối, sốt bơ cay, hấp Thái"
+      "mota": "Thực đơn các loại ốc: ốc hương, ốc bươu đen, ốc vôi, ốc bulot, ốc móng tay — cháy tỏi, rang muối, sốt bơ cay, hấp Thái",
+      "mota_en": "Snails: Babylon snail, black apple snail, bailer shell, bulot snail, razor clam — wok-fried with garlic, roasted with rock salt, spicy butter sauce, Thai style steamed"
     },
     {
       "file": "/menu/page10.png",
-      "mota": "Thực đơn hải sản tươi sống: mực trứng, tôm tít bề bề, mực và bạch tuộc, tôm, cua và ghẹ tính theo thời giá trong ngày"
+      "mota": "Thực đơn hải sản tươi sống: mực trứng, tôm tít bề bề, mực và bạch tuộc, tôm, cua và ghẹ tính theo thời giá trong ngày",
+      "mota_en": "Live seafood: squid with roe, mantis shrimp, squid and octopus, shrimp, crab and blue crab at the day's market price"
     },
     {
       "file": "/menu/page11.png",
-      "mota": "Thực đơn món ăn no: cơm chiên tỏi, cơm chiên hải sản, cơm chiên ghẹ, cơm trắng, mì xào bò, miến xào ốc móng tay"
+      "mota": "Thực đơn món ăn no: cơm chiên tỏi, cơm chiên hải sản, cơm chiên ghẹ, cơm trắng, mì xào bò, miến xào ốc móng tay",
+      "mota_en": "Filling dishes: garlic fried rice, seafood fried rice, crab meat fried rice, steamed white rice, noodles stir-fried with beef, glass noodles stir-fried with razor clams"
     },
     {
       "file": "/menu/page12.png",
-      "mota": "Thực đơn lẩu và món nướng: bảy loại lẩu đồng giá 289K, ba chỉ bò Mỹ nướng, combo BBQ 249K, vú heo nướng, bò tảng nướng"
+      "mota": "Thực đơn lẩu và món nướng: bảy loại lẩu đồng giá 289K, ba chỉ bò Mỹ nướng, combo BBQ 249K, vú heo nướng, bò tảng nướng",
+      "mota_en": "Hotpot and grill: seven hotpots all at 289K, grilled beef short plate, BBQ combo 249K, grilled pork udder, grilled thick-cut beef steak"
     },
     {
       "file": "/menu/page13.png",
-      "mota": "Thực đơn nước phần một: cà phê, soda, mojito, trà trái cây và nước thốt nốt"
+      "mota": "Thực đơn nước phần một: cà phê, soda, mojito, trà trái cây và nước thốt nốt",
+      "mota_en": "Drinks, part one: coffee, soda, mojito, fruit tea and palm sugar drinks"
     },
     {
       "file": "/menu/page14.png",
-      "mota": "Thực đơn nước phần hai: nước ngọt, nước tăng lực, bia Heineken, Tiger, Sài Gòn, Bivina và soju"
+      "mota": "Thực đơn nước phần hai: nước ngọt, nước tăng lực, bia Heineken, Tiger, Sài Gòn, Bivina và soju",
+      "mota_en": "Drinks, part two: soft drinks, energy drinks, Heineken, Tiger, Saigon and Bivina beer, and soju"
     }
   ]
 }
