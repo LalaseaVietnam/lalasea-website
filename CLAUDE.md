@@ -17,6 +17,7 @@ dùng được, ảnh nào không và vì sao.
 | Thư mục | Nội dung |
 |---|---|
 | `src/*.njk` | Các trang chính (chủ, thực đơn, tiệc, glamping, liên hệ) |
+| `src/en/*.njk` | Bản tiếng Anh của 5 trang chính, xuất ra `/en/` — xem DESIGN.md §11 |
 | `src/posts/*.md` | Bài viết, xuất ra `/tin-tuc/<slug>/` |
 | `src/_data/*.json` | Dữ liệu: thông tin quán, thư viện ảnh, đánh giá, menu |
 | `src/_includes/layouts/` | Khuôn mẫu chung + toàn bộ schema JSON-LD |
@@ -43,3 +44,4 @@ Bing (và qua đó là ChatGPT).
 - Sửa xong phải build lại và mở bằng trình duyệt thật ở **390px** và **1280px**,
   kiểm tra trang không tràn ngang.
 - Không bịa thông tin về quán. Giá, giờ, món, đánh giá — chỉ dùng số liệu thật.
+- Sửa nội dung một trang chính thì sửa luôn bản tiếng Anh tương ứng trong `src/en/`.
