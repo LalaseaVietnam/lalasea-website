@@ -101,7 +101,8 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
 .logo-svg { display: block; }
 .logo-svg line, .logo-svg path, .logo-svg rect, .logo-svg circle { vector-effect: non-scaling-stroke; }
 
-.nav-links { display: flex; gap: 20px; align-items: center; }
+/* margin-left:auto đẩy cụm menu sát về bên phải, cạnh nút đổi ngôn ngữ */
+.nav-links { display: flex; gap: 20px; align-items: center; margin-left: auto; }
 .nav-links a { font-size: 15px; opacity: .92; transition: opacity .15s; padding: 4px 0; }
 .nav-links a:hover { opacity: 1; }
 .nav-links a:not(.btn) { position: relative; }
@@ -111,6 +112,20 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
 }
 .nav-links a:not(.btn):hover::after { width: 100%; }
 .btn-nav { padding: 9px 22px; font-size: 14px; }
+/* "Trang chủ" chỉ hiện trong menu gập — trên máy tính đã có logo dẫn về trang chủ */
+.nav-links .chi-menu-gap { display: none; }
+
+/* Nút đổi ngôn ngữ VI ⇄ EN. Viền mảnh như nút ghost (đang ở trên nền tối),
+   vùng bấm 44px. Không dùng san hô — đó là màu dành riêng cho nút Đặt bàn. */
+.doi-ngon-ngu {
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  min-width: 44px; min-height: 44px; padding: 0 12px; flex-shrink: 0;
+  border: 1.5px solid rgba(255, 255, 255, .45); border-radius: 40px;
+  font-size: 13px; font-weight: 700; letter-spacing: 1px; line-height: 1;
+  transition: background .15s, border-color .15s;
+}
+.doi-ngon-ngu:hover { background: rgba(255, 255, 255, .12); border-color: var(--ngoc-nhat); }
+.doi-ngon-ngu svg { color: var(--ngoc-nhat); }
 
 /* Vùng bấm tối thiểu 44x44 cho ngón tay. */
 .nav-toggle { display: none; background: none; border: none; cursor: pointer;
@@ -131,6 +146,18 @@ section { padding: clamp(64px, 9vw, 100px) 0; }
   .nav-links a { padding: 13px 0; width: 100%; text-align: center; font-size: 16px; border-bottom: 1px solid rgba(255, 255, 255, .08); }
   .nav-links a:not(.btn)::after { display: none; }
   .nav-links .btn-nav { margin-top: 14px; width: auto; border-bottom: none; }
+  .nav-links .chi-menu-gap { display: block; }
+  /* Menu đã gập: nút ngôn ngữ đứng sát nút ☰ ở bên phải */
+  .doi-ngon-ngu { margin-left: auto; }
+}
+/* Điện thoại: logo + nút ngôn ngữ + nút ☰ phải lọt trong 312px (máy 360px trừ lề 24px
+   hai bên). Bản đầy đủ cần 357px — bỏ quả địa cầu, khít khoảng cách, chữ logo nhỏ lại. */
+@media (max-width: 560px) {
+  .site-nav { gap: 8px; }
+  .brand { gap: 9px; }
+  .brand .wordmark { font-size: 17px; letter-spacing: 1.5px; }
+  .doi-ngon-ngu { padding: 0 10px; }
+  .doi-ngon-ngu svg { display: none; }
 }
 
 /* ===== BANNER ĐẦU TRANG (trượt ảnh tự động) ===== */

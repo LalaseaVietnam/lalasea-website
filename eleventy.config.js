@@ -101,6 +101,20 @@ export default function (eleventyConfig) {
     return `${dt.getDate()} tháng ${dt.getMonth() + 1}, ${dt.getFullYear()}`;
   });
 
+  // ===== Dùng cho bản tiếng Anh (/en/) =====
+
+  // Giá viết kiểu Việt sang kiểu quốc tế, để chủ quán chỉ phải nhập giá một lần:
+  // "690.000đ/người" → "690,000 VND per person"
+  eleventyConfig.addFilter("giaEn", (gia) =>
+    String(gia || "")
+      .replace(/(\d)\.(?=\d{3})/g, "$1,")
+      .replace(/\s*đ/g, " VND")
+      .replace(/\s*\/\s*người/g, " per person")
+  );
+
+  // Số điện thoại cho khách nước ngoài: "0907 896 949" → "+84 907 896 949"
+  eleventyConfig.addFilter("sdtQuocTe", (sdt) => String(sdt || "").replace(/^0/, "+84 "));
+
   return {
     dir: {
       input: "src",

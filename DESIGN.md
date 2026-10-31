@@ -124,7 +124,7 @@ mới. Nay gom còn **4 mốc**, mỗi mốc có lý do đo được:
 | `560px` | Điện thoại — lưới về một cột, chữ và khoảng cách thu gọn |
 | `700px` | Ranh giới **dải vuốt ngang ↔ lưới**. Rộng hơn 700px thì lưới 2×2 dùng hết chỗ; hẹp hơn thì dải vuốt hợp hơn |
 | `820px` | Máy tính bảng — giảm số cột của các lưới còn lại |
-| `1000px` | Thanh menu gập thành nút ☰. Đo được: logo + 8 mục menu cần **939px**, gập sớm hơn là tràn |
+| `1000px` | Thanh menu gập thành nút ☰. Đo được: logo + 7 mục menu + nút ngôn ngữ cần **928px** (bản tiếng Việt; bản tiếng Anh 791px), trong khi khổ 1001px có 953px. Nới thêm là tràn |
 
 **Vì sao không gom được về 3 mốc.** Mục tiêu ban đầu là 3, nhưng thử rồi đo lại
 thì không đạt được mà không làm hỏng chỗ khác:
@@ -132,7 +132,15 @@ thì không đạt được mà không làm hỏng chỗ khác:
 - Đẩy mốc dải vuốt từ 700 xuống 560: trang chủ ở 620px **dài thêm 66%**.
 - Đẩy lên 820: máy tính bảng 780px mất lưới 2×2, chỉ còn một thẻ to chiếm gần
   hết màn hình — phí chỗ và giấu nội dung.
-- Gập thanh menu ở 820 thay vì 1000: menu tràn ra ngoài, vì nó cần 939px.
+- Gập thanh menu ở 820 thay vì 1000: menu tràn ra ngoài, vì nó cần 928px.
+
+**Thanh menu chỉ còn dư 25px ở 1001px.** Thêm mục menu mới thì phải bớt mục khác
+hoặc đo lại. Mục "Trang chủ" đã bị ẩn trên máy tính (lớp `.chi-menu-gap`, vẫn hiện
+trong menu gập) vì logo đã dẫn về trang chủ — nhờ vậy mới có chỗ cho nút ngôn ngữ.
+
+**Đầu trang trên điện thoại** (logo + nút ngôn ngữ + nút ☰) phải lọt trong **312px**
+(máy 360px trừ lề). Ở mốc 560px, CSS bỏ quả địa cầu trên nút ngôn ngữ, khít khoảng
+cách và thu chữ logo về 17px; đo được 303px.
 
 Ba mốc 560 / 700 / 820 là **ba chế độ bố cục có thật** của web này, cộng một mốc
 do nội dung thanh menu quyết định. Bốn con số có lý do vẫn tốt hơn ba con số ép.
@@ -326,12 +334,53 @@ template.
 
 ---
 
-## 11. Kiểm tra trước khi đẩy lên
+## 11. Song ngữ (tiếng Việt / tiếng Anh)
+
+Tiếng Việt là bản chính ở gốc `/`. Bản tiếng Anh nằm trong `src/en/`, xuất ra `/en/`.
+
+| Tiếng Việt | Tiếng Anh |
+|---|---|
+| `/` | `/en/` |
+| `/thuc-don/` | `/en/menu/` |
+| `/glamping/` | `/en/glamping/` |
+| `/tiec-su-kien/` | `/en/events/` |
+| `/lien-he/` | `/en/contact/` |
+
+Bài viết và trang Tin tức **chỉ có tiếng Việt**. Nút đổi ngôn ngữ ở đó dẫn về `/en/`.
+
+**Cách nối hai bản.** Mỗi trang có trường `ban_dich` trong front matter, trỏ tới trang
+tương ứng ở ngôn ngữ kia. `base.njk` dùng trường này cho nút đổi ngôn ngữ và cho thẻ
+`hreflang` (vi / en / x-default = vi). Trang trong `src/en/` tự có `ngon_ngu: "en"` nhờ
+`src/en/en.11tydata.json` — thứ đổi `<html lang>`, chữ trên menu, chân trang, thanh
+liên hệ nhanh và số điện thoại sang dạng `+84`.
+
+**Sửa một trang thì sửa cả bản kia.** Nội dung hai bản viết tay riêng, không tự đồng
+bộ. Thêm trang tiếng Việt mới mà muốn có bản tiếng Anh thì tạo file trong `src/en/` và
+đặt `ban_dich` ở cả hai phía.
+
+**Dữ liệu dùng chung, chữ tách riêng.** Giá, giờ, số điện thoại, ảnh chỉ nhập một lần.
+Chữ hiển thị có trường `*_en` đi kèm (`mota_en`, `ten_en`, `luu_y_en`…); thiếu thì bản
+tiếng Anh tạm dùng chữ tiếng Việt. Giá glamping qua bộ lọc `giaEn`
+("690.000đ/người" → "690,000 VND per person").
+
+**Tên món tiếng Anh lấy đúng theo thực đơn in** (ảnh trong `menu/`), không tự dịch.
+
+**Form tiếng Anh** gửi vào cùng Google Sheet; giá trị gửi đi giữ tiếng Việt và ghi chú
+gắn `[Khách tiếng Anh]` để nhân viên biết.
+
+**Không được:** tự chuyển hướng theo ngôn ngữ trình duyệt (Google chỉ thấy một bản),
+dịch lời đánh giá của khách mà không ghi "translated from Vietnamese", hay khẳng định
+điều quán chưa xác nhận (ví dụ "nhân viên nói tiếng Anh").
+
+---
+
+## 12. Kiểm tra trước khi đẩy lên
 
 Mỗi lần sửa giao diện, chạy đủ bốn bước:
 
 1. `npx @11ty/eleventy` — build không lỗi.
-2. Mở `_site` bằng trình duyệt thật ở **390px** và **1280px**.
+2. Mở `_site` bằng trình duyệt thật ở **390px** và **1280px** — cả trang tiếng Việt
+   lẫn trang `/en/` tương ứng.
 3. Kiểm tra `document.documentElement.scrollWidth - clientWidth === 0`
    (không tràn ngang) ở cả hai khổ.
 4. Parse lại JSON-LD của trang vừa sửa — schema phải còn hợp lệ.

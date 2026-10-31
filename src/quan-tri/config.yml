@@ -48,12 +48,14 @@ collections:
           - { name: khau_hieu, label: "Khẩu hiệu (dòng nhỏ trên banner)", widget: string }
           - { name: site_url, label: "Địa chỉ website (không sửa trừ khi đổi tên miền)", widget: string }
           - { name: mo_ta, label: "Mô tả website (cho Google)", widget: text }
+          - { name: mo_ta_en, label: "Mô tả website (tiếng Anh — bản /en/)", widget: text, required: false }
           - { name: dien_thoai, label: "Số điện thoại (hiển thị)", widget: string }
           - { name: dien_thoai_goi, label: "Số điện thoại (để bấm gọi, viết liền)", widget: string }
           - { name: dia_chi, label: "Địa chỉ", widget: string }
           - { name: gio_mo_cua, label: "Giờ mở cửa (Thứ Hai – Thứ Sáu)", widget: string }
           - { name: gio_cuoi_tuan, label: "Giờ mở cửa (Thứ Bảy & Chủ Nhật)", widget: string }
           - { name: gio_ghi_chu, label: "Ghi chú giờ mở cửa", widget: string }
+          - { name: gio_ghi_chu_en, label: "Ghi chú giờ mở cửa (tiếng Anh — bản /en/)", widget: string, required: false }
           - { name: facebook, label: "Link Facebook", widget: string }
           - { name: tiktok, label: "Link TikTok", widget: string }
           - { name: zalo, label: "Link Zalo", widget: string }
@@ -72,6 +74,7 @@ collections:
             fields:
               - { name: file, label: "Ảnh", widget: image }
               - { name: mota, label: "Mô tả ảnh", widget: string }
+              - { name: mota_en, label: "Mô tả ảnh (tiếng Anh — bản /en/)", widget: string, required: false }
 
       - name: menuanh
         label: "Các trang menu (ảnh thực đơn)"
@@ -84,6 +87,7 @@ collections:
             fields:
               - { name: file, label: "Ảnh trang menu", widget: image }
               - { name: mota, label: "Mô tả trang này (cho người khiếm thị và Google đọc)", widget: text, required: false }
+              - { name: mota_en, label: "Mô tả trang này (tiếng Anh — bản /en/)", widget: text, required: false }
 
       - name: danhgia
         label: "⭐ Đánh giá của khách (trích từ Google)"
@@ -98,6 +102,7 @@ collections:
               - { name: ten, label: "Tên khách (như trên Google)", widget: string }
               - { name: sao, label: "Số sao (1-5)", widget: number, default: 5, min: 1, max: 5, value_type: int }
               - { name: loi, label: "Lời đánh giá (chép đúng nguyên văn từ Google)", widget: text }
+              - { name: loi_en, label: "Bản dịch tiếng Anh của lời đánh giá (không bắt buộc — để trống thì bản /en/ hiện nguyên văn tiếng Việt)", widget: text, required: false }
 
       - name: glamping
         label: "🏕️ Trang Glamping (giá, gói, ảnh lều)"
@@ -111,35 +116,49 @@ collections:
             fields:
               - { name: file, label: "Ảnh", widget: image }
               - { name: mota, label: "Mô tả ảnh", widget: string, required: false }
+              - { name: mota_en, label: "Mô tả ảnh (tiếng Anh — bản /en/)", widget: string, required: false }
           - { name: gia_ghi_chu, label: "Ghi chú bảng giá", widget: string }
+          - { name: gia_ghi_chu_en, label: "Ghi chú bảng giá (tiếng Anh — bản /en/)", widget: string, required: false }
           - name: bang_gia
             label: "Bảng giá"
             label_singular: "bảng"
             widget: list
             fields:
               - { name: ten, label: "Tên bảng (Ngày thường / Cuối tuần)", widget: string }
+              - { name: ten_en, label: "Tên bảng (tiếng Anh — bản /en/)", widget: string, required: false }
               - { name: ngay, label: "Áp dụng ngày", widget: string }
+              - { name: ngay_en, label: "Áp dụng ngày (tiếng Anh — bản /en/)", widget: string, required: false }
               - name: muc
                 label: "Các mức giá"
                 label_singular: "mức"
                 widget: list
                 fields:
                   - { name: khach, label: "Số khách", widget: string }
-                  - { name: gia, label: "Giá", widget: string }
+                  - { name: khach_en, label: "Số khách (tiếng Anh — bản /en/)", widget: string, required: false }
+                  - { name: gia, label: "Giá (bản tiếng Anh tự đổi 690.000đ/người → 690,000 VND per person)", widget: string }
           - { name: bua_sang_mota, label: "Mô tả bữa sáng", widget: string }
+          - { name: bua_sang_mota_en, label: "Mô tả bữa sáng (tiếng Anh — bản /en/)", widget: string, required: false }
           - { name: bua_sang_mon, label: "Món ăn sáng", widget: list, field: { name: mon, label: "Món", widget: string } }
+          - { name: bua_sang_mon_en, label: "Món ăn sáng (tiếng Anh — bản /en/) — giữ cùng thứ tự với danh sách tiếng Việt", widget: list, required: false, field: { name: mon, label: "Món", widget: string } }
           - { name: bua_sang_nuoc, label: "Thức uống buổi sáng", widget: list, field: { name: mon, label: "Món", widget: string } }
+          - { name: bua_sang_nuoc_en, label: "Thức uống buổi sáng (tiếng Anh — bản /en/) — giữ cùng thứ tự với danh sách tiếng Việt", widget: list, required: false, field: { name: mon, label: "Món", widget: string } }
           - { name: bua_toi_mota, label: "Mô tả bữa tối", widget: string }
+          - { name: bua_toi_mota_en, label: "Mô tả bữa tối (tiếng Anh — bản /en/)", widget: string, required: false }
           - name: bbq
             label: "Món BBQ – Lẩu buổi tối"
             label_singular: "món"
             widget: list
             fields:
               - { name: mon, label: "Tên món", widget: string }
+              - { name: mon_en, label: "Tên món (tiếng Anh — bản /en/)", widget: string, required: false }
               - { name: luong, label: "Định lượng", widget: string }
+              - { name: luong_en, label: "Định lượng (tiếng Anh — bản /en/)", widget: string, required: false }
           - { name: checkin, label: "Thời gian nhận lều (Check-in)", widget: string }
+          - { name: checkin_en, label: "Thời gian nhận lều (tiếng Anh — bản /en/)", widget: string, required: false }
           - { name: checkout, label: "Thời gian trả lều (Check-out)", widget: string }
+          - { name: checkout_en, label: "Thời gian trả lều (tiếng Anh — bản /en/)", widget: string, required: false }
           - { name: luu_y, label: "Các lưu ý", widget: list, field: { name: y, label: "Lưu ý", widget: string } }
+          - { name: luu_y_en, label: "Các lưu ý (tiếng Anh — bản /en/)", widget: list, required: false, field: { name: y, label: "Lưu ý", widget: string } }
 
       - name: chuyenhuong
         label: "↪️ Chuyển hướng trang cũ"

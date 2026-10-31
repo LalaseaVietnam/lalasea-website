@@ -1,0 +1,393 @@
+---
+permalink: /en/
+ban_dich: /
+---
+{#- Bản tiếng Anh của trang chủ (src/index.njk). Sửa nội dung bên tiếng Việt
+    thì nhớ sửa tương ứng ở đây. Phần tin tức không có ở bản này vì bài viết
+    hiện chỉ có tiếng Việt. -#}
+
+<!-- ===== HERO — AUTO SLIDESHOW ===== -->
+<section class="hero">
+  <div class="hero-slides" id="hero-slides">
+    <div class="slide-bg active"><img src="/hero.jpg" alt="Lalasea Bistro's seaside dining area in Ha Tien"></div>
+    <div class="slide-bg"><img src="/anh/hoang-hon-vong-bai-co-lalasea-ha-tien.jpg" alt="Hammocks and rattan swings at the water's edge at sunset, Lalasea Bistro Ha Tien" loading="lazy"></div>
+    <div class="slide-bg"><img src="/anh/img2.jpg" alt="Lalasea at night under glowing string lights" loading="lazy"></div>
+    <div class="slide-bg"><img src="/anh/hoang-hon-bien-to-chau-lalasea-ha-tien.jpg" alt="Sunset over To Chau beach seen from Lalasea Bistro Ha Tien" loading="lazy"></div>
+  </div>
+  <svg class="logo-svg" width="95" height="194"><use href="#lalasea-logo"/></svg>
+  <div class="script">Good food, sea breeze, ocean view</div>
+  <h1>LALASEA BISTRO</h1>
+  <p>An open-air restaurant right on To Chau beach in Ha Tien, Vietnam — a varied menu, fair prices, and a sea view from every table.</p>
+  <div class="hero-actions">
+    <a href="#book" class="btn btn-lg">Book a table</a>
+    <a href="/en/menu/" class="btn btn-ghost">See the menu</a>
+  </div>
+  <div class="hero-dots" id="hero-dots">
+    <button class="active" aria-label="Photo 1"></button>
+    <button aria-label="Photo 2"></button>
+    <button aria-label="Photo 3"></button>
+    <button aria-label="Photo 4"></button>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container about">
+    <div class="about-collage reveal">
+      <div class="main-photo"><img src="/anh/img3.jpg" alt="Lalasea Beach Bar in the evening with string lights" loading="lazy"></div>
+      <div class="sub-photo"><img src="/anh/img5.jpg" alt="Picnic lawn by the sea" loading="lazy"></div>
+    </div>
+    <div class="about-text reveal">
+      <span class="script-accent">The Lalasea story</span>
+      <h2>"Lala" is a happy tune,<br>"sea" is the sea</h2>
+      <p>Lalasea sits right at the edge of To Chau beach in Ha Tien. There are no walls — just shady trees, the sea breeze and the sound of waves behind your table.</p>
+      <p>Dinner under string lights, a night in a wooden tent, sunrise right outside your tent — Lalasea hopes you'll stay for more than just a meal.</p>
+      <p>The menu runs from seafood, snails and shellfish to grilled dishes, hotpot, beef, chicken and rice, so groups of friends and families looking for a good place to eat in Ha Tien can all find something they like, at easy prices.</p>
+      <a href="#gallery" class="btn" style="margin-top:8px;">See the place 📸</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SIGNATURE DISHES + MENU TEASER ===== -->
+<section id="signature" class="menu-sec">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="script-accent">Have a look at the menu!</span>
+      <h2>Signature dishes</h2>
+    </div>
+    <div class="menu-grid reveal">
+      <div class="dish">
+        <div class="emoji">🍖</div>
+        <h3>Spicy Pork Ribs</h3>
+        <div class="en" lang="vi">Sườn cay</div>
+        <div class="sizes">
+          <div class="size-chip"><span class="sz">Size M</span><span class="pr">289,000 VND</span></div>
+          <div class="size-chip"><span class="sz">Size L</span><span class="pr">389,000 VND</span></div>
+          <div class="size-chip"><span class="sz">Size XL</span><span class="pr">489,000 VND</span></div>
+        </div>
+      </div>
+      <div class="dish">
+        <div class="emoji">🦀</div>
+        <h3>Crab in Curry Sauce</h3>
+        <div class="en" lang="vi">Cà ri cua</div>
+        <div class="market">Market price <small lang="vi">Theo thời giá</small></div>
+      </div>
+      <div class="dish">
+        <div class="emoji">🦞</div>
+        <h3>Mixed Seafood Bucket</h3>
+        <div class="en" lang="vi">Hải sản xô</div>
+        <div class="sizes">
+          <div class="size-chip"><span class="sz">Size M</span><span class="pr">289,000 VND</span></div>
+          <div class="size-chip"><span class="sz">Size L</span><span class="pr">389,000 VND</span></div>
+          <div class="size-chip"><span class="sz">Size XL</span><span class="pr">489,000 VND</span></div>
+        </div>
+      </div>
+      <div class="dish">
+        <div class="emoji">🥗</div>
+        <h3>Herring Salad</h3>
+        <div class="en" lang="vi">Gỏi cá trích</div>
+        <div class="price">189,000 VND</div>
+      </div>
+    </div>
+
+    <div class="menu-teaser reveal">
+      <a href="/en/menu/" aria-label="See the menu"><img src="/menu/thumb1.jpg" alt="Lalasea Bistro Ha Tien menu — cover page" loading="lazy"></a>
+      <a href="/en/menu/" aria-label="See the menu"><img src="/menu/thumb3.jpg" alt="Appetizers, salads and vegetables menu page — Lalasea Bistro" loading="lazy"></a>
+      <a href="/en/menu/" aria-label="See the menu"><img src="/menu/thumb5.jpg" alt="Live seafood menu page with prices — Lalasea Bistro" loading="lazy"></a>
+    </div>
+    <div class="menu-cta reveal">
+      <a href="/en/menu/" class="btn btn-lg">📖 See the full menu</a>
+      <p class="note">All {{ menuanh.trang.length }} pages, with every dish named in Vietnamese and English — swipe through them like a real menu.<br>Lalasea also has a pre-order <strong>Party Menu</strong> — call <a href="tel:+84{{ thongtin.dien_thoai_goi | replace('0', '', 1) }}">{{ thongtin.dien_thoai | sdtQuocTe }}</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCES ===== -->
+<section id="experiences" class="exp">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="script-accent">More than just a meal</span>
+      <h2>The Lalasea experience</h2>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="bg"><img src="/anh/bun-hai-san-lalasea-ha-tien.jpg" alt="Seafood noodle soup with shrimp, squid and fish cake at Lalasea, Ha Tien" loading="lazy"></div>
+        <div class="veil"></div>
+        <div class="nd"><div class="ei">🍤</div><h3>A varied menu</h3><p>Seafood, snails and shellfish, grilled dishes, hotpot, beef, chicken and rice — something for everyone at the table.</p></div>
+      </div>
+      <a class="exp-card reveal" href="/en/glamping/">
+        <div class="bg"><img src="/uploads/585bccbb09ef89b1d0fe5.jpg" alt="Ha Tien glamping — A-frame wooden tent in the Lalasea grounds" loading="lazy"></div>
+        <div class="veil"></div>
+        <div class="nd"><div class="ei">⛺</div><h3>Camping &amp; Glamping</h3><p>Sleep in an air-conditioned wooden tent in the grounds, a few dozen metres from the sea — packages from 490,000 VND per person including breakfast + BBQ dinner. See prices →</p></div>
+      </a>
+      <div class="exp-card reveal">
+        <div class="bg"><img src="/anh/beach-bar-lalasea-ha-tien.jpg" alt="Lalasea Beach Bar in Ha Tien at night with its neon sign" loading="lazy"></div>
+        <div class="veil"></div>
+        <div class="nd"><div class="ei">🍹</div><h3>Beach Bar</h3><p>Sip a drink and watch the sunset by the sea under twinkling string lights.</p></div>
+      </div>
+      <a class="exp-card reveal" href="/en/events/">
+        <div class="bg"><img src="/anh/tiec-ngoai-troi-ben-bien-lalasea-ha-tien.jpg" alt="Seaside outdoor party area with Chiavari chairs at Lalasea, Ha Tien" loading="lazy"></div>
+        <div class="veil"></div>
+        <div class="nd"><div class="ei">💒</div><h3>Weddings &amp; Events</h3><p>Weddings, birthdays and parties by the sea — with a sea-facing stage and tables and chairs ready to go. See event services →</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery" class="gallery">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="script-accent">Places &amp; moments</span>
+      <h2>Photo gallery</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      {% for item in thuvien.anh %}
+      <div class="tile"><img src="{{ item.file }}" alt="{{ item.mota_en or item.mota }}" loading="lazy"><div class="cap">{{ item.mota_en or item.mota }}</div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section id="reviews" class="dgia">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="script-accent">Your smile is our five stars</span>
+      <h2>What guests say about Lalasea</h2>
+    </div>
+    {% if danhgia.khach.length > 0 %}
+    <div class="dgia-grid reveal">
+      {% for d in danhgia.khach %}
+      <div class="dgia-card">
+        <div class="sao">{% for i in range(0, d.sao) %}★{% endfor %}</div>
+        {#- Có bản dịch thì hiện bản dịch, ghi rõ là dịch; chưa có thì giữ nguyên văn tiếng Việt #}
+        {% if d.loi_en %}<p class="loi">"{{ d.loi_en }}"</p>{% else %}<p class="loi" lang="vi">"{{ d.loi }}"</p>{% endif %}
+        <div class="ten">— {{ d.ten }} · <span>Google Maps{% if d.loi_en %} · translated from Vietnamese{% endif %}</span></div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="dgia-cta reveal">
+      <p>Been to Lalasea? A review from you means a lot to us 💙</p>
+      <div>
+        <a href="{{ thongtin.google_review }}" target="_blank" rel="noopener" class="btn btn-lg">⭐ Review us on Google</a>
+        <a href="{{ thongtin.maps }}" target="_blank" rel="noopener" class="btn btn-ghost dgia-ghost">Read all reviews</a>
+      </div>
+      <p class="gop-y">Something not quite right? <a href="{{ thongtin.zalo }}" target="_blank" rel="noopener">Message the manager privately on Zalo</a> — we listen and fix things right away.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq" class="faq">
+  <div class="container" style="max-width:800px;">
+    <div class="section-title reveal">
+      <span class="script-accent">You ask — Lalasea answers</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details>
+        <summary>Where is Lalasea Bistro in Ha Tien?</summary>
+        <p>Lalasea Bistro is on National Road 80 (QL80) in To Chau ward, Ha Tien (An Giang province) — right on the seafront, just a few minutes' drive from central Ha Tien. Tap "Directions" on this website to open Google Maps and get directions to the door.</p>
+      </details>
+      <details>
+        <summary>What are the opening hours? Are you open on holidays?</summary>
+        <p>We're open every day, including public holidays and Tết (Lunar New Year). Monday to Friday we open from 08:00, Saturday and Sunday a little earlier from 07:00, and we close at 23:00.</p>
+      </details>
+      <details>
+        <summary>Is the menu available in English?</summary>
+        <p>Yes. Every dish on the Lalasea menu is listed in both Vietnamese and English, with prices. You can browse all {{ menuanh.trang.length }} pages on our <a href="/en/menu/">Menu</a> page before you come.</p>
+      </details>
+      <details>
+        <summary>How do I book a table or a party at Lalasea?</summary>
+        <p>Fill in the booking form on this page, or call / message us on Zalo at <a href="tel:+84{{ thongtin.dien_thoai_goi | replace('0', '', 1) }}"><strong>{{ thongtin.dien_thoai | sdtQuocTe }}</strong></a>. For weddings, birthdays and company parties there is a separate pre-order Party Menu tailored to your budget — see <a href="/en/events/">Events</a> for details.</p>
+      </details>
+      <details>
+        <summary>Can I stay overnight at Lalasea? How much is it?</summary>
+        <p>Yes! Lalasea has a glamping area with fully air-conditioned, furnished wooden tents inside the restaurant grounds, just a few dozen metres from the sea. Packages start from <strong>490,000 VND per person</strong> (groups of 5–6, weekdays) and include breakfast and a BBQ – hotpot dinner. Check-in from 14:00, check-out before 12:00 the next day. See the <a href="/en/glamping/">Glamping</a> page for details — call ahead to hold a tent, as there are only a few.</p>
+      </details>
+      <details>
+        <summary>How much do dishes cost at Lalasea?</summary>
+        <p>Most main dishes are around <strong>100,000 – 300,000 VND</strong>. Large seafood portions and dishes sold at the day's market price cost more, and staff always tell you the price before you order. All 14 menu pages with prices are on the <a href="/en/menu/">Menu</a> page.</p>
+      </details>
+      <details>
+        <summary>I don't eat seafood — what else is there?</summary>
+        <p>Plenty. Besides seafood the menu has spicy pork ribs, diced beef steak (bò lúc lắc), Vietnamese sizzling beef (bò né), Hong Kong-style salt &amp; pepper chicken cartilage, fish sauce-glazed chicken wings, crispy fried frog, hotpot, rice and lots of other dishes to share — so big groups with different tastes can still eat together. See every dish on the <a href="/en/menu/">Menu</a> page.</p>
+      </details>
+      <details>
+        <summary>Are Lalasea Bistro Camping and Lalasea Bistro the same place?</summary>
+        <p><strong>Yes, it's one place.</strong> Lalasea Bistro is an <strong>open-air beachfront restaurant</strong> on National Road 80, To Chau ward, Ha Tien — and inside the restaurant grounds there's a <a href="/en/glamping/">glamping area with air-conditioned wooden tents</a>. Because we serve food and also have places to sleep, booking sites often list us as <em>"Lalasea Bistro Camping"</em>, while maps and social media usually just say <em>"Lalasea"</em>. They all mean the same place, with the same phone number, <strong>{{ thongtin.dien_thoai | sdtQuocTe }}</strong>.</p>
+        <p>Table bookings, overnight tents and <a href="/en/events/">weddings and events</a> all go through that one number: eat and sleep in the same grounds.</p>
+      </details>
+      <details>
+        <summary>Is Lalasea in Kien Giang or An Giang province?</summary>
+        <p>We haven't moved — we're still on National Road 80, To Chau ward, Ha Tien. Before July 2025 Ha Tien belonged to Kien Giang province; after the provinces merged, Ha Tien is now part of <strong>An Giang</strong> province. Only the province name changed — Lalasea's location, directions and phone number are the same.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "en",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is Lalasea Bistro in Ha Tien?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Lalasea Bistro is on National Road 80 (QL80) in To Chau ward, Ha Tien (An Giang province, Vietnam) — right on the seafront, just a few minutes' drive from central Ha Tien." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the opening hours? Are you open on holidays?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Lalasea is open every day, including public holidays and Tết (Lunar New Year). Monday to Friday from 08:00, Saturday and Sunday from 07:00, closing at 23:00." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the menu available in English?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every dish on the Lalasea menu is listed in both Vietnamese and English, with prices. All menu pages can be viewed on the website before you visit." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book a table or a party at Lalasea?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Fill in the booking form at lalasea.vn/en/ or call / message on Zalo at {{ thongtin.dien_thoai | sdtQuocTe }}. Weddings, birthdays and company parties have a separate pre-order Party Menu." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I stay overnight at Lalasea? How much is it?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Lalasea has a glamping area with air-conditioned wooden tents inside the restaurant grounds, a few dozen metres from the sea. Packages start from 490,000 VND per person and include breakfast and a BBQ – hotpot dinner. Check-in from 14:00, check-out before 12:00 the next day. Call {{ thongtin.dien_thoai | sdtQuocTe }} to hold a tent." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do dishes cost at Lalasea?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most main dishes at Lalasea are around 100,000 to 300,000 VND. Large seafood portions and dishes sold at the day's market price cost more, and the price is always given before you order. All 14 menu pages with prices are on the website." }
+    },
+    {
+      "@type": "Question",
+      "name": "I don't eat seafood — what else is there?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Besides seafood, the Lalasea menu has spicy pork ribs, diced beef steak, Vietnamese sizzling beef, Hong Kong-style salt and pepper chicken cartilage, fish sauce-glazed chicken wings, crispy fried frog, hotpot, rice and many other dishes to share, so groups with different tastes can eat together." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are Lalasea Bistro Camping and Lalasea Bistro the same place?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, it's one place. Lalasea Bistro is an open-air beachfront restaurant on National Road 80, To Chau ward, Ha Tien, and inside the restaurant grounds there is a glamping area with air-conditioned wooden tents. Booking sites often list it as “Lalasea Bistro Camping”, while maps and social media usually say “Lalasea”. They are the same place with the same phone number, {{ thongtin.dien_thoai | sdtQuocTe }}." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Lalasea in Kien Giang or An Giang province?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Lalasea is still on National Road 80, To Chau ward, Ha Tien. Before July 2025 Ha Tien belonged to Kien Giang province; after the provinces merged, Ha Tien is part of An Giang province. Only the province name changed — the location and phone number are the same." }
+    }
+  ]
+}
+</script>
+
+<!-- ===== BOOK A TABLE ===== -->
+<section id="book" class="booking">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="script-accent">Save your seat</span>
+      <h2>Book a table</h2>
+    </div>
+    <form id="booking-form" class="booking-form reveal">
+      <div class="row">
+        <label>Name<input name="ten" required autocomplete="name"></label>
+        <label>Phone number<input name="sdt" type="tel" required autocomplete="tel" placeholder="Include country code, e.g. +44…"></label>
+      </div>
+      <div class="row">
+        <label>Guests<input name="sokhach" type="number" min="1" value="2"></label>
+        <label>Date &amp; time<input name="thoigian" type="datetime-local"></label>
+      </div>
+      <label>Notes<textarea name="ghichu" rows="3" placeholder="e.g. table near the sea, children with us, a birthday..."></textarea></label>
+      <button type="submit" class="btn">Send booking request</button>
+      <p id="booking-msg" class="booking-msg"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== VISIT LALASEA ===== -->
+<section id="visit" class="visit">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="script-accent">Come and see us</span>
+      <h2>Visit Lalasea</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card reveal">
+        <div class="info-row">
+          <div class="ic">📍</div>
+          <div><strong>Address</strong><span>{{ thongtin.dia_chi }}, Vietnam</span></div>
+        </div>
+        <div class="info-row">
+          <div class="ic">🕘</div>
+          <div><strong>Opening hours</strong><span>Monday – Friday: {{ thongtin.gio_mo_cua }}<br>Saturday &amp; Sunday: {{ thongtin.gio_cuoi_tuan }}<br>{{ thongtin.gio_ghi_chu_en or thongtin.gio_ghi_chu }}</span></div>
+        </div>
+        <div class="info-row" style="margin-bottom:8px;">
+          <div class="ic">📞</div>
+          <div><strong>Bookings &amp; events hotline</strong>
+            <a class="hotline" href="tel:+84{{ thongtin.dien_thoai_goi | replace('0', '', 1) }}">{{ thongtin.dien_thoai | sdtQuocTe }}</a>
+          </div>
+        </div>
+        <a href="tel:+84{{ thongtin.dien_thoai_goi | replace('0', '', 1) }}" class="btn">Call now</a>
+        <a href="{{ thongtin.chi_duong }}" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-left:10px;">Directions 🗺️</a>
+      </div>
+      <div class="visit-map reveal">
+        <iframe src="https://www.google.com/maps?q=Lalasea+Bistro+QL80+To+Chau+Ha+Tien&output=embed&hl=en" loading="lazy" title="Map showing the way to Lalasea Bistro" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SLIDESHOW + BOOKING SUBMIT ===== -->
+<script>
+  // Banner tự trượt ảnh
+  (function () {
+    var slides = document.querySelectorAll('#hero-slides .slide-bg');
+    var dots = document.querySelectorAll('#hero-dots button');
+    var cur = 0, timer;
+    function show(i) {
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+      cur = (i + slides.length) % slides.length;
+      slides[cur].classList.add('active');
+      dots[cur].classList.add('active');
+    }
+    function auto() { timer = setInterval(function () { show(cur + 1); }, 5500); }
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () { clearInterval(timer); show(i); auto(); });
+    });
+    auto();
+  })();
+
+  // Gửi đặt bàn vào cùng Google Sheet với bản tiếng Việt. Đánh dấu "[Khách tiếng Anh]"
+  // vào ghi chú để nhân viên biết cần trả lời bằng tiếng Anh.
+  const BOOKING_URL = "{{ thongtin.booking_url }}";
+  const form = document.getElementById('booking-form');
+  const msg = document.getElementById('booking-msg');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!BOOKING_URL) {
+      msg.style.color = '#c0392b';
+      msg.textContent = 'Online booking is not available right now — please call {{ thongtin.dien_thoai | sdtQuocTe }}.';
+      return;
+    }
+    msg.style.color = '#0b4f6c';
+    msg.textContent = 'Sending...';
+    var data = Object.fromEntries(new FormData(form).entries());
+    data.ghichu = '[Khách tiếng Anh] ' + (data.ghichu || '');
+    fetch(BOOKING_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data)
+    }).then(function () {
+      msg.style.color = '#1b9aaa';
+      msg.textContent = 'Request sent! The restaurant will contact you soon. Thank you 🌊';
+      form.reset();
+    }).catch(function () {
+      msg.style.color = '#c0392b';
+      msg.textContent = 'Something went wrong. Please call {{ thongtin.dien_thoai | sdtQuocTe }}.';
+    });
+  });
+</script>
