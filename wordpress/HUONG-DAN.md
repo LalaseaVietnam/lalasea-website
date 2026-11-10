@@ -17,6 +17,7 @@ phần quản trị đổi từ `lalasea.vn/quan-tri` sang `lalasea.vn/wp-admin`
 | Lưu mọi màn hình "Thông tin nhà hàng" không sửa gì | Dữ liệu khớp từng ký tự với bản gốc |
 | Đường dẫn cũ (`/gioi-thieu-menu/`…) | Chuyển hướng **301 thật** (tốt hơn trang mồi của GitHub Pages) |
 | Triển khai tự động vào một "hosting giả" (WordPress vừa cài một chạm, cấu trúc cPanel, FTP) | Tự tìm thư mục, giữ dòng PHP của hosting trong `.htaccess`, kích hoạt xong ngay lượt đầu (không lỗi 500), 16/16 trang giống hệt; chạy lại lần 2 an toàn |
+| Cài tay đúng như hướng dẫn trên WordPress mới cài (tải theme qua trang quản trị, giải nén gói ảnh) | Kích hoạt tự làm hết: 11 trang, 5 bài, tiếng Việt, `.htaccess`; khung đỏ nhắc khi thiếu ảnh và tự mất khi đủ; 16/16 trang giống hệt; ảnh tải đúng đường dẫn cũ |
 | Triển khai đè lên WordPress cũ có trang trùng tên | Trang cũ được gắn đúng giao diện; bài cũ còn lại được công cụ so sánh báo rõ |
 
 Tự chạy lại các phép so sánh — xem mục "Cho người lập trình" ở cuối.
@@ -45,18 +46,19 @@ nhờ người lập trình, hoặc nhờ Claude. Trong mục **Trang**, các tr
 
 Trang **Bảng tin** (vào `/wp-admin` là thấy ngay) có sẵn lối tắt tới các việc hay làm.
 
-## Các bước chuyển (không làm web gián đoạn)
+## Các bước chuyển (không cần GitHub)
 
-Việc chuyển gần như tự động: GitHub Actions có sẵn workflow **"Triển khai WordPress"**
-(`.github/workflows/wordpress.yml`) đưa theme, ảnh, biểu tượng lên hosting qua FTP, tự
-kích hoạt (bật theme, dựng 11 trang + bài viết, cài tiếng Việt cho trang quản trị, ghi
-`.htaccess`), rồi **so từng trang trên hosting với web hiện tại** — khác là báo đỏ.
-Không cần tải zip, giải nén hay bấm kích hoạt bằng tay.
+Bạn chỉ cần **2 file** và làm trong trang quản lý hosting + trang quản trị WordPress.
+Trong suốt quá trình, web cũ vẫn chạy bình thường cho tới bước 4.
 
-Chủ quán chỉ làm những việc cần **đăng nhập**. Trong suốt quá trình, web cũ trên GitHub
-Pages vẫn chạy bình thường cho tới bước 4.
+| File | Dùng để |
+|---|---|
+| `lalasea-theme.zip` (khoảng 110KB) | Giao diện web — tải lên trong WordPress |
+| `thu-muc-goc-web.zip` (khoảng 31MB) | Ảnh, menu, biểu tượng — giải nén vào thư mục gốc của web |
 
-### Bước 1 — Cài WordPress trên hosting (chủ quán)
+Hai file do Claude tạo và gửi (người lập trình tạo bằng `bash wordpress/tools/dong-goi.sh`).
+
+### Bước 1 — Cài WordPress trên hosting
 
 - Hosting cần: PHP 8.0 trở lên, MySQL/MariaDB, SSL miễn phí (Let's Encrypt). Gói
   "WordPress hosting" của Mắt Bão / iNET đều đủ.
@@ -64,57 +66,65 @@ Pages vẫn chạy bình thường cho tới bước 4.
   WordPress Toolkit, "Cài đặt ứng dụng"...). Chọn tên miền `lalasea.vn`, giao thức
   **https://**, cài vào **thư mục gốc** (không điền thư mục con).
 - Tên đăng nhập quản trị: **không** dùng `admin`; mật khẩu dài, ngẫu nhiên.
-- Nếu hosting **còn WordPress cũ**: báo lại. Theme tự gắn đúng giao diện cho các trang
-  trùng tên, nhưng bài viết cũ vẫn nằm trong danh sách tin — cần chủ quán quyết định
-  giữ hay xoá.
+- Nếu hosting **còn WordPress cũ**: dùng luôn cũng được. Theme tự gắn đúng giao diện
+  cho các trang trùng tên; riêng bài viết cũ vẫn hiện trong mục Tin tức — tự quyết
+  giữ hay xoá ở **Tin tức & Ưu đãi**.
 
-### Bước 2 — Tạo tài khoản FTP và ghi lại IP hosting (chủ quán)
+### Bước 2 — Đưa ảnh lên (File Manager)
 
-- Trong trang quản lý hosting → **FTP Accounts** (Tài khoản FTP): tạo một tài khoản
-  riêng cho web, ví dụ `trienkhai@lalasea.vn`. Không dùng mật khẩu hosting chính.
-- Ghi lại **máy chủ FTP** (thường là `ftp.lalasea.vn` hoặc IP) và **IP của hosting**
-  (hiện ở trang thông tin gói hosting).
+Trang quản lý hosting → **File Manager** → mở thư mục có file `wp-config.php` (thường là
+`public_html`) → **Upload** file `thu-muc-goc-web.zip` → chọn file vừa tải → **Extract**
+(Giải nén). Xong sẽ thấy các thư mục `anh`, `menu`, `uploads` và file `hero.jpg` nằm cạnh
+`wp-config.php`.
 
-### Bước 3 — Khai báo vào GitHub (chủ quán) → Claude triển khai
+### Bước 3 — Tải giao diện lên và bật
 
-GitHub → kho `lalasea-website` → **Settings → Secrets and variables → Actions**:
+Vào `https://lalasea.vn/wp-admin` (trước khi trỏ tên miền thì dùng địa chỉ tạm hosting
+cấp) → **Giao diện → Thêm mới → Tải giao diện lên** → chọn `lalasea-theme.zip` →
+**Cài đặt** → **Kích hoạt**.
 
-| Tab | Tên | Giá trị |
-|---|---|---|
-| Secrets | `WP_FTP_HOST` | máy chủ FTP |
-| Secrets | `WP_FTP_USER` | tài khoản FTP |
-| Secrets | `WP_FTP_PASS` | mật khẩu FTP |
-| Variables | `WP_IP` | IP của hosting (cần trong lúc tên miền chưa trỏ sang) |
+Bấm Kích hoạt là theme **tự làm hết**: tạo 11 trang (Việt + Anh), nạp 5 bài tin tức, đặt
+trang chủ, đường dẫn `/tin-tuc/<tên-bài>/`, ghi `.htaccess`, chuyển trang quản trị sang
+tiếng Việt. Không cần vào Cài đặt chỉnh gì.
 
-Secrets được GitHub mã hoá, không ai đọc lại được — kể cả Claude. **Đừng gửi mật khẩu
-qua tin nhắn.** Nhập xong thì nhắn Claude "đã khai báo xong": Claude chạy workflow, đọc
-kết quả, sửa lỗi nếu có, và báo khi cả 16 trang trên hosting giống hệt web hiện tại.
+Nếu Bảng tin hiện khung đỏ **"Web chưa có ảnh ở thư mục gốc"**: bước 2 chưa xong hoặc
+giải nén nhầm chỗ — làm lại bước 2, khung đỏ tự mất.
 
-Nếu hosting chỉ cho SFTP (cổng 22) hoặc bắt buộc FTPS: thêm Variable `WP_FTP_GIAO_THUC`
-= `sftp` / `ftps`. Nếu script không tự tìm ra thư mục WordPress: thêm `WP_THU_MUC`.
-
-### Bước 4 — Trỏ tên miền (chủ quán) → Claude kiểm tra lần cuối
+### Bước 4 — Trỏ tên miền và bật SSL
 
 - Ở nơi quản lý tên miền `lalasea.vn` (iNET hoặc Mắt Bão): sửa bản ghi **A** của `@`
   và `www` sang IP hosting (thay cho 4 IP `185.199.108–111.153` của GitHub Pages).
   **Không đụng tới bản ghi MX/TXT** — đó là email.
-- Sau 5–60 phút, vào trang quản lý hosting bật **SSL / AutoSSL / Let's Encrypt** cho
+- Sau 5–60 phút, trong trang quản lý hosting bật **SSL / AutoSSL / Let's Encrypt** cho
   `lalasea.vn` và `www.lalasea.vn`.
-- Nhắn Claude: Claude kiểm tra trên tên miền thật (https, www → không www, chuyển hướng
-  301, sitemap, robots, so lại 16 trang) và gỡ biến `WP_IP`.
+- Mở thử lalasea.vn trên điện thoại và máy tính. Gửi lại `https://lalasea.vn/sitemap.xml`
+  trong Google Search Console.
 
-### Sau khi chạy ổn (chủ quán)
+Từ đây mọi việc làm ở `lalasea.vn/wp-admin`. Báo Bing/ChatGPT (IndexNow) đã tự động —
+theme tự báo khi đăng/sửa bài hoặc lưu "Thông tin nhà hàng".
 
-- Google Search Console: gửi lại `https://lalasea.vn/sitemap.xml`.
-- GitHub → Settings → Pages: gỡ tên miền riêng, để kho chỉ còn là nơi lưu mã nguồn.
-- Báo IndexNow (Bing, ChatGPT) **đã tự động**: theme tự báo mỗi khi đăng/sửa bài hoặc
-  lưu "Thông tin nhà hàng" — không cần cài thêm plugin.
+### Nếu có chỗ chưa tự làm được
 
-### Mỗi lần sửa theme sau này
+Một số hosting chặn ghi file. Khi đó:
 
-Đẩy lên nhánh `main` là workflow tự đưa bản mới lên hosting và so lại từng trang. Dữ
-liệu chủ quán đã lưu trong `/wp-admin` không bị ghi đè — file JSON trong theme chỉ là
-dữ liệu ban đầu.
+- Trang quản trị vẫn tiếng Anh → **Settings → General → Site Language** → Tiếng Việt → Save.
+- Bài viết báo "Không tìm thấy" → **Cài đặt → Đường dẫn tĩnh** → bấm **Lưu** (không sửa gì).
+
+### Cập nhật giao diện sau này
+
+Nhận file `lalasea-theme.zip` mới → **Giao diện → Thêm mới → Tải giao diện lên** → chọn
+file → WordPress hỏi thì chọn **"Thay thế bản hiện tại bằng bản tải lên"**. Dữ liệu đã
+lưu trong "Thông tin nhà hàng" và bài viết không bị ảnh hưởng.
+
+### Phụ lục — triển khai tự động qua GitHub (không bắt buộc)
+
+Dành cho người lập trình muốn mỗi lần sửa code là tự đưa lên hosting. Workflow
+**"Triển khai WordPress"** (`.github/workflows/wordpress.yml`) đưa theme + ảnh lên qua
+FTP, tự kích hoạt (plugin chạy một lần rồi tự xoá), rồi so từng trang trên hosting với
+web hiện tại. Cần khai báo trong GitHub → Settings → Secrets and variables → Actions:
+Secrets `WP_FTP_HOST`, `WP_FTP_USER`, `WP_FTP_PASS`; Variables (tuỳ chọn) `WP_IP`,
+`WP_FTP_GIAO_THUC` (`ftp`/`ftps`/`sftp`), `WP_FTP_PORT`, `WP_THU_MUC`. Chưa khai báo
+thì workflow tự bỏ qua.
 
 ## Cấp quyền cho bên marketing (TOMAZ)
 

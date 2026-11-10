@@ -62,6 +62,12 @@ node wordpress/tools/chep-tu-eleventy.mjs
 
 # ---------- 2. Tìm thư mục WordPress ----------
 buoc "Kết nối $FTP_GIAO_THUC://$FTP_HOST:$FTP_PORT và tìm thư mục WordPress"
+if ! loi_ket_noi="$(ftp_ "cls -1 ." 2>&1 >/dev/null)"; then
+  do_ "Không kết nối hoặc không đăng nhập được FTP: ${loi_ket_noi:-không rõ lý do}"
+  do_ "→ Kiểm tra lại máy chủ, tài khoản, mật khẩu FTP (WP_FTP_HOST / WP_FTP_USER / WP_FTP_PASS),"
+  do_ "  và giao thức: hosting chỉ cho SFTP thì đặt WP_FTP_GIAO_THUC=sftp."
+  exit 1
+fi
 ten_mien="$(node -p "new URL('$WP_DIA_CHI').hostname")"
 if [ -n "${WP_THU_MUC:-}" ]; then
   ung_vien=("$WP_THU_MUC")

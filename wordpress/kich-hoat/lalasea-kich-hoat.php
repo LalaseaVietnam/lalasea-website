@@ -8,8 +8,8 @@
  * đăng nhập trang quản trị để bật. Sau đó script mở trang chủ vài lần:
  *
  *   Lần 1: bật theme Lalasea.
- *   Lần 2: theme đã chạy → dựng trang, bài (lalasea_cai_dat_mau), cài tiếng Việt
- *          cho trang quản trị, ghi .htaccess, đánh dấu đã xong và tự xoá.
+ *   Lần 2: theme đã chạy → lalasea_cai_dat_mau() dựng trang, bài, ghi .htaccess,
+ *          cài tiếng Việt cho trang quản trị; đánh dấu đã xong và tự xoá.
  *
  * Chạy lại nhiều lần vẫn an toàn: mọi bước đều bỏ qua phần đã làm.
  *
@@ -48,18 +48,8 @@ function lalasea_kich_hoat_lan_dau() {
 	if ( ! function_exists( 'lalasea_cai_dat_mau' ) ) {
 		return;
 	}
+	// Dựng trang + bài, ghi .htaccess, cài tiếng Việt — cùng một bước với khi bật theme bằng tay.
 	lalasea_cai_dat_mau();
-
-	// Trang quản trị bằng tiếng Việt.
-	require_once ABSPATH . 'wp-admin/includes/file.php';
-	require_once ABSPATH . 'wp-admin/includes/translation-install.php';
-	if ( 'vi' === wp_download_language_pack( 'vi' ) ) {
-		update_option( 'WPLANG', 'vi' );
-	}
-
-	// Ghi luật đường dẫn đẹp vào .htaccess (nếu máy chủ cho phép).
-	require_once ABSPATH . 'wp-admin/includes/misc.php';
-	flush_rewrite_rules( true );
 
 	update_option( 'lalasea_da_kich_hoat', gmdate( 'c' ), false );
 	lalasea_kich_hoat_tu_xoa();

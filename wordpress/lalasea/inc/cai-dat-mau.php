@@ -4,7 +4,8 @@
  *
  * - 5 trang tiếng Việt + 5 trang tiếng Anh (/en/...), gắn đúng template;
  * - các bài tin tức hiện có (seed/baiviet.json);
- * - trang chủ, trang tin tức, cấu trúc đường dẫn giống hệt web cũ.
+ * - trang chủ, trang tin tức, cấu trúc đường dẫn giống hệt web cũ (ghi luôn .htaccess);
+ * - trang quản trị bằng tiếng Việt.
  *
  * Chạy lại nhiều lần vẫn an toàn: trang/bài đã có thì bỏ qua, không ghi đè.
  * Chạy tay bằng WP-CLI: wp eval 'lalasea_cai_dat_mau();'
@@ -217,7 +218,38 @@ function lalasea_cai_dat_mau() {
 		}
 	}
 
-	flush_rewrite_rules();
+	lalasea_ghi_duong_dan();
+	lalasea_cai_tieng_viet();
+}
+
+/**
+ * Sinh lại luật đường dẫn và ghi vào .htaccess (nếu máy chủ là Apache/LiteSpeed và
+ * file ghi được) — để không phải vào Cài đặt → Đường dẫn tĩnh bấm Lưu.
+ *
+ * Lúc kích hoạt theme, WordPress chưa nạp các hàm ghi .htaccess của trang quản trị,
+ * nên phải nạp tay trước khi gọi flush_rewrite_rules().
+ */
+function lalasea_ghi_duong_dan() {
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/misc.php';
+	flush_rewrite_rules( true );
+}
+
+/**
+ * Cài và bật tiếng Việt cho trang quản trị (tải gói ngôn ngữ từ wordpress.org).
+ *
+ * Hosting không cho tải (thiếu quyền ghi file) thì bỏ qua — chọn tay ở
+ * Cài đặt → Tổng quan → Ngôn ngữ của trang.
+ */
+function lalasea_cai_tieng_viet() {
+	if ( 'vi' === get_option( 'WPLANG' ) ) {
+		return;
+	}
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/translation-install.php';
+	if ( 'vi' === wp_download_language_pack( 'vi' ) ) {
+		update_option( 'WPLANG', 'vi' );
+	}
 }
 add_action( 'after_switch_theme', 'lalasea_cai_dat_mau' );
 
