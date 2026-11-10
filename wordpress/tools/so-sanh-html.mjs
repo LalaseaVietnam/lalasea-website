@@ -110,7 +110,15 @@ function chuanHoa(html) {
 let loi = 0;
 for (const url of TRANG) {
   const cu = chuanHoa(fs.readFileSync(path.join(thu_muc, url, "index.html"), "utf8"));
-  const moi = chuanHoa(await taiTrang(wp + url));
+  let moi;
+  try {
+    moi = chuanHoa(await taiTrang(wp + url));
+  } catch (e) {
+    // Trang không mở được (404, 500, mất kết nối...): báo rồi so tiếp các trang khác
+    loi++;
+    console.log(`✗ ${url} — không mở được: ${String(e.stderr || e.message).trim().split("\n")[0]}`);
+    continue;
+  }
 
   // Diff theo dòng (LCS) — đủ cho trang vài nghìn dòng
   const n = cu.length, m = moi.length;

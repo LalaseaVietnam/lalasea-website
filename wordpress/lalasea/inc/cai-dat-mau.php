@@ -173,7 +173,12 @@ function lalasea_cai_dat_mau() {
 	// Thiết lập chung làm trước, vì múi giờ ảnh hưởng ngày đăng bài.
 	// Đường dẫn bài viết giữ nguyên /tin-tuc/<tên-bài>/ như web cũ.
 	update_option( 'show_on_front', 'page' );
-	update_option( 'permalink_structure', '/tin-tuc/%postname%/' );
+	// Dùng set_permalink_structure() chứ không update_option(): WordPress đã nạp cấu trúc
+	// cũ vào bộ nhớ từ đầu lượt chạy, ghi thẳng vào cài đặt thì flush_rewrite_rules() bên
+	// dưới vẫn sinh luật theo cấu trúc cũ → mọi bài viết 404 (gặp khi hosting có sẵn
+	// WordPress dùng đường dẫn /%postname%/).
+	global $wp_rewrite;
+	$wp_rewrite->set_permalink_structure( '/tin-tuc/%postname%/' );
 	update_option( 'timezone_string', 'Asia/Ho_Chi_Minh' );
 	update_option( 'blogname', 'Lalasea Bistro' );
 	update_option( 'blogdescription', '' );
