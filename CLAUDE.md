@@ -23,6 +23,7 @@ dùng được, ảnh nào không và vì sao.
 | `src/_includes/layouts/` | Khuôn mẫu chung + toàn bộ schema JSON-LD |
 | `anh/` | Ảnh **đang dùng** — được xuất bản |
 | `luu-tru/` | Kho lưu trữ — **không** xuất bản |
+| `wordpress/` | Theme WordPress giữ nguyên giao diện, viết theo chuẩn WordPress — xem [wordpress/HUONG-DAN.md](./wordpress/HUONG-DAN.md) |
 
 `src/_data/thongtin.json` là nguồn duy nhất cho tên, địa chỉ, điện thoại, giờ mở
 cửa, toạ độ. Không viết cứng các giá trị này vào template.
@@ -35,7 +36,9 @@ npx @11ty/eleventy --serve      # xem thử tại localhost:8080
 ```
 
 Đẩy lên nhánh `main` là tự động deploy qua GitHub Actions, kèm báo IndexNow cho
-Bing (và qua đó là ChatGPT).
+Bing (và qua đó là ChatGPT). Khi đã khai báo `WP_FTP_*` trong GitHub Secrets, workflow
+"Triển khai WordPress" (`.github/workflows/wordpress.yml`) cũng tự đưa theme lên hosting
+WordPress và so lại từng trang — xem wordpress/HUONG-DAN.md.
 
 ## Quy ước làm việc
 
@@ -45,3 +48,7 @@ Bing (và qua đó là ChatGPT).
   kiểm tra trang không tràn ngang.
 - Không bịa thông tin về quán. Giá, giờ, món, đánh giá — chỉ dùng số liệu thật.
 - Sửa nội dung một trang chính thì sửa luôn bản tiếng Anh tương ứng trong `src/en/`.
+- Theme WordPress (`wordpress/lalasea/`) phải luôn giống web đang chạy. Sửa CSS / JSON /
+  bài viết trong `src/` thì chạy `node wordpress/tools/chep-tu-eleventy.mjs`; sửa chữ trong
+  `.njk` thì sửa tay file PHP tương ứng. Kiểm tra bằng `wordpress/tools/so-sanh-html.mjs` và
+  chấm code bằng `phpcs` (WordPress Coding Standards) — xem wordpress/HUONG-DAN.md.

@@ -1,0 +1,144 @@
+// ============================================================
+// SO SÁNH HTML: web Eleventy (đã build) ↔ WordPress (đang chạy)
+//
+//   node wordpress/tools/so-sanh-html.mjs <thư mục _site> <địa chỉ WordPress>
+//   ví dụ: node wordpress/tools/so-sanh-html.mjs _site http://127.0.0.1:8081
+//
+// Kiểm tra hosting TRƯỚC khi trỏ tên miền: đặt WP_IP=<IP hosting>, script sẽ gọi
+// thẳng tới IP đó cho tên miền trong địa chỉ (như sửa file hosts, chỉ cho lệnh này).
+//
+// So theo cách TRÌNH DUYỆT và GOOGLE đọc trang, không so từng byte:
+//  - ký tự đặc biệt được giải mã trước khi so (&#39; và &#039; đều là dấu ');
+//  - khoảng trắng thừa giữa các thẻ bị bỏ qua;
+//  - schema JSON-LD được đọc thành dữ liệu rồi mới so (cách viết JSON khác nhau
+//    nhưng cùng nội dung thì coi là giống);
+//  - đường dẫn file CSS được bỏ qua (WordPress để CSS trong thư mục theme).
+// Mọi khác biệt còn lại — thẻ, thuộc tính, chữ, thứ tự — đều được in ra.
+// ============================================================
+import fs from "node:fs";
+import path from "node:path";
+import { execFileSync } from "node:child_process";
+import { Parser } from "htmlparser2";
+
+const [thu_muc, wp] = process.argv.slice(2);
+if (!thu_muc || !wp) {
+  console.error("Cách dùng: node so-sanh-html.mjs <_site> <http://địa-chỉ-wordpress>");
+  process.exit(2);
+}
+
+const TRANG = [
+  "/", "/thuc-don/", "/glamping/", "/tiec-su-kien/", "/lien-he/", "/tin-tuc/",
+  "/en/", "/en/menu/", "/en/glamping/", "/en/events/", "/en/contact/",
+  ...fs.readdirSync(path.join(thu_muc, "tin-tuc"), { withFileTypes: true })
+    .filter((d) => d.isDirectory()).map((d) => `/tin-tuc/${d.name}/`)
+    // Bỏ trang mồi chuyển hướng (meta refresh) — WordPress thay bằng 301 thật
+    .filter((u) => !fs.readFileSync(path.join(thu_muc, u, "index.html"), "utf8").includes('http-equiv="refresh"')),
+];
+
+// Tải một trang WordPress. Có WP_IP thì dùng curl --resolve để gọi thẳng tới hosting.
+async function taiTrang(url) {
+  const ip = process.env.WP_IP;
+  if (!ip) {
+    const tl = await fetch(url);
+    if (!tl.ok) throw new Error(`${url} trả về ${tl.status}`);
+    return tl.text();
+  }
+  const u = new URL(url);
+  const cong = u.port ? [u.port] : ["80", "443"];
+  const resolve = cong.flatMap((c) => ["--resolve", `${u.hostname}:${c}:${ip}`]);
+  return execFileSync("curl", ["-sSLk", "--fail", "--max-time", "60", ...resolve, url], { encoding: "utf8", maxBuffer: 50e6 });
+}
+
+// JSON đọc thành dữ liệu, in lại theo một cách duy nhất (khoá theo thứ tự gốc)
+function jsonChuan(s) {
+  try {
+    return "JSON " + JSON.stringify(JSON.parse(s));
+  } catch {
+    return "JSON-LỖI " + s.replace(/\s+/g, " ").trim();
+  }
+}
+
+// HTML → danh sách dòng: mỗi thẻ mở/đóng và mỗi đoạn chữ một dòng
+function chuanHoa(html) {
+  const dong = [];
+  let trong_script = null;
+  let chu = "";
+  const xa_chu = () => {
+    const t = chu.replace(/\s+/g, " ").trim();
+    if (t) dong.push("  " + t);
+    chu = "";
+  };
+  const p = new Parser(
+    {
+      onopentag(ten, thuoc_tinh) {
+        xa_chu();
+        if (ten === "link" && thuoc_tinh.rel === "stylesheet") {
+          // WordPress nạp CSS bằng wp_enqueue_style(): thẻ có thêm id="..." và media="all"
+          // (mặc định của trình duyệt), CSS của theme nằm trong thư mục theme kèm ?ver=.
+          const { id, media, ...con_lai } = thuoc_tinh;
+          if (media && media !== "all") con_lai.media = media;
+          if (/style\.css/.test(con_lai.href || "")) con_lai.href = "style.css";
+          thuoc_tinh = con_lai;
+        }
+        // Thứ tự thuộc tính trong thẻ không có ý nghĩa
+        const tt = Object.entries(thuoc_tinh).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => `${k}="${v}"`).join(" ");
+        dong.push(`<${ten}${tt ? " " + tt : ""}>`);
+        if (ten === "script") trong_script = thuoc_tinh.type || "js";
+      },
+      ontext(t) {
+        chu += t;
+      },
+      onclosetag(ten) {
+        if (ten === "script" && trong_script) {
+          const nd = chu;
+          chu = "";
+          if (trong_script === "application/ld+json") dong.push("  " + jsonChuan(nd));
+          else if (nd.trim()) dong.push("  " + nd.replace(/\s+/g, " ").trim());
+          trong_script = null;
+        } else xa_chu();
+        dong.push(`</${ten}>`);
+      },
+    },
+    { decodeEntities: true, recognizeSelfClosing: true },
+  );
+  p.write(html);
+  p.end();
+  xa_chu();
+  return dong;
+}
+
+let loi = 0;
+for (const url of TRANG) {
+  const cu = chuanHoa(fs.readFileSync(path.join(thu_muc, url, "index.html"), "utf8"));
+  let moi;
+  try {
+    moi = chuanHoa(await taiTrang(wp + url));
+  } catch (e) {
+    // Trang không mở được (404, 500, mất kết nối...): báo rồi so tiếp các trang khác
+    loi++;
+    console.log(`✗ ${url} — không mở được: ${String(e.stderr || e.message).trim().split("\n")[0]}`);
+    continue;
+  }
+
+  // Diff theo dòng (LCS) — đủ cho trang vài nghìn dòng
+  const n = cu.length, m = moi.length;
+  const dp = Array.from({ length: n + 1 }, () => new Uint32Array(m + 1));
+  for (let i = n - 1; i >= 0; i--)
+    for (let j = m - 1; j >= 0; j--)
+      dp[i][j] = cu[i] === moi[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+  const khac = [];
+  let i = 0, j = 0;
+  while (i < n || j < m) {
+    if (i < n && j < m && cu[i] === moi[j]) { i++; j++; }
+    else if (j < m && (i === n || dp[i][j + 1] >= dp[i + 1][j])) khac.push("+ WP : " + moi[j++]);
+    else khac.push("- cũ : " + cu[i++]);
+  }
+  if (khac.length === 0) console.log(`✓ ${url} — giống hệt (${n} dòng)`);
+  else {
+    loi++;
+    console.log(`✗ ${url} — ${khac.length} dòng khác:`);
+    for (const k of khac.slice(0, 30)) console.log("    " + k.slice(0, 260));
+  }
+}
+console.log(loi ? `\n${loi} trang còn khác.` : `\nTất cả ${TRANG.length} trang giống hệt.`);
+process.exit(loi ? 1 : 0);

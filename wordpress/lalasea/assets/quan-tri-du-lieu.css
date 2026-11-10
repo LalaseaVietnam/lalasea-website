@@ -1,0 +1,17 @@
+/* Màn hình "Thông tin nhà hàng" trong /wp-admin (inc/quan-tri-du-lieu.php). */
+.ls-quan-tri .ls-o { margin: 0 0 14px; }
+.ls-quan-tri .ls-o label { display: block; margin-bottom: 4px; }
+.ls-quan-tri .ls-ds { border: 1px solid #c3c4c7; border-radius: 6px; padding: 10px 14px 14px; margin: 0 0 18px; background: #fff; }
+.ls-quan-tri .ls-ds legend { font-weight: 600; padding: 0 6px; }
+.ls-quan-tri .ls-muc { border-left: 3px solid #1b9aaa; background: #f6f7f7; padding: 10px 12px; margin: 0 0 10px; border-radius: 4px; }
+.ls-quan-tri .ls-muc .ls-ds { background: #fff; }
+.ls-quan-tri .ls-muc-nut { display: flex; gap: 12px; justify-content: flex-end; margin-bottom: 4px; }
+.ls-quan-tri .ls-muc-nut button { padding: 4px 6px; }
+.ls-quan-tri .ls-xoa { color: #b32d2e; }
+.ls-quan-tri .ls-anh-hang { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ls-quan-tri .ls-xem img { width: 64px; height: 48px; object-fit: cover; border-radius: 4px; display: block; }
+
+/* Điện thoại: nút ▲ ▼ Xoá đủ to để bấm bằng ngón tay */
+@media (max-width: 782px) {
+	.ls-quan-tri .ls-muc-nut button { min-width: 44px; min-height: 44px; font-size: 16px; }
+}
