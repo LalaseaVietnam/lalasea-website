@@ -146,6 +146,8 @@ add_action('admin_enqueue_scripts', function () {
         .ls-quan-tri .ls-xoa{color:#b32d2e}
         .ls-quan-tri .ls-anh-hang{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
         .ls-quan-tri .ls-xem img{width:64px;height:48px;object-fit:cover;border-radius:4px;display:block}
+        .ls-quan-tri .ls-muc-nut button{padding:4px 6px}
+        @media (max-width:782px){.ls-quan-tri .ls-muc-nut button{min-width:44px;min-height:44px;font-size:16px}}
     ');
     wp_add_inline_script('jquery-core', '
         jQuery(function ($) {

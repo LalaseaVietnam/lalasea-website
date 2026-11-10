@@ -81,11 +81,12 @@ function ls_cai_dat_mau()
             'post_title' => $b['title'],
             'post_name' => $b['slug'],
             'post_content' => $b['noi_dung'],
+            'post_excerpt' => $b['mo_ta'] ?? '',
+            'post_author' => ls_tac_gia_mac_dinh(),
             'post_date_gmt' => $b['date'] . ' 00:00:00',
             'post_date' => get_date_from_gmt($b['date'] . ' 00:00:00'),
         ]);
         if ($id && !is_wp_error($id)) {
-            update_post_meta($id, '_ls_mo_ta', $b['mo_ta'] ?? '');
             update_post_meta($id, '_ls_anh_dai_dien', $b['anh_dai_dien'] ?? '');
         }
     }
@@ -99,6 +100,16 @@ function ls_cai_dat_mau()
     }
 
     flush_rewrite_rules();
+}
+
+// Bài nhập từ web cũ ghi tên người đang kích hoạt theme, không thì quản trị viên đầu tiên
+function ls_tac_gia_mac_dinh()
+{
+    if (get_current_user_id()) {
+        return get_current_user_id();
+    }
+    $qt = get_users(['role' => 'administrator', 'number' => 1, 'orderby' => 'ID', 'fields' => 'ID']);
+    return $qt ? (int) $qt[0] : 0;
 }
 
 add_action('after_switch_theme', 'ls_cai_dat_mau');

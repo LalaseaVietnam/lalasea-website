@@ -41,9 +41,13 @@ function ls_danh_sach_bai()
 
 function ls_mo_ta_bai($p)
 {
-    $mo_ta = get_post_meta($p->ID, '_ls_mo_ta', true);
-    if ($mo_ta === '') {
-        $mo_ta = $p->post_excerpt;
+    // Mô tả ngắn = ô "Mô tả ngắn" (excerpt) có sẵn của WordPress
+    $mo_ta = $p->post_excerpt !== '' ? $p->post_excerpt : (string) get_post_meta($p->ID, '_ls_mo_ta', true);
+
+    // Ảnh đại diện: ảnh chọn trong WordPress, nếu không có thì đường dẫn của bài nhập từ web cũ
+    $anh = has_post_thumbnail($p) ? wp_make_link_relative((string) wp_get_attachment_image_url(get_post_thumbnail_id($p), 'full')) : '';
+    if ($anh === '') {
+        $anh = (string) get_post_meta($p->ID, '_ls_anh_dai_dien', true);
     }
     return [
         'url' => wp_make_link_relative(get_permalink($p)),
@@ -53,7 +57,7 @@ function ls_mo_ta_bai($p)
             // nháy thẳng thành nháy cong. Template tự escape khi in ra.
             'title' => wp_specialchars_decode($p->post_title, ENT_QUOTES),
             'mo_ta' => $mo_ta,
-            'anh_dai_dien' => get_post_meta($p->ID, '_ls_anh_dai_dien', true),
+            'anh_dai_dien' => $anh,
         ],
     ];
 }

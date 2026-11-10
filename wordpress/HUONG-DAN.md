@@ -23,7 +23,7 @@ Tự chạy lại các phép so sánh — xem mục "Cho người lập trình" 
 
 | Việc | Vào mục |
 |---|---|
-| Đăng / sửa bài tin tức, ưu đãi | **Tin tức & Ưu đãi** (ô "Mô tả ngắn" và "Ảnh đại diện" nằm dưới khung soạn bài) |
+| Đăng / sửa bài tin tức, ưu đãi | **Tin tức & Ưu đãi** (ô "Đặt ảnh đại diện" và "mô tả ngắn" ở thanh bên phải khung soạn bài) |
 | SĐT, địa chỉ, giờ mở cửa, link mạng xã hội | **Thông tin nhà hàng → Thông tin chung** |
 | Thư viện ảnh trang chủ | **Thông tin nhà hàng → Thư viện ảnh trang chủ** |
 | 14 trang ảnh thực đơn | **Thông tin nhà hàng → Các trang menu** |
@@ -36,7 +36,10 @@ web cập nhật ngay, không phải chờ 1–2 phút như trước.
 
 Nội dung chữ trong 5 trang chính (giới thiệu, câu hỏi thường gặp, mô tả tiệc…) nằm
 trong template của theme, giống như bản cũ nằm trong file `.njk`. Muốn sửa phần này thì
-nhờ người lập trình, hoặc nhờ Claude.
+nhờ người lập trình, hoặc nhờ Claude. Trong mục **Trang**, các trang này có nhãn
+"Giao diện cố định"; mở ra sẽ thấy hướng dẫn sửa đúng chỗ thay vì khung soạn thảo trống.
+
+Trang **Bảng tin** (vào `/wp-admin` là thấy ngay) có sẵn lối tắt tới các việc hay làm.
 
 ## Các bước chuyển (không làm web gián đoạn)
 
