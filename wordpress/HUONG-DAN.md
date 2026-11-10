@@ -8,7 +8,7 @@ phần quản trị đổi từ `lalasea.vn/quan-tri` sang `lalasea.vn/wp-admin`
 
 | Kiểm tra | Kết quả |
 |---|---|
-| So từng trang theo cách trình duyệt và Google đọc (16 trang: 5 trang Việt, 5 trang Anh, tin tức, 5 bài viết) | Giống hệt từng thẻ, từng chữ, từng giá trị schema (trừ 1 lỗi cũ đã sửa — xem cuối file) |
+| So từng trang theo cách trình duyệt và Google đọc (16 trang: 5 trang Việt, 5 trang Anh, tin tức, 5 bài viết) | Giống hệt từng thẻ, từng chữ, từng giá trị schema |
 | Chấm code theo WordPress Coding Standards | 0 lỗi, 0 cảnh báo |
 | Bật `WP_DEBUG`, mở mọi trang khách + trang quản trị | Không một cảnh báo PHP |
 | Chụp màn hình Chromium ở 390px và 1280px, so từng điểm ảnh (24 lần chụp) | Trùng khớp; chỉ lệch vài trăm điểm ở mép bo tròn của ảnh do trình duyệt khử răng cưa |
@@ -158,10 +158,11 @@ wordpress/
 `node wordpress/tools/chep-tu-eleventy.mjs`; sửa chữ trong một file `.njk` thì sửa tay file
 PHP tương ứng, rồi chạy `so-sanh-html.mjs` để chắc hai bản vẫn giống nhau.
 
-**Khác biệt có chủ ý với web cũ** (công cụ so sánh bỏ qua và luôn in ra): web cũ ghi link
-Google Maps trong schema JSON-LD thành `...&amp;query=...` — Nunjucks tự escape HTML cả
-bên trong `<script>`, mà trong JSON thì `&amp;` không được giải mã, nên Google đọc ra link
-sai. Bản WordPress ghi đúng `&`.
+**Giá trị trong schema JSON-LD phải được mã hoá kiểu JSON, không phải kiểu HTML.**
+Nunjucks tự escape HTML cả bên trong `<script>`: `"{{ thongtin.maps }}"` ra
+`...?api=1&amp;query=...`, mà trong JSON thì `&amp;` không được giải mã nên Google đọc ra
+link hỏng (lỗi này từng có trên web, đã sửa). Bên Eleventy viết `{{ x | dump | safe }}`
+(không kèm dấu ngoặc kép), bên WordPress viết `lalasea_json( $x )`.
 
 Chấm code (cần `composer global require wp-coding-standards/wpcs`):
 

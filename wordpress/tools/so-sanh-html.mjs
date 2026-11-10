@@ -31,33 +31,17 @@ const TRANG = [
     .filter((u) => !fs.readFileSync(path.join(thu_muc, u, "index.html"), "utf8").includes('http-equiv="refresh"')),
 ];
 
-// Khác biệt CÓ CHỦ Ý — lỗi của web cũ mà bản WordPress đã sửa. Luôn in ra cuối báo cáo.
-//  1. Web cũ ghi link trong schema JSON-LD thành "...?api=1&amp;query=..." (Nunjucks tự
-//     escape HTML cả bên trong <script>). Trong JSON, "&amp;" KHÔNG được giải mã nên Google
-//     đọc ra link sai. WordPress dùng wp_json_encode() nên ghi đúng "&".
-let so_lan_sua = 0;
-const suaLoiCu = (v) => {
-  if (typeof v === "string") {
-    if (v.includes("&amp;")) { so_lan_sua++; return v.replaceAll("&amp;", "&"); }
-    return v;
-  }
-  if (Array.isArray(v)) return v.map(suaLoiCu);
-  if (v && typeof v === "object") return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, suaLoiCu(x)]));
-  return v;
-};
-
 // JSON đọc thành dữ liệu, in lại theo một cách duy nhất (khoá theo thứ tự gốc)
-function jsonChuan(s, la_ban_cu) {
+function jsonChuan(s) {
   try {
-    const d = JSON.parse(s);
-    return "JSON " + JSON.stringify(la_ban_cu ? suaLoiCu(d) : d);
+    return "JSON " + JSON.stringify(JSON.parse(s));
   } catch {
     return "JSON-LỖI " + s.replace(/\s+/g, " ").trim();
   }
 }
 
 // HTML → danh sách dòng: mỗi thẻ mở/đóng và mỗi đoạn chữ một dòng
-function chuanHoa(html, la_ban_cu = false) {
+function chuanHoa(html) {
   const dong = [];
   let trong_script = null;
   let chu = "";
@@ -90,7 +74,7 @@ function chuanHoa(html, la_ban_cu = false) {
         if (ten === "script" && trong_script) {
           const nd = chu;
           chu = "";
-          if (trong_script === "application/ld+json") dong.push("  " + jsonChuan(nd, la_ban_cu));
+          if (trong_script === "application/ld+json") dong.push("  " + jsonChuan(nd));
           else if (nd.trim()) dong.push("  " + nd.replace(/\s+/g, " ").trim());
           trong_script = null;
         } else xa_chu();
@@ -107,7 +91,7 @@ function chuanHoa(html, la_ban_cu = false) {
 
 let loi = 0;
 for (const url of TRANG) {
-  const cu = chuanHoa(fs.readFileSync(path.join(thu_muc, url, "index.html"), "utf8"), true);
+  const cu = chuanHoa(fs.readFileSync(path.join(thu_muc, url, "index.html"), "utf8"));
   const moi = chuanHoa(await (await fetch(wp + url)).text());
 
   // Diff theo dòng (LCS) — đủ cho trang vài nghìn dòng
@@ -131,7 +115,4 @@ for (const url of TRANG) {
   }
 }
 console.log(loi ? `\n${loi} trang còn khác.` : `\nTất cả ${TRANG.length} trang giống hệt.`);
-if (so_lan_sua) {
-  console.log(`(Đã bỏ qua ${so_lan_sua} chỗ khác có chủ ý: link trong schema JSON-LD của web cũ bị ghi "&amp;" — lỗi cũ, bản WordPress ghi đúng "&".)`);
-}
 process.exit(loi ? 1 : 0);
