@@ -283,6 +283,13 @@ function lalasea_luu_du_lieu() {
 	}
 	update_option( 'lalasea_du_lieu_' . $ten, $moi, false );
 
+	/**
+	 * Sau khi lưu một bộ dữ liệu trong "Thông tin nhà hàng" (dùng để báo IndexNow).
+	 *
+	 * @param string $ten Tên bộ dữ liệu vừa lưu.
+	 */
+	do_action( 'lalasea_da_luu_du_lieu', $ten );
+
 	wp_safe_redirect( admin_url( 'admin.php?page=ls-' . $ten . '&da-luu=1' ) );
 	exit;
 }

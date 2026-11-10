@@ -21,6 +21,7 @@ require_once __DIR__ . '/inc/anh.php';
 require_once __DIR__ . '/inc/quan-tri-bai-viet.php';
 require_once __DIR__ . '/inc/quan-tri-du-lieu.php';
 require_once __DIR__ . '/inc/quan-tri-giao-dien.php';
+require_once __DIR__ . '/inc/indexnow.php';
 require_once __DIR__ . '/inc/cai-dat-mau.php';
 
 /**

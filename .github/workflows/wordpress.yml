@@ -1,0 +1,98 @@
+# ============================================================
+# TRIỂN KHAI THEME LÊN HOSTING WORDPRESS
+#
+# Đưa theme Lalasea (wordpress/lalasea), ảnh, biểu tượng lên hosting qua FTP,
+# tự kích hoạt lần đầu, rồi so từng trang trên hosting với web hiện tại.
+# Xem wordpress/HUONG-DAN.md.
+#
+# Chạy khi:
+#   - bấm "Run workflow" trong tab Actions (hoặc Claude chạy hộ);
+#   - có thay đổi trên nhánh main ở theme, ảnh, hoặc src/ (CSS, dữ liệu, bài viết).
+# Chưa khai báo mật khẩu FTP thì workflow tự bỏ qua, không báo lỗi.
+#
+# Khai báo một lần trong Settings → Secrets and variables → Actions:
+#   Secrets   (giấu kín):  WP_FTP_HOST, WP_FTP_USER, WP_FTP_PASS
+#   Variables (không bí mật, tuỳ chọn):
+#     WP_IP            IP hosting — cần khi tên miền CHƯA trỏ về hosting
+#     WP_FTP_GIAO_THUC ftp (mặc định) | ftps | sftp
+#     WP_FTP_PORT      cổng, nếu khác mặc định
+#     WP_THU_MUC       thư mục WordPress trên hosting, nếu script không tự dò ra
+# ============================================================
+name: Triển khai WordPress
+
+on:
+  workflow_dispatch:
+    inputs:
+      kiem_tra:
+        description: "So từng trang trên hosting với web hiện tại sau khi đưa lên"
+        type: boolean
+        default: true
+  push:
+    branches:
+      - main
+    paths:
+      - "wordpress/lalasea/**"
+      - "wordpress/kich-hoat/**"
+      - "wordpress/tools/**"
+      - "src/**"
+      - "anh/**"
+      - "menu/**"
+      - "uploads/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wordpress
+  cancel-in-progress: false
+
+jobs:
+  trien-khai:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kiểm tra đã khai báo mật khẩu FTP chưa
+        id: kiem
+        env:
+          FTP_HOST: ${{ secrets.WP_FTP_HOST }}
+        run: |
+          if [ -z "$FTP_HOST" ]; then
+            echo "co=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Chưa khai báo WP_FTP_HOST / WP_FTP_USER / WP_FTP_PASS — bỏ qua triển khai WordPress."
+          else
+            echo "co=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Tải mã nguồn
+        if: steps.kiem.outputs.co == 'true'
+        uses: actions/checkout@v4
+
+      - name: Cài Node.js
+        if: steps.kiem.outputs.co == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Cài thư viện và công cụ FTP
+        if: steps.kiem.outputs.co == 'true'
+        run: |
+          npm ci
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lftp
+
+      - name: Dựng web hiện tại để làm mẫu so sánh
+        if: steps.kiem.outputs.co == 'true'
+        run: npx @11ty/eleventy --quiet
+
+      - name: Đưa lên hosting, kích hoạt, so sánh
+        if: steps.kiem.outputs.co == 'true'
+        env:
+          FTP_HOST: ${{ secrets.WP_FTP_HOST }}
+          FTP_USER: ${{ secrets.WP_FTP_USER }}
+          FTP_PASS: ${{ secrets.WP_FTP_PASS }}
+          FTP_GIAO_THUC: ${{ vars.WP_FTP_GIAO_THUC }}
+          FTP_PORT: ${{ vars.WP_FTP_PORT }}
+          WP_THU_MUC: ${{ vars.WP_THU_MUC }}
+          WP_IP: ${{ vars.WP_IP }}
+          KIEM_TRA: ${{ (github.event_name != 'workflow_dispatch' || inputs.kiem_tra) && '1' || '0' }}
+        run: bash wordpress/tools/trien-khai.sh

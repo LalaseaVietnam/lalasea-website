@@ -4,6 +4,9 @@
 //   node wordpress/tools/so-sanh-html.mjs <thư mục _site> <địa chỉ WordPress>
 //   ví dụ: node wordpress/tools/so-sanh-html.mjs _site http://127.0.0.1:8081
 //
+// Kiểm tra hosting TRƯỚC khi trỏ tên miền: đặt WP_IP=<IP hosting>, script sẽ gọi
+// thẳng tới IP đó cho tên miền trong địa chỉ (như sửa file hosts, chỉ cho lệnh này).
+//
 // So theo cách TRÌNH DUYỆT và GOOGLE đọc trang, không so từng byte:
 //  - ký tự đặc biệt được giải mã trước khi so (&#39; và &#039; đều là dấu ');
 //  - khoảng trắng thừa giữa các thẻ bị bỏ qua;
@@ -14,6 +17,7 @@
 // ============================================================
 import fs from "node:fs";
 import path from "node:path";
+import { execFileSync } from "node:child_process";
 import { Parser } from "htmlparser2";
 
 const [thu_muc, wp] = process.argv.slice(2);
@@ -30,6 +34,20 @@ const TRANG = [
     // Bỏ trang mồi chuyển hướng (meta refresh) — WordPress thay bằng 301 thật
     .filter((u) => !fs.readFileSync(path.join(thu_muc, u, "index.html"), "utf8").includes('http-equiv="refresh"')),
 ];
+
+// Tải một trang WordPress. Có WP_IP thì dùng curl --resolve để gọi thẳng tới hosting.
+async function taiTrang(url) {
+  const ip = process.env.WP_IP;
+  if (!ip) {
+    const tl = await fetch(url);
+    if (!tl.ok) throw new Error(`${url} trả về ${tl.status}`);
+    return tl.text();
+  }
+  const u = new URL(url);
+  const cong = u.port ? [u.port] : ["80", "443"];
+  const resolve = cong.flatMap((c) => ["--resolve", `${u.hostname}:${c}:${ip}`]);
+  return execFileSync("curl", ["-sSLk", "--fail", "--max-time", "60", ...resolve, url], { encoding: "utf8", maxBuffer: 50e6 });
+}
 
 // JSON đọc thành dữ liệu, in lại theo một cách duy nhất (khoá theo thứ tự gốc)
 function jsonChuan(s) {
@@ -92,7 +110,7 @@ function chuanHoa(html) {
 let loi = 0;
 for (const url of TRANG) {
   const cu = chuanHoa(fs.readFileSync(path.join(thu_muc, url, "index.html"), "utf8"));
-  const moi = chuanHoa(await (await fetch(wp + url)).text());
+  const moi = chuanHoa(await taiTrang(wp + url));
 
   // Diff theo dòng (LCS) — đủ cho trang vài nghìn dòng
   const n = cu.length, m = moi.length;

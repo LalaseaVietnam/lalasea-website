@@ -8,6 +8,7 @@
 	<description>Quy tắc viết code cho theme Lalasea Bistro.</description>
 
 	<file>lalasea</file>
+	<file>kich-hoat</file>
 	<exclude-pattern>*/data/*</exclude-pattern>
 	<exclude-pattern>*/seed/*</exclude-pattern>
 

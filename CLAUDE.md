@@ -36,7 +36,9 @@ npx @11ty/eleventy --serve      # xem thử tại localhost:8080
 ```
 
 Đẩy lên nhánh `main` là tự động deploy qua GitHub Actions, kèm báo IndexNow cho
-Bing (và qua đó là ChatGPT).
+Bing (và qua đó là ChatGPT). Khi đã khai báo `WP_FTP_*` trong GitHub Secrets, workflow
+"Triển khai WordPress" (`.github/workflows/wordpress.yml`) cũng tự đưa theme lên hosting
+WordPress và so lại từng trang — xem wordpress/HUONG-DAN.md.
 
 ## Quy ước làm việc
 

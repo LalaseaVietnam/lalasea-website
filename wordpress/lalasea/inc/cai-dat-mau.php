@@ -94,18 +94,35 @@ function lalasea_cay_trang() {
 function lalasea_tao_trang( $trang, $cha_id = 0, $duong_cha = '' ) {
 	$duong  = ltrim( $duong_cha . '/' . $trang['slug'], '/' );
 	$co_san = get_page_by_path( $duong );
-	$id     = $co_san ? $co_san->ID : wp_insert_post(
-		array(
-			'post_type'    => 'page',
-			'post_status'  => 'publish',
-			'post_title'   => $trang['title'],
-			'post_name'    => $trang['slug'],
-			'post_parent'  => $cha_id,
-			'post_content' => '',
-			'post_author'  => lalasea_tac_gia_mac_dinh(),
-			'meta_input'   => '' !== $trang['tpl'] ? array( '_wp_page_template' => $trang['tpl'] ) : array(),
-		)
-	);
+	if ( $co_san ) {
+		// Trang trùng tên đã có (ví dụ còn từ WordPress cũ): giữ trang, nhưng gắn đúng
+		// template và xuất bản — không thì trang hiện bằng giao diện mặc định.
+		$id = $co_san->ID;
+		if ( 'publish' !== $co_san->post_status ) {
+			wp_update_post(
+				array(
+					'ID'          => $id,
+					'post_status' => 'publish',
+				)
+			);
+		}
+		if ( '' !== $trang['tpl'] ) {
+			update_post_meta( $id, '_wp_page_template', $trang['tpl'] );
+		}
+	} else {
+		$id = wp_insert_post(
+			array(
+				'post_type'    => 'page',
+				'post_status'  => 'publish',
+				'post_title'   => $trang['title'],
+				'post_name'    => $trang['slug'],
+				'post_parent'  => $cha_id,
+				'post_content' => '',
+				'post_author'  => lalasea_tac_gia_mac_dinh(),
+				'meta_input'   => '' !== $trang['tpl'] ? array( '_wp_page_template' => $trang['tpl'] ) : array(),
+			)
+		);
+	}
 	foreach ( $trang['con'] ?? array() as $con ) {
 		lalasea_tao_trang( $con, $id, $duong );
 	}
