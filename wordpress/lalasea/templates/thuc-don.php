@@ -1,0 +1,480 @@
+<?php
+/**
+ * Template Name: Lalasea — Thực đơn
+ */
+// TỰ SINH từ src/thuc-don.njk bằng wordpress/tools/njk-sang-php.mjs — HTML giữ nguyên văn.
+extract(ls_bien_toan_cuc());
+$en = false;
+$title = 'Thực đơn & Bảng giá';
+$mo_ta = 'Thực đơn & bảng giá nhà hàng Lalasea Bistro Hà Tiên — hải sản, ốc sò, món nướng, lẩu, bò, gà, cơm và đồ uống. Xem đủ 14 trang menu kèm giá. Đặt bàn 0907 896 949.';
+$anh_dai_dien = null;
+ls_dat_trang(['title' => 'Thực đơn & Bảng giá', 'mo_ta' => 'Thực đơn & bảng giá nhà hàng Lalasea Bistro Hà Tiên — hải sản, ốc sò, món nướng, lẩu, bò, gà, cơm và đồ uống. Xem đủ 14 trang menu kèm giá. Đặt bàn 0907 896 949.', 'anh_dai_dien' => null, 'ban_dich' => '/en/menu/', 'khong_index' => false, 'an_footer' => true, 'ngon_ngu' => 'vi', 'url' => '/thuc-don/']);
+get_header();
+?>
+<div class="page-hero">
+  <div class="kicker">Xem menu &amp; bảng giá</div>
+  <h1>Thực đơn Lalasea Bistro – Nhà hàng bên biển Hà&nbsp;Tiên</h1>
+  <p>Trọn bộ <?= ls_e(ls_lay(ls_lay($menuanh, 'trang'), 'length')) ?> trang thực đơn kèm giá: hải sản tươi sống, ốc – sò – nghêu, món nướng, lẩu, đặc sản khô và đồ uống — phục vụ 08:00–23:00 mỗi ngày, cuối tuần mở sớm từ 07:00, bên bờ biển Tô Châu, Hà&nbsp;Tiên.</p>
+</div>
+
+<div class="menu-viewer">
+  <div class="viewer">
+    <button class="navbtn prev" id="prev" aria-label="Trang trước">‹</button>
+    <button class="navbtn next" id="next" aria-label="Trang sau">›</button>
+    <div class="track" id="track">
+      <?php $__lp1 = $loop ?? null; foreach (ls_lap(ls_lay($menuanh, 'trang')) as $__k1 => $trang): $loop = ['index' => $__k1 + 1, 'index0' => $__k1]; ?>
+
+      <div class="slide"><img src="<?= ls_e(ls_lay($trang, 'file')) ?>" alt="<?= ls_e((ls_lay($trang, 'mota') ?: ls_cong('Thực đơn Lalasea Bistro Hà Tiên — trang ', ls_lay($loop, 'index')))) ?>"<?php if ((ls_lay($loop, 'index') > 1)): ?> loading="lazy"<?php endif; ?>></div>
+      <?php endforeach; $loop = $__lp1; ?>
+
+    </div>
+  </div>
+  <div class="counter"><span id="cur">1</span> / <?= ls_e(ls_lay(ls_lay($menuanh, 'trang'), 'length')) ?></div>
+  <div class="hint"><span class="desktop">Dùng nút ‹ › hoặc phím mũi tên để lật trang</span><span class="mobile">Vuốt trái/phải để lật trang</span></div>
+</div>
+
+<!-- ===== GIỚI THIỆU THỰC ĐƠN (phần chữ giúp Google hiểu nội dung menu) ===== -->
+<section class="menu-about">
+  <div class="wrap">
+    <h2>Thực đơn Lalasea Bistro có gì?</h2>
+    <p>Lalasea Bistro là nhà hàng không gian mở bên bờ biển Tô Châu, Hà Tiên (An Giang), phục vụ từ 08:00 đến 23:00 mỗi ngày, riêng Thứ Bảy và Chủ Nhật mở sớm từ 07:00. Ngoài hải sản tươi sống, thực đơn còn có món nướng, lẩu, bò, gà và cơm, nên đây cũng là địa điểm ăn uống hợp cho nhóm đông người nhiều khẩu vị khác nhau. Dưới đây là các nhóm món chính trong thực đơn — lướt bộ ảnh menu phía trên để xem đầy đủ từng món kèm giá.</p>
+
+    <h3>Món đặc biệt của quán</h3>
+    <p>Bốn món làm nên tên tuổi Lalasea: sườn cay, cà ri cua, hải sản xô đầy ắp tôm – mực – nghêu – cua, và gỏi cá trích chuẩn vị biển Hà Tiên.</p>
+
+    <ul class="mon-noi-bat">
+      <li>
+        <img src="/anh/suon-cay-thai-lan-lalasea-ha-tien.jpg" width="800" height="800" loading="lazy"
+             alt="Sườn cay Thái Lan tại Lalasea Bistro Hà Tiên — sườn hầm mềm xếp cao, phủ rau thơm và ớt tươi, dọn trong chảo nóng trên bếp">
+        <div class="nd">
+          <span class="ten">Sườn cay Thái Lan</span>
+          <span class="gia">289.000đ / 389.000đ / 489.000đ tùy size</span>
+        </div>
+      </li>
+      <li>
+        <img src="/anh/hai-san-xo-lalasea-ha-tien.jpg" width="800" height="800" loading="lazy"
+             alt="Hải sản xô Lalasea Bistro Hà Tiên — cua, tôm, nghêu, xúc xích và bắp trong nước sốt cà ri, đổ từ xô ra mâm inox">
+        <div class="nd">
+          <span class="ten">Hải sản xô</span>
+          <span class="gia">289.000đ / 389.000đ / 489.000đ tùy size</span>
+        </div>
+      </li>
+      <li>
+        <img src="/anh/goi-ca-trich-lalasea-ha-tien.jpg" width="800" height="800" loading="lazy"
+             alt="Gỏi cá trích Hà Tiên tại Lalasea Bistro — cá trích phi lê xếp hình hoa quanh ớt tươi, ăn kèm bánh tráng và rau sống">
+        <div class="nd">
+          <span class="ten">Gỏi cá trích</span>
+          <span class="gia">189.000đ</span>
+        </div>
+      </li>
+    </ul>
+    <p>Món thứ tư — <strong>cà ri cua</strong> — tính theo thời giá trong ngày vì phụ thuộc cua tươi mua được buổi sáng, bạn gọi trước để quán báo giá và giữ phần.</p>
+
+    <h3>Ốc, sò &amp; nghêu</h3>
+    <p>Ốc hương, ốc bulot, ốc móng tay, ốc bươu đen, sò huyết, sò dương, sò tộ, nghêu, bào ngư… chế biến đủ kiểu: cháy tỏi, rang muối, nướng mỡ hành, nướng phô mai, sốt trứng muối, sốt bơ cay, hấp Thái, hấp sả.</p>
+
+    <h3>Hải sản tươi sống</h3>
+    <p>Tôm, cua, ghẹ, mực và cá theo mùa được giữ tươi sống mỗi ngày, khách có thể lựa chọn hải sản và cách chế biến theo khẩu vị.</p>
+
+    <h3>Món lai rai</h3>
+    <p>Còi dương mai nướng muối ớt, ếch chiên giòn, ếch rang muối Hong Kong, lườn ngỗng xông khói, bò lúc lắc, bò né, sườn xào chua ngọt, sụn gà rang muối, cánh gà chiên nước mắm…</p>
+
+    <h3>Đặc sản khô Hà Tiên</h3>
+    <p>Tôm khô nhâm sả, khô cá lóc trộn xoài, khô mực Hoàng Bào, mực một nắng, cá đục một nắng mắm me — vừa hợp lai rai tại bàn, vừa mua về làm quà.</p>
+
+    <h3>Lẩu &amp; món nướng</h3>
+    <p>Lẩu Thái, lẩu Tomyum, lẩu mắm, lẩu cá bớp, lẩu cua đồng, lẩu nấm, lẩu khổ qua bò viên đồng giá 289.000đ. Món nướng có ba chỉ bò Mỹ, bò tảng, vú heo nướng và combo BBQ đủ tôm, bạch tuộc, bò, ếch, xúc xích.</p>
+
+    <h3>Menu tiệc đặt trước</h3>
+    <p>Ngoài menu hằng ngày, Lalasea nhận tiệc cưới, sinh nhật, liên hoan công ty với menu tiệc riêng phục vụ theo phần: gà, vịt, cơm, lẩu và các món tiệc đặt trước. Xem chi tiết dịch vụ <a href="/tiec-su-kien/">Tiệc &amp; Sự kiện tại Lalasea</a>.</p>
+
+    <p>Giá trong menu có thể thay đổi theo thời điểm; một số món hải sản tính theo thời giá trong ngày. Để đặt bàn hoặc đặt tiệc, gọi / nhắn Zalo <a href="tel:<?= ls_e(ls_lay($thongtin, 'dien_thoai_goi')) ?>"><?= ls_e(ls_lay($thongtin, 'dien_thoai')) ?></a> hoặc xem trang <a href="/lien-he/">Liên hệ &amp; đường đi</a>.</p>
+  </div>
+</section>
+
+<script>
+  const track = document.getElementById('track');
+  const cur = document.getElementById('cur');
+  const prev = document.getElementById('prev');
+  const next = document.getElementById('next');
+  const total = <?= ls_e(ls_lay(ls_lay($menuanh, 'trang'), 'length')) ?>;
+
+  function page() { return Math.round(track.scrollLeft / track.clientWidth); }
+  function update() {
+    const p = page();
+    cur.textContent = p + 1;
+    prev.disabled = p <= 0;
+    next.disabled = p >= total - 1;
+  }
+  function go(dir) { track.scrollTo({ left: (page() + dir) * track.clientWidth, behavior: 'smooth' }); }
+
+  prev.addEventListener('click', () => go(-1));
+  next.addEventListener('click', () => go(1));
+  track.addEventListener('scroll', () => window.requestAnimationFrame(update));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') go(-1);
+    if (e.key === 'ArrowRight') go(1);
+  });
+  update();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "@id": "https://lalasea.vn/thuc-don/#thucdon",
+  "name": "Thực đơn Lalasea Bistro Hà Tiên",
+  "inLanguage": "vi",
+  "description": "Thực đơn nhà hàng Lalasea Bistro bên bờ biển Tô Châu, Hà Tiên: hải sản tươi sống, ốc sò, món nướng, lẩu, món lai rai, đặc sản khô và menu tiệc đặt trước.",
+  "provider": {
+    "@id": "https://lalasea.vn/#nhahang"
+  },
+  "hasMenuSection": [
+    {
+      "@type": "MenuSection",
+      "name": "Món đặc biệt của quán",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Sườn cay",
+          "image": "<?= ls_e(ls_lay($thongtin, 'site_url')) ?>/anh/suon-cay-thai-lan-lalasea-ha-tien.jpg",
+          "offers": [
+            {
+              "@type": "Offer",
+              "price": "289000",
+              "priceCurrency": "VND",
+              "name": "Size M"
+            },
+            {
+              "@type": "Offer",
+              "price": "389000",
+              "priceCurrency": "VND",
+              "name": "Size L"
+            },
+            {
+              "@type": "Offer",
+              "price": "489000",
+              "priceCurrency": "VND",
+              "name": "Size XL"
+            }
+          ]
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cà ri cua",
+          "description": "Tính theo thời giá trong ngày"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Hải sản xô",
+          "image": "<?= ls_e(ls_lay($thongtin, 'site_url')) ?>/anh/hai-san-xo-lalasea-ha-tien.jpg",
+          "offers": [
+            {
+              "@type": "Offer",
+              "price": "289000",
+              "priceCurrency": "VND",
+              "name": "Size M"
+            },
+            {
+              "@type": "Offer",
+              "price": "389000",
+              "priceCurrency": "VND",
+              "name": "Size L"
+            },
+            {
+              "@type": "Offer",
+              "price": "489000",
+              "priceCurrency": "VND",
+              "name": "Size XL"
+            }
+          ],
+          "description": "Xô đầy tôm, mực, nghêu, cua"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Gỏi cá trích",
+          "image": "<?= ls_e(ls_lay($thongtin, 'site_url')) ?>/anh/goi-ca-trich-lalasea-ha-tien.jpg",
+          "offers": [
+            {
+              "@type": "Offer",
+              "price": "189000",
+              "priceCurrency": "VND"
+            }
+          ],
+          "description": "Chuẩn vị biển Hà Tiên"
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Ốc, sò & nghêu",
+      "description": "Chế biến theo yêu cầu: cháy tỏi, rang muối, nướng mỡ hành, nướng phô mai, sốt trứng muối, sốt bơ cay, hấp Thái, hấp sả.",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Ốc hương"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Ốc bulot"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Ốc móng tay"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Ốc bươu đen"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Sò huyết"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Sò dương"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Sò tộ"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Nghêu"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Bào ngư"
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Hải sản tươi sống",
+      "description": "Giữ tươi sống mỗi ngày, khách chọn con và chọn cách chế biến. Nhiều món tính theo thời giá.",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Tôm"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cua"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Ghẹ"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Mực"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cá theo mùa"
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Món lai rai",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Còi dương mai nướng muối ớt"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Ếch chiên giòn"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Ếch rang muối Hong Kong"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Lườn ngỗng xông khói"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Bò lúc lắc"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Bò né"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Sườn xào chua ngọt"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Sụn gà rang muối"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cánh gà chiên nước mắm"
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Đặc sản khô Hà Tiên",
+      "description": "Vừa lai rai tại bàn, vừa mua về làm quà.",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Tôm khô nhâm sả"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Khô cá lóc trộn xoài"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Khô mực Hoàng Bào"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Mực một nắng"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cá đục một nắng mắm me"
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Lẩu",
+      "description": "Các loại lẩu đồng giá 289.000đ.",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Lẩu Thái",
+          "offers": [
+            {
+              "@type": "Offer",
+              "price": "289000",
+              "priceCurrency": "VND"
+            }
+          ]
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Lẩu Tomyum",
+          "offers": [
+            {
+              "@type": "Offer",
+              "price": "289000",
+              "priceCurrency": "VND"
+            }
+          ]
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Lẩu mắm",
+          "offers": [
+            {
+              "@type": "Offer",
+              "price": "289000",
+              "priceCurrency": "VND"
+            }
+          ]
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Lẩu cá bớp",
+          "offers": [
+            {
+              "@type": "Offer",
+              "price": "289000",
+              "priceCurrency": "VND"
+            }
+          ]
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Lẩu cua đồng",
+          "offers": [
+            {
+              "@type": "Offer",
+              "price": "289000",
+              "priceCurrency": "VND"
+            }
+          ]
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Lẩu nấm",
+          "offers": [
+            {
+              "@type": "Offer",
+              "price": "289000",
+              "priceCurrency": "VND"
+            }
+          ]
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Lẩu khổ qua bò viên",
+          "offers": [
+            {
+              "@type": "Offer",
+              "price": "289000",
+              "priceCurrency": "VND"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Món nướng",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Ba chỉ bò Mỹ nướng"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Bò tảng nướng"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Vú heo nướng"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Combo BBQ (tôm, bạch tuộc, bò, ếch, xúc xích)"
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Menu tiệc đặt trước",
+      "description": "Tiệc cưới, sinh nhật, liên hoan công ty — phục vụ theo phần, đặt trước.",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Món gà"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Món vịt"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cơm"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Lẩu tiệc"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<?php get_footer();
