@@ -146,3 +146,32 @@ function lalasea_huong_dan_trang_co_dinh( $trang ) {
 	<?php
 }
 add_action( 'edit_form_after_title', 'lalasea_huong_dan_trang_co_dinh' );
+
+/**
+ * Nhắc khi thư mục gốc của web chưa có ảnh (/anh, /menu, /uploads, /hero.jpg...).
+ *
+ * Theme dùng ảnh ở đúng đường dẫn cũ của web để link cũ và Google Ảnh không gãy;
+ * các ảnh này nằm trong gói thu-muc-goc-web.zip, phải giải nén vào thư mục gốc
+ * (cùng chỗ với wp-config.php). Quên bước đó thì web hiện ô ảnh trống.
+ */
+function lalasea_nhac_thieu_anh() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	$con_thieu = array();
+	foreach ( array( 'anh', 'menu', 'uploads', 'hero.jpg', 'favicon.ico' ) as $ten ) {
+		if ( ! file_exists( ABSPATH . $ten ) ) {
+			$con_thieu[] = '/' . $ten;
+		}
+	}
+	if ( ! $con_thieu ) {
+		return;
+	}
+	?>
+	<div class="notice notice-error">
+		<p><strong>Web chưa có ảnh ở thư mục gốc</strong> (thiếu <?php echo esc_html( implode( ', ', $con_thieu ) ); ?>) — trang sẽ hiện ô ảnh trống.</p>
+		<p>Vào trang quản lý hosting → <strong>File Manager</strong> → thư mục chứa <code>wp-config.php</code> (thường là <code>public_html</code>) → tải lên file <code>thu-muc-goc-web.zip</code> → bấm <strong>Extract / Giải nén</strong>.</p>
+	</div>
+	<?php
+}
+add_action( 'admin_notices', 'lalasea_nhac_thieu_anh' );
