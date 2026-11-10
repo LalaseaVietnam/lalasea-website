@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+  Chấm theme theo WordPress Coding Standards — bộ quy tắc chính thức của WordPress.
+  Cài: composer global require wp-coding-standards/wpcs
+  Chạy (từ thư mục wordpress/):  phpcs
+-->
+<ruleset name="Lalasea">
+	<description>Quy tắc viết code cho theme Lalasea Bistro.</description>
+
+	<file>lalasea</file>
+	<exclude-pattern>*/data/*</exclude-pattern>
+	<exclude-pattern>*/seed/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg value="sp"/>
+	<arg name="colors"/>
+
+	<rule ref="WordPress"/>
+
+	<config name="minimum_wp_version" value="6.0"/>
+	<config name="testVersion" value="8.0-"/>
+
+	<!-- Mọi hàm, hằng số, biến toàn cục của theme bắt đầu bằng lalasea_ -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="lalasea"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- lalasea_json() = wp_json_encode() kèm JSON_HEX_TAG: an toàn để in vào <script> -->
+	<rule ref="WordPress.Security.EscapeOutput">
+		<properties>
+			<property name="customEscapingFunctions" type="array">
+				<element value="lalasea_json"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="lalasea"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>

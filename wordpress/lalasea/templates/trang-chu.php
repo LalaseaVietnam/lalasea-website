@@ -1,423 +1,426 @@
 <?php
 /**
  * Template Name: Lalasea — Trang chủ
+ *
+ * Trang chủ tiếng Việt (/).
+ *
+ * @package Lalasea
  */
-// TỰ SINH từ src/index.njk bằng wordpress/tools/njk-sang-php.mjs — HTML giữ nguyên văn.
-extract(ls_bien_toan_cuc());
-$en = false;
-$title = null;
-$mo_ta = null;
-$anh_dai_dien = null;
-ls_dat_trang(['title' => null, 'mo_ta' => null, 'anh_dai_dien' => null, 'ban_dich' => '/en/', 'khong_index' => false, 'an_footer' => false, 'ngon_ngu' => 'vi', 'url' => '/']);
+
+$lalasea_thongtin = lalasea_data( 'thongtin' );
+$lalasea_menuanh  = lalasea_data( 'menuanh' );
+$lalasea_danhgia  = lalasea_data( 'danhgia' );
+$lalasea_thuvien  = lalasea_data( 'thuvien' );
+$lalasea_baiviet  = lalasea_danh_sach_bai();
+
+lalasea_dat_trang(
+	array(
+		'ban_dich' => '/en/',
+		'url'      => '/',
+	)
+);
 get_header();
 ?>
 <!-- ===== BANNER ĐẦU TRANG — TRƯỢT ẢNH TỰ ĐỘNG ===== -->
 <section class="hero">
-  <div class="hero-slides" id="hero-slides">
-    <div class="slide-bg active"><img src="/hero.jpg" alt="Không gian Lalasea Bistro bên biển"></div>
-    <div class="slide-bg"><img src="/anh/hoang-hon-vong-bai-co-lalasea-ha-tien.jpg" alt="Võng và xích đu mây sát mép biển lúc hoàng hôn tại Lalasea Bistro Hà Tiên" loading="lazy"></div>
-    <div class="slide-bg"><img src="/anh/img2.jpg" alt="Lalasea về đêm với đèn dây lung linh" loading="lazy"></div>
-    <div class="slide-bg"><img src="/anh/hoang-hon-bien-to-chau-lalasea-ha-tien.jpg" alt="Hoàng hôn trên biển Tô Châu nhìn từ Lalasea Bistro Hà Tiên" loading="lazy"></div>
-  </div>
-  <svg class="logo-svg" width="95" height="194"><use href="#lalasea-logo"/></svg>
-  <div class="script">Ăn ngon, ngồi mát, nhìn ra biển</div>
-  <h1>LALASEA BISTRO</h1>
-  <p>Nhà hàng không gian mở ngay bên bờ biển Tô Châu, Hà Tiên — thực đơn đa dạng, giá hợp lý, ngồi bàn nào cũng thấy biển.</p>
-  <div class="hero-actions">
-    <a href="#dat-ban" class="btn btn-lg">Đặt bàn ngay</a>
-    <a href="/thuc-don/" class="btn btn-ghost">Xem thực đơn</a>
-  </div>
-  <div class="hero-dots" id="hero-dots">
-    <button class="active" aria-label="Ảnh 1"></button>
-    <button aria-label="Ảnh 2"></button>
-    <button aria-label="Ảnh 3"></button>
-    <button aria-label="Ảnh 4"></button>
-  </div>
+	<div class="hero-slides" id="hero-slides">
+	<div class="slide-bg active"><img src="/hero.jpg" alt="Không gian Lalasea Bistro bên biển"></div>
+	<div class="slide-bg"><img src="/anh/hoang-hon-vong-bai-co-lalasea-ha-tien.jpg" alt="Võng và xích đu mây sát mép biển lúc hoàng hôn tại Lalasea Bistro Hà Tiên" loading="lazy"></div>
+	<div class="slide-bg"><img src="/anh/img2.jpg" alt="Lalasea về đêm với đèn dây lung linh" loading="lazy"></div>
+	<div class="slide-bg"><img src="/anh/hoang-hon-bien-to-chau-lalasea-ha-tien.jpg" alt="Hoàng hôn trên biển Tô Châu nhìn từ Lalasea Bistro Hà Tiên" loading="lazy"></div>
+	</div>
+	<svg class="logo-svg" width="95" height="194"><use href="#lalasea-logo"/></svg>
+	<div class="script">Ăn ngon, ngồi mát, nhìn ra biển</div>
+	<h1>LALASEA BISTRO</h1>
+	<p>Nhà hàng không gian mở ngay bên bờ biển Tô Châu, Hà Tiên — thực đơn đa dạng, giá hợp lý, ngồi bàn nào cũng thấy biển.</p>
+	<div class="hero-actions">
+	<a href="#dat-ban" class="btn btn-lg">Đặt bàn ngay</a>
+	<a href="/thuc-don/" class="btn btn-ghost">Xem thực đơn</a>
+	</div>
+	<div class="hero-dots" id="hero-dots">
+	<button class="active" aria-label="Ảnh 1"></button>
+	<button aria-label="Ảnh 2"></button>
+	<button aria-label="Ảnh 3"></button>
+	<button aria-label="Ảnh 4"></button>
+	</div>
 </section>
 
 <!-- ===== GIỚI THIỆU ===== -->
 <section id="gioi-thieu">
-  <div class="container about">
-    <div class="about-collage reveal">
-      <div class="main-photo"><img src="/anh/img3.jpg" alt="Beach Bar Lalasea buổi tối với đèn dây lung linh" loading="lazy"></div>
-      <div class="sub-photo"><img src="/anh/img5.jpg" alt="Bãi cỏ picnic bên bờ biển" loading="lazy"></div>
-    </div>
-    <div class="about-text reveal">
-      <span class="script-accent">Chuyện của Lalasea</span>
-      <h2>Lala là câu hát vui,<br>Sea là biển</h2>
-      <p>Lalasea sinh ra ngay mép biển Tô Châu, Hà Tiên — quán không có tường ngăn, chỉ có bóng cây, gió biển và tiếng sóng ngay sau lưng bàn ăn.</p>
-      <p>Một bữa tối dưới đèn dây, một đêm trong lều gỗ, một bình minh ngay trước hiên lều — Lalasea muốn giữ bạn lại lâu hơn một bữa ăn.</p>
-      <p>Thực đơn trải từ hải sản, ốc sò, món nướng, lẩu đến bò, gà và cơm — nhóm bạn hay gia đình đang tìm một quán ăn ngon ở Hà Tiên đều gọi được món hợp khẩu vị, giá dễ chịu.</p>
-      <a href="#khong-gian" class="btn" style="margin-top:8px;">Ngắm không gian 📸</a>
-    </div>
-  </div>
+	<div class="container about">
+	<div class="about-collage reveal">
+		<div class="main-photo"><img src="/anh/img3.jpg" alt="Beach Bar Lalasea buổi tối với đèn dây lung linh" loading="lazy"></div>
+		<div class="sub-photo"><img src="/anh/img5.jpg" alt="Bãi cỏ picnic bên bờ biển" loading="lazy"></div>
+	</div>
+	<div class="about-text reveal">
+		<span class="script-accent">Chuyện của Lalasea</span>
+		<h2>Lala là câu hát vui,<br>Sea là biển</h2>
+		<p>Lalasea sinh ra ngay mép biển Tô Châu, Hà Tiên — quán không có tường ngăn, chỉ có bóng cây, gió biển và tiếng sóng ngay sau lưng bàn ăn.</p>
+		<p>Một bữa tối dưới đèn dây, một đêm trong lều gỗ, một bình minh ngay trước hiên lều — Lalasea muốn giữ bạn lại lâu hơn một bữa ăn.</p>
+		<p>Thực đơn trải từ hải sản, ốc sò, món nướng, lẩu đến bò, gà và cơm — nhóm bạn hay gia đình đang tìm một quán ăn ngon ở Hà Tiên đều gọi được món hợp khẩu vị, giá dễ chịu.</p>
+		<a href="#khong-gian" class="btn" style="margin-top:8px;">Ngắm không gian 📸</a>
+	</div>
+	</div>
 </section>
 
 <!-- ===== MÓN ĐẶC BIỆT + MỜI XEM MENU ===== -->
 <section id="mon-dac-biet" class="menu-sec">
-  <div class="container">
-    <div class="section-title reveal">
-      <span class="script-accent">Mời bạn xem món nhé!</span>
-      <h2>Món đặc biệt</h2>
-    </div>
-    <div class="menu-grid reveal">
-      <div class="dish">
-        <div class="emoji">🍖</div>
-        <h3>Sườn cay</h3>
-        <div class="en">Spicy Pork Ribs</div>
-        <div class="sizes">
-          <div class="size-chip"><span class="sz">Size M</span><span class="pr">289.000đ</span></div>
-          <div class="size-chip"><span class="sz">Size L</span><span class="pr">389.000đ</span></div>
-          <div class="size-chip"><span class="sz">Size XL</span><span class="pr">489.000đ</span></div>
-        </div>
-      </div>
-      <div class="dish">
-        <div class="emoji">🦀</div>
-        <h3>Cà ri cua</h3>
-        <div class="en">Crab in Curry Sauce</div>
-        <div class="market">Theo thời giá <small>Market price</small></div>
-      </div>
-      <div class="dish">
-        <div class="emoji">🦞</div>
-        <h3>Hải sản xô</h3>
-        <div class="en">Mixed Seafood Bucket</div>
-        <div class="sizes">
-          <div class="size-chip"><span class="sz">Size M</span><span class="pr">289.000đ</span></div>
-          <div class="size-chip"><span class="sz">Size L</span><span class="pr">389.000đ</span></div>
-          <div class="size-chip"><span class="sz">Size XL</span><span class="pr">489.000đ</span></div>
-        </div>
-      </div>
-      <div class="dish">
-        <div class="emoji">🥗</div>
-        <h3>Gỏi cá trích</h3>
-        <div class="en">Herring Salad</div>
-        <div class="price">189.000đ</div>
-      </div>
-    </div>
+	<div class="container">
+	<div class="section-title reveal">
+		<span class="script-accent">Mời bạn xem món nhé!</span>
+		<h2>Món đặc biệt</h2>
+	</div>
+	<div class="menu-grid reveal">
+		<div class="dish">
+		<div class="emoji">🍖</div>
+		<h3>Sườn cay</h3>
+		<div class="en">Spicy Pork Ribs</div>
+		<div class="sizes">
+			<div class="size-chip"><span class="sz">Size M</span><span class="pr">289.000đ</span></div>
+			<div class="size-chip"><span class="sz">Size L</span><span class="pr">389.000đ</span></div>
+			<div class="size-chip"><span class="sz">Size XL</span><span class="pr">489.000đ</span></div>
+		</div>
+		</div>
+		<div class="dish">
+		<div class="emoji">🦀</div>
+		<h3>Cà ri cua</h3>
+		<div class="en">Crab in Curry Sauce</div>
+		<div class="market">Theo thời giá <small>Market price</small></div>
+		</div>
+		<div class="dish">
+		<div class="emoji">🦞</div>
+		<h3>Hải sản xô</h3>
+		<div class="en">Mixed Seafood Bucket</div>
+		<div class="sizes">
+			<div class="size-chip"><span class="sz">Size M</span><span class="pr">289.000đ</span></div>
+			<div class="size-chip"><span class="sz">Size L</span><span class="pr">389.000đ</span></div>
+			<div class="size-chip"><span class="sz">Size XL</span><span class="pr">489.000đ</span></div>
+		</div>
+		</div>
+		<div class="dish">
+		<div class="emoji">🥗</div>
+		<h3>Gỏi cá trích</h3>
+		<div class="en">Herring Salad</div>
+		<div class="price">189.000đ</div>
+		</div>
+	</div>
 
-    <div class="menu-teaser reveal">
-      <a href="/thuc-don/" aria-label="Xem thực đơn"><img src="/menu/thumb1.jpg" alt="Thực đơn nhà hàng Lalasea Bistro Hà Tiên - trang bìa" loading="lazy"></a>
-      <a href="/thuc-don/" aria-label="Xem thực đơn"><img src="/menu/thumb3.jpg" alt="Menu món khai vị, gỏi, rau - Lalasea Bistro" loading="lazy"></a>
-      <a href="/thuc-don/" aria-label="Xem thực đơn"><img src="/menu/thumb5.jpg" alt="Menu hải sản tươi sống kèm bảng giá - Lalasea Bistro" loading="lazy"></a>
-    </div>
-    <div class="menu-cta reveal">
-      <a href="/thuc-don/" class="btn btn-lg">📖 Xem thực đơn đầy đủ</a>
-      <p class="note">Trọn bộ <?= ls_e(ls_lay(ls_lay($menuanh, 'trang'), 'length')) ?> trang — lướt/vuốt qua từng trang như lật menu thật.<br>Ngoài ra Lalasea còn có <strong>Menu Tiệc</strong> đặt trước — liên hệ <a href="tel:<?= ls_e(ls_lay($thongtin, 'dien_thoai_goi')) ?>"><?= ls_e(ls_lay($thongtin, 'dien_thoai')) ?></a>.</p>
-    </div>
-  </div>
+	<div class="menu-teaser reveal">
+		<a href="/thuc-don/" aria-label="Xem thực đơn"><img src="/menu/thumb1.jpg" alt="Thực đơn nhà hàng Lalasea Bistro Hà Tiên - trang bìa" loading="lazy"></a>
+		<a href="/thuc-don/" aria-label="Xem thực đơn"><img src="/menu/thumb3.jpg" alt="Menu món khai vị, gỏi, rau - Lalasea Bistro" loading="lazy"></a>
+		<a href="/thuc-don/" aria-label="Xem thực đơn"><img src="/menu/thumb5.jpg" alt="Menu hải sản tươi sống kèm bảng giá - Lalasea Bistro" loading="lazy"></a>
+	</div>
+	<div class="menu-cta reveal">
+		<a href="/thuc-don/" class="btn btn-lg">📖 Xem thực đơn đầy đủ</a>
+		<p class="note">Trọn bộ <?php echo esc_html( count( $lalasea_menuanh['trang'] ) ); ?> trang — lướt/vuốt qua từng trang như lật menu thật.<br>Ngoài ra Lalasea còn có <strong>Menu Tiệc</strong> đặt trước — liên hệ <a href="<?php echo esc_url( 'tel:' . $lalasea_thongtin['dien_thoai_goi'] ); ?>"><?php echo esc_html( $lalasea_thongtin['dien_thoai'] ); ?></a>.</p>
+	</div>
+	</div>
 </section>
 
 <!-- ===== TRẢI NGHIỆM ===== -->
 <section id="trai-nghiem" class="exp">
-  <div class="container">
-    <div class="section-title reveal">
-      <span class="script-accent">Không chỉ là một bữa ăn</span>
-      <h2>Trải nghiệm tại Lalasea</h2>
-    </div>
-    <div class="exp-grid">
-      <div class="exp-card reveal">
-        <div class="bg"><img src="/anh/bun-hai-san-lalasea-ha-tien.jpg" alt="Tô bún hải sản với tôm, mực, chả cá tại nhà hàng Lalasea Hà Tiên" loading="lazy"></div>
-        <div class="veil"></div>
-        <div class="nd"><div class="ei">🍤</div><h3>Ẩm thực đa dạng</h3><p>Hải sản, ốc sò, món nướng, lẩu, bò, gà và cơm — đủ món cho mọi khẩu vị trong bàn.</p></div>
-      </div>
-      <a class="exp-card reveal" href="/glamping/">
-        <div class="bg"><img src="/uploads/585bccbb09ef89b1d0fe5.jpg" alt="Glamping Hà Tiên - lều gỗ chữ A trong khuôn viên Lalasea" loading="lazy"></div>
-        <div class="veil"></div>
-        <div class="nd"><div class="ei">⛺</div><h3>Cắm trại &amp; Glamping</h3><p>Ngủ lều gỗ máy lạnh trong khuôn viên, cách biển vài chục mét — trọn gói từ 490.000đ/người kèm ăn sáng + BBQ tối. Xem bảng giá →</p></div>
-      </a>
-      <div class="exp-card reveal">
-        <div class="bg"><img src="/anh/beach-bar-lalasea-ha-tien.jpg" alt="Quầy Beach Bar Lalasea Hà Tiên về đêm với biển hiệu neon" loading="lazy"></div>
-        <div class="veil"></div>
-        <div class="nd"><div class="ei">🍹</div><h3>Beach Bar</h3><p>Nhâm nhi đồ uống, ngắm hoàng hôn bên bờ biển với đèn dây lung linh.</p></div>
-      </div>
-      <a class="exp-card reveal" href="/tiec-su-kien/">
-        <div class="bg"><img src="/anh/tiec-ngoai-troi-ben-bien-lalasea-ha-tien.jpg" alt="Khu tiệc ngoài trời bên biển với bàn ghế Chiavari tại Lalasea Hà Tiên" loading="lazy"></div>
-        <div class="veil"></div>
-        <div class="nd"><div class="ei">💒</div><h3>Tiệc cưới &amp; Sự kiện</h3><p>Tổ chức tiệc cưới, sinh nhật, liên hoan bên biển — sân khấu hướng biển và bàn ghế có sẵn. Xem dịch vụ tiệc →</p></div>
-      </a>
-    </div>
-  </div>
+	<div class="container">
+	<div class="section-title reveal">
+		<span class="script-accent">Không chỉ là một bữa ăn</span>
+		<h2>Trải nghiệm tại Lalasea</h2>
+	</div>
+	<div class="exp-grid">
+		<div class="exp-card reveal">
+		<div class="bg"><img src="/anh/bun-hai-san-lalasea-ha-tien.jpg" alt="Tô bún hải sản với tôm, mực, chả cá tại nhà hàng Lalasea Hà Tiên" loading="lazy"></div>
+		<div class="veil"></div>
+		<div class="nd"><div class="ei">🍤</div><h3>Ẩm thực đa dạng</h3><p>Hải sản, ốc sò, món nướng, lẩu, bò, gà và cơm — đủ món cho mọi khẩu vị trong bàn.</p></div>
+		</div>
+		<a class="exp-card reveal" href="/glamping/">
+		<div class="bg"><img src="/uploads/585bccbb09ef89b1d0fe5.jpg" alt="Glamping Hà Tiên - lều gỗ chữ A trong khuôn viên Lalasea" loading="lazy"></div>
+		<div class="veil"></div>
+		<div class="nd"><div class="ei">⛺</div><h3>Cắm trại &amp; Glamping</h3><p>Ngủ lều gỗ máy lạnh trong khuôn viên, cách biển vài chục mét — trọn gói từ 490.000đ/người kèm ăn sáng + BBQ tối. Xem bảng giá →</p></div>
+		</a>
+		<div class="exp-card reveal">
+		<div class="bg"><img src="/anh/beach-bar-lalasea-ha-tien.jpg" alt="Quầy Beach Bar Lalasea Hà Tiên về đêm với biển hiệu neon" loading="lazy"></div>
+		<div class="veil"></div>
+		<div class="nd"><div class="ei">🍹</div><h3>Beach Bar</h3><p>Nhâm nhi đồ uống, ngắm hoàng hôn bên bờ biển với đèn dây lung linh.</p></div>
+		</div>
+		<a class="exp-card reveal" href="/tiec-su-kien/">
+		<div class="bg"><img src="/anh/tiec-ngoai-troi-ben-bien-lalasea-ha-tien.jpg" alt="Khu tiệc ngoài trời bên biển với bàn ghế Chiavari tại Lalasea Hà Tiên" loading="lazy"></div>
+		<div class="veil"></div>
+		<div class="nd"><div class="ei">💒</div><h3>Tiệc cưới &amp; Sự kiện</h3><p>Tổ chức tiệc cưới, sinh nhật, liên hoan bên biển — sân khấu hướng biển và bàn ghế có sẵn. Xem dịch vụ tiệc →</p></div>
+		</a>
+	</div>
+	</div>
 </section>
 
 <!-- ===== THƯ VIỆN ẢNH ===== -->
 <section id="khong-gian" class="gallery">
-  <div class="container">
-    <div class="section-title reveal">
-      <span class="script-accent">Không gian &amp; khoảnh khắc</span>
-      <h2>Hình ảnh nhà hàng</h2>
-    </div>
-    <div class="gallery-grid reveal">
-      <?php $__lp1 = $loop ?? null; foreach (ls_lap(ls_lay($thuvien, 'anh')) as $__k1 => $item): $loop = ['index' => $__k1 + 1, 'index0' => $__k1]; ?>
-
-      <div class="tile"><img src="<?= ls_e(ls_lay($item, 'file')) ?>" alt="<?= ls_e(ls_lay($item, 'mota')) ?>" loading="lazy"><div class="cap"><?= ls_e(ls_lay($item, 'mota')) ?></div></div>
-      <?php endforeach; $loop = $__lp1; ?>
-
-    </div>
-  </div>
+	<div class="container">
+	<div class="section-title reveal">
+		<span class="script-accent">Không gian &amp; khoảnh khắc</span>
+		<h2>Hình ảnh nhà hàng</h2>
+	</div>
+	<div class="gallery-grid reveal">
+		<?php foreach ( $lalasea_thuvien['anh'] as $lalasea_anh ) : ?>
+		<div class="tile"><img src="<?php echo esc_url( $lalasea_anh['file'] ); ?>" alt="<?php echo esc_attr( $lalasea_anh['mota'] ); ?>" loading="lazy"><div class="cap"><?php echo esc_html( $lalasea_anh['mota'] ); ?></div></div>
+		<?php endforeach; ?>
+	</div>
+	</div>
 </section>
 
 <!-- ===== KHÁCH NÓI GÌ VỀ LALASEA ===== -->
 <section id="danh-gia" class="dgia">
-  <div class="container">
-    <div class="section-title reveal">
-      <span class="script-accent">Niềm vui của khách là 5 sao của Lalasea</span>
-      <h2>Khách nói gì về Lalasea</h2>
-    </div>
-    <?php if ((ls_lay(ls_lay($danhgia, 'khach'), 'length') > 0)): ?>
-
-    <div class="dgia-grid reveal">
-      <?php $__lp2 = $loop ?? null; foreach (ls_lap(ls_lay($danhgia, 'khach')) as $__k2 => $d): $loop = ['index' => $__k2 + 1, 'index0' => $__k2]; ?>
-
-      <div class="dgia-card">
-        <div class="sao"><?php $__lp3 = $loop ?? null; foreach (ls_lap(ls_range(0, ls_lay($d, 'sao'))) as $__k3 => $i): $loop = ['index' => $__k3 + 1, 'index0' => $__k3]; ?>★<?php endforeach; $loop = $__lp3; ?></div>
-        <p class="loi">"<?= ls_e(ls_lay($d, 'loi')) ?>"</p>
-        <div class="ten">— <?= ls_e(ls_lay($d, 'ten')) ?> · <span>Google Maps</span></div>
-      </div>
-      <?php endforeach; $loop = $__lp2; ?>
-
-    </div>
-    <?php endif; ?>
-
-    <div class="dgia-cta reveal">
-      <p>Bạn đã ghé Lalasea? Một đánh giá của bạn là món quà lớn với chúng tôi 💙</p>
-      <div>
-        <a href="<?= ls_e(ls_lay($thongtin, 'google_review')) ?>" target="_blank" rel="noopener" class="btn btn-lg">⭐ Đánh giá trên Google</a>
-        <a href="<?= ls_e(ls_lay($thongtin, 'maps')) ?>" target="_blank" rel="noopener" class="btn btn-ghost dgia-ghost">Xem tất cả đánh giá</a>
-      </div>
-      <p class="gop-y">Có điều chưa hài lòng? <a href="<?= ls_e(ls_lay($thongtin, 'zalo')) ?>" target="_blank" rel="noopener">Nhắn Zalo góp ý riêng với quản lý</a> — chúng tôi lắng nghe và sửa ngay.</p>
-    </div>
-  </div>
+	<div class="container">
+	<div class="section-title reveal">
+		<span class="script-accent">Niềm vui của khách là 5 sao của Lalasea</span>
+		<h2>Khách nói gì về Lalasea</h2>
+	</div>
+	<?php if ( ! empty( $lalasea_danhgia['khach'] ) ) : ?>
+	<div class="dgia-grid reveal">
+		<?php foreach ( $lalasea_danhgia['khach'] as $lalasea_danh_gia ) : ?>
+		<div class="dgia-card">
+		<div class="sao"><?php echo esc_html( str_repeat( '★', (int) $lalasea_danh_gia['sao'] ) ); ?></div>
+		<p class="loi">"<?php echo esc_html( $lalasea_danh_gia['loi'] ); ?>"</p>
+		<div class="ten">— <?php echo esc_html( $lalasea_danh_gia['ten'] ); ?> · <span>Google Maps</span></div>
+		</div>
+		<?php endforeach; ?>
+	</div>
+	<?php endif; ?>
+	<div class="dgia-cta reveal">
+		<p>Bạn đã ghé Lalasea? Một đánh giá của bạn là món quà lớn với chúng tôi 💙</p>
+		<div>
+		<a href="<?php echo esc_url( $lalasea_thongtin['google_review'] ); ?>" target="_blank" rel="noopener" class="btn btn-lg">⭐ Đánh giá trên Google</a>
+		<a href="<?php echo esc_url( $lalasea_thongtin['maps'] ); ?>" target="_blank" rel="noopener" class="btn btn-ghost dgia-ghost">Xem tất cả đánh giá</a>
+		</div>
+		<p class="gop-y">Có điều chưa hài lòng? <a href="<?php echo esc_url( $lalasea_thongtin['zalo'] ); ?>" target="_blank" rel="noopener">Nhắn Zalo góp ý riêng với quản lý</a> — chúng tôi lắng nghe và sửa ngay.</p>
+	</div>
+	</div>
 </section>
 
 <!-- ===== TIN TỨC MỚI ===== -->
-<?php if ((ls_lay($baiviet, 'length') > 0)): ?>
-
+<?php if ( ! empty( $lalasea_baiviet ) ) : ?>
 <section id="tin-tuc" class="news">
-  <div class="container">
-    <div class="section-title reveal">
-      <span class="script-accent">Có gì mới ở Lalasea?</span>
-      <h2>Tin tức &amp; Ưu đãi</h2>
-    </div>
-    <div class="news-grid reveal">
-      <?php $__lp4 = $loop ?? null; foreach (ls_lap($baiviet) as $__k4 => $bai): $loop = ['index' => $__k4 + 1, 'index0' => $__k4]; ?><?php if ((ls_lay($loop, 'index') <= 3)): ?>
-
-      <a class="news-card" href="<?= ls_e(ls_lay($bai, 'url')) ?>">
-        <div class="thumb"><?php if (ls_lay(ls_lay($bai, 'data'), 'anh_dai_dien')): ?><img src="<?= ls_e(ls_lay(ls_lay($bai, 'data'), 'anh_dai_dien')) ?>" alt="<?= ls_e(ls_lay(ls_lay($bai, 'data'), 'title')) ?>" loading="lazy"><?php endif; ?></div>
-        <div class="body">
-          <div class="date"><?= ls_e(ls_ngay_vn(ls_lay($bai, 'date'))) ?></div>
-          <h3><?= ls_e(ls_lay(ls_lay($bai, 'data'), 'title')) ?></h3>
-          <p><?= ls_e(ls_lay(ls_lay($bai, 'data'), 'mo_ta')) ?></p>
-          <span class="more">Đọc tiếp →</span>
-        </div>
-      </a>
-      <?php endif; ?><?php endforeach; $loop = $__lp4; ?>
-
-    </div>
-    <div class="news-cta reveal"><a href="/tin-tuc/" class="btn btn-ghost nen-sang">Xem tất cả tin tức</a></div>
-  </div>
+	<div class="container">
+	<div class="section-title reveal">
+		<span class="script-accent">Có gì mới ở Lalasea?</span>
+		<h2>Tin tức &amp; Ưu đãi</h2>
+	</div>
+	<div class="news-grid reveal">
+		<?php foreach ( array_slice( $lalasea_baiviet, 0, 3 ) as $lalasea_bai ) : // 3 bài mới nhất. ?>
+		<a class="news-card" href="<?php echo esc_url( $lalasea_bai['url'] ); ?>">
+		<div class="thumb">
+			<?php if ( $lalasea_bai['data']['anh_dai_dien'] ) : ?>
+			<img src="<?php echo esc_url( $lalasea_bai['data']['anh_dai_dien'] ); ?>" alt="<?php echo esc_attr( $lalasea_bai['data']['title'] ); ?>" loading="lazy"><?php endif; ?></div>
+		<div class="body">
+			<div class="date"><?php echo esc_html( lalasea_ngay_vn( $lalasea_bai['date'] ) ); ?></div>
+			<h3><?php echo esc_html( $lalasea_bai['data']['title'] ); ?></h3>
+			<p><?php echo esc_html( $lalasea_bai['data']['mo_ta'] ); ?></p>
+			<span class="more">Đọc tiếp →</span>
+		</div>
+		</a>
+		<?php endforeach; ?>
+	</div>
+	<div class="news-cta reveal"><a href="/tin-tuc/" class="btn btn-ghost nen-sang">Xem tất cả tin tức</a></div>
+	</div>
 </section>
 <?php endif; ?>
 
-
 <!-- ===== CÂU HỎI THƯỜNG GẶP ===== -->
 <section id="hoi-dap" class="faq">
-  <div class="container" style="max-width:800px;">
-    <div class="section-title reveal">
-      <span class="script-accent">Bạn hỏi — Lalasea trả lời</span>
-      <h2>Câu hỏi thường gặp</h2>
-    </div>
-    <div class="faq-list reveal">
-      <details>
-        <summary>Nhà hàng Lalasea Bistro ở đâu tại Hà Tiên?</summary>
-        <p>Lalasea Bistro nằm trên Quốc lộ 80, phường Tô Châu, Hà Tiên (An Giang) — ngay bên bờ biển, cách trung tâm Hà Tiên chỉ vài phút chạy xe. Bạn có thể bấm "Chỉ đường" trên website để mở Google Maps dẫn đến tận nơi.</p>
-      </details>
-      <details>
-        <summary>Lalasea mở cửa lúc mấy giờ? Ngày lễ có mở không?</summary>
-        <p>Nhà hàng mở cửa tất cả các ngày, kể cả ngày lễ và Tết. Thứ Hai đến Thứ Sáu mở từ 08:00, Thứ Bảy và Chủ Nhật mở sớm hơn từ 07:00, đóng cửa lúc 23:00.</p>
-      </details>
-      <details>
-        <summary>Đặt bàn / đặt tiệc ở Lalasea như thế nào?</summary>
-        <p>Bạn có thể điền form đặt bàn ngay trên trang này, hoặc gọi / nhắn Zalo số <a href="tel:0907896949"><strong>0907 896 949</strong></a>. Với tiệc cưới, sinh nhật, liên hoan công ty, nhà hàng có Menu Tiệc riêng đặt trước theo ngân sách của bạn — xem chi tiết tại trang <a href="/tiec-su-kien/">Tiệc &amp; Sự kiện</a>.</p>
-      </details>
-      <details>
-        <summary>Lalasea có chỗ nghỉ qua đêm không? Giá bao nhiêu?</summary>
-        <p>Có! Lalasea có khu glamping với lều gỗ đầy đủ máy lạnh và nội thất trong khuôn viên nhà hàng, cách biển chỉ vài chục mét. Giá trọn gói từ <strong>490.000đ/người</strong> (nhóm 5–6 khách, ngày thường) đã bao gồm bữa sáng và bữa tối BBQ – lẩu. Check-in từ 14:00, check-out trước 12:00 hôm sau. Xem chi tiết tại trang <a href="/glamping/">Glamping</a> — nên gọi trước để giữ lều vì số lượng có hạn.</p>
-      </details>
-      <details>
-        <summary>Giá món ăn ở Lalasea khoảng bao nhiêu?</summary>
-        <p>Phần lớn món chính nằm trong khoảng <strong>100.000đ – 300.000đ</strong> tùy món. Các phần hải sản lớn hoặc món tính theo thời giá trong ngày sẽ cao hơn, nhân viên luôn báo giá trước khi bạn gọi. Bạn có thể xem đủ 14 trang thực đơn kèm giá tại mục <a href="/thuc-don/">Thực đơn</a>.</p>
-      </details>
-      <details>
-        <summary>Không ăn được hải sản thì Lalasea có món gì?</summary>
-        <p>Vẫn thoải mái gọi món. Ngoài hải sản, thực đơn có sườn cay, bò lúc lắc, bò né, sụn gà rang muối, cánh gà chiên nước mắm, ếch chiên giòn, lẩu, cơm và nhiều món lai rai khác — nên nhóm đông người mỗi người một khẩu vị vẫn ăn chung được. Xem đủ món tại trang <a href="/thuc-don/">Thực đơn</a>.</p>
-      </details>
-      <details>
-        <summary>Lalasea Bistro Camping và Lalasea Bistro có phải cùng một nơi không?</summary>
-        <p><strong>Đúng, chỉ là một nơi.</strong> Lalasea Bistro là <strong>nhà hàng không gian mở sát biển</strong> ở Quốc lộ 80, phường Tô Châu, Hà Tiên — và ngay trong khuôn viên nhà hàng có khu <a href="/glamping/">glamping lều gỗ máy lạnh</a>. Vì quán vừa phục vụ ăn uống vừa có chỗ ngủ lại nên các trang đặt phòng thường niêm yết dưới tên <em>“Lalasea Bistro Camping”</em>, còn bản đồ và mạng xã hội hay gọi ngắn là <em>“Lalasea”</em>. Tất cả đều chỉ cùng một địa điểm, cùng số điện thoại <strong>0907 896 949</strong>.</p>
-        <p>Đặt bàn ăn, đặt lều qua đêm hay đặt <a href="/tiec-su-kien/">tiệc cưới – sự kiện</a> đều gọi chung số này: ăn và ngủ trong cùng một khuôn viên.</p>
-      </details>
-      <details>
-        <summary>Lalasea ở Kiên Giang hay An Giang?</summary>
-        <p>Quán vẫn ở nguyên vị trí cũ trên Quốc lộ 80, phường Tô Châu, thành phố Hà Tiên. Trước tháng 7/2025, Hà Tiên thuộc tỉnh Kiên Giang; sau khi sáp nhập tỉnh, Hà Tiên thuộc tỉnh <strong>An Giang</strong>. Chỉ tên tỉnh thay đổi — địa điểm, đường đi và số điện thoại của Lalasea không đổi.</p>
-      </details>
-    </div>
-  </div>
+	<div class="container" style="max-width:800px;">
+	<div class="section-title reveal">
+		<span class="script-accent">Bạn hỏi — Lalasea trả lời</span>
+		<h2>Câu hỏi thường gặp</h2>
+	</div>
+	<div class="faq-list reveal">
+		<details>
+		<summary>Nhà hàng Lalasea Bistro ở đâu tại Hà Tiên?</summary>
+		<p>Lalasea Bistro nằm trên Quốc lộ 80, phường Tô Châu, Hà Tiên (An Giang) — ngay bên bờ biển, cách trung tâm Hà Tiên chỉ vài phút chạy xe. Bạn có thể bấm "Chỉ đường" trên website để mở Google Maps dẫn đến tận nơi.</p>
+		</details>
+		<details>
+		<summary>Lalasea mở cửa lúc mấy giờ? Ngày lễ có mở không?</summary>
+		<p>Nhà hàng mở cửa tất cả các ngày, kể cả ngày lễ và Tết. Thứ Hai đến Thứ Sáu mở từ 08:00, Thứ Bảy và Chủ Nhật mở sớm hơn từ 07:00, đóng cửa lúc 23:00.</p>
+		</details>
+		<details>
+		<summary>Đặt bàn / đặt tiệc ở Lalasea như thế nào?</summary>
+		<p>Bạn có thể điền form đặt bàn ngay trên trang này, hoặc gọi / nhắn Zalo số <a href="tel:0907896949"><strong>0907 896 949</strong></a>. Với tiệc cưới, sinh nhật, liên hoan công ty, nhà hàng có Menu Tiệc riêng đặt trước theo ngân sách của bạn — xem chi tiết tại trang <a href="/tiec-su-kien/">Tiệc &amp; Sự kiện</a>.</p>
+		</details>
+		<details>
+		<summary>Lalasea có chỗ nghỉ qua đêm không? Giá bao nhiêu?</summary>
+		<p>Có! Lalasea có khu glamping với lều gỗ đầy đủ máy lạnh và nội thất trong khuôn viên nhà hàng, cách biển chỉ vài chục mét. Giá trọn gói từ <strong>490.000đ/người</strong> (nhóm 5–6 khách, ngày thường) đã bao gồm bữa sáng và bữa tối BBQ – lẩu. Check-in từ 14:00, check-out trước 12:00 hôm sau. Xem chi tiết tại trang <a href="/glamping/">Glamping</a> — nên gọi trước để giữ lều vì số lượng có hạn.</p>
+		</details>
+		<details>
+		<summary>Giá món ăn ở Lalasea khoảng bao nhiêu?</summary>
+		<p>Phần lớn món chính nằm trong khoảng <strong>100.000đ – 300.000đ</strong> tùy món. Các phần hải sản lớn hoặc món tính theo thời giá trong ngày sẽ cao hơn, nhân viên luôn báo giá trước khi bạn gọi. Bạn có thể xem đủ 14 trang thực đơn kèm giá tại mục <a href="/thuc-don/">Thực đơn</a>.</p>
+		</details>
+		<details>
+		<summary>Không ăn được hải sản thì Lalasea có món gì?</summary>
+		<p>Vẫn thoải mái gọi món. Ngoài hải sản, thực đơn có sườn cay, bò lúc lắc, bò né, sụn gà rang muối, cánh gà chiên nước mắm, ếch chiên giòn, lẩu, cơm và nhiều món lai rai khác — nên nhóm đông người mỗi người một khẩu vị vẫn ăn chung được. Xem đủ món tại trang <a href="/thuc-don/">Thực đơn</a>.</p>
+		</details>
+		<details>
+		<summary>Lalasea Bistro Camping và Lalasea Bistro có phải cùng một nơi không?</summary>
+		<p><strong>Đúng, chỉ là một nơi.</strong> Lalasea Bistro là <strong>nhà hàng không gian mở sát biển</strong> ở Quốc lộ 80, phường Tô Châu, Hà Tiên — và ngay trong khuôn viên nhà hàng có khu <a href="/glamping/">glamping lều gỗ máy lạnh</a>. Vì quán vừa phục vụ ăn uống vừa có chỗ ngủ lại nên các trang đặt phòng thường niêm yết dưới tên <em>“Lalasea Bistro Camping”</em>, còn bản đồ và mạng xã hội hay gọi ngắn là <em>“Lalasea”</em>. Tất cả đều chỉ cùng một địa điểm, cùng số điện thoại <strong>0907 896 949</strong>.</p>
+		<p>Đặt bàn ăn, đặt lều qua đêm hay đặt <a href="/tiec-su-kien/">tiệc cưới – sự kiện</a> đều gọi chung số này: ăn và ngủ trong cùng một khuôn viên.</p>
+		</details>
+		<details>
+		<summary>Lalasea ở Kiên Giang hay An Giang?</summary>
+		<p>Quán vẫn ở nguyên vị trí cũ trên Quốc lộ 80, phường Tô Châu, thành phố Hà Tiên. Trước tháng 7/2025, Hà Tiên thuộc tỉnh Kiên Giang; sau khi sáp nhập tỉnh, Hà Tiên thuộc tỉnh <strong>An Giang</strong>. Chỉ tên tỉnh thay đổi — địa điểm, đường đi và số điện thoại của Lalasea không đổi.</p>
+		</details>
+	</div>
+	</div>
 </section>
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Nhà hàng Lalasea Bistro ở đâu tại Hà Tiên?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Lalasea Bistro nằm trên Quốc lộ 80, phường Tô Châu, Hà Tiên (An Giang) — ngay bên bờ biển, cách trung tâm Hà Tiên chỉ vài phút chạy xe." }
-    },
-    {
-      "@type": "Question",
-      "name": "Lalasea mở cửa lúc mấy giờ? Ngày lễ có mở không?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Nhà hàng mở cửa tất cả các ngày, kể cả ngày lễ và Tết. Thứ Hai đến Thứ Sáu mở từ 08:00, Thứ Bảy và Chủ Nhật mở sớm hơn từ 07:00, đóng cửa lúc 23:00." }
-    },
-    {
-      "@type": "Question",
-      "name": "Đặt bàn / đặt tiệc ở Lalasea như thế nào?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Điền form đặt bàn trên website lalasea.vn hoặc gọi / nhắn Zalo số 0907 896 949. Tiệc cưới, sinh nhật, liên hoan có Menu Tiệc riêng đặt trước." }
-    },
-    {
-      "@type": "Question",
-      "name": "Lalasea có chỗ nghỉ qua đêm không? Giá bao nhiêu?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Có. Lalasea có khu glamping với lều gỗ đầy đủ máy lạnh trong khuôn viên nhà hàng, cách biển chỉ vài chục mét. Giá trọn gói từ 490.000đ/người đã gồm bữa sáng và bữa tối BBQ – lẩu. Check-in từ 14:00, check-out trước 12:00 hôm sau. Gọi 0907 896 949 để giữ lều." }
-    },
-    {
-      "@type": "Question",
-      "name": "Giá món ăn ở Lalasea khoảng bao nhiêu?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Phần lớn món chính ở Lalasea nằm trong khoảng 100.000đ đến 300.000đ tùy món. Các phần hải sản lớn hoặc món tính theo thời giá trong ngày sẽ cao hơn và luôn được báo giá trước. Xem đủ 14 trang thực đơn kèm giá trên website." }
-    },
-    {
-      "@type": "Question",
-      "name": "Không ăn được hải sản thì Lalasea có món gì?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Ngoài hải sản, thực đơn Lalasea có sườn cay, bò lúc lắc, bò né, sụn gà rang muối, cánh gà chiên nước mắm, ếch chiên giòn, lẩu, cơm và nhiều món lai rai khác, nên nhóm đông người nhiều khẩu vị khác nhau vẫn ăn chung được." }
-    },
-    {
-      "@type": "Question",
-      "name": "Lalasea Bistro Camping và Lalasea Bistro có phải cùng một nơi không?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Đúng, chỉ là một nơi. Lalasea Bistro là nhà hàng không gian mở sát biển ở Quốc lộ 80, phường Tô Châu, Hà Tiên, và ngay trong khuôn viên nhà hàng có khu glamping lều gỗ máy lạnh. Vì quán vừa phục vụ ăn uống vừa có chỗ ngủ lại nên các trang đặt phòng thường niêm yết dưới tên “Lalasea Bistro Camping”, còn bản đồ và mạng xã hội hay gọi ngắn là “Lalasea”. Tất cả đều chỉ cùng một địa điểm, cùng số điện thoại 0907 896 949. Đặt bàn ăn, đặt lều qua đêm hay đặt tiệc đều gọi chung số này." }
-    },
-    {
-      "@type": "Question",
-      "name": "Lalasea ở Kiên Giang hay An Giang?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Quán vẫn ở nguyên vị trí trên Quốc lộ 80, phường Tô Châu, thành phố Hà Tiên. Trước tháng 7/2025 Hà Tiên thuộc tỉnh Kiên Giang; sau sáp nhập tỉnh, Hà Tiên thuộc tỉnh An Giang. Chỉ tên tỉnh thay đổi — địa điểm và số điện thoại của Lalasea không đổi." }
-    }
-  ]
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": [
+	{
+		"@type": "Question",
+		"name": "Nhà hàng Lalasea Bistro ở đâu tại Hà Tiên?",
+		"acceptedAnswer": { "@type": "Answer", "text": "Lalasea Bistro nằm trên Quốc lộ 80, phường Tô Châu, Hà Tiên (An Giang) — ngay bên bờ biển, cách trung tâm Hà Tiên chỉ vài phút chạy xe." }
+	},
+	{
+		"@type": "Question",
+		"name": "Lalasea mở cửa lúc mấy giờ? Ngày lễ có mở không?",
+		"acceptedAnswer": { "@type": "Answer", "text": "Nhà hàng mở cửa tất cả các ngày, kể cả ngày lễ và Tết. Thứ Hai đến Thứ Sáu mở từ 08:00, Thứ Bảy và Chủ Nhật mở sớm hơn từ 07:00, đóng cửa lúc 23:00." }
+	},
+	{
+		"@type": "Question",
+		"name": "Đặt bàn / đặt tiệc ở Lalasea như thế nào?",
+		"acceptedAnswer": { "@type": "Answer", "text": "Điền form đặt bàn trên website lalasea.vn hoặc gọi / nhắn Zalo số 0907 896 949. Tiệc cưới, sinh nhật, liên hoan có Menu Tiệc riêng đặt trước." }
+	},
+	{
+		"@type": "Question",
+		"name": "Lalasea có chỗ nghỉ qua đêm không? Giá bao nhiêu?",
+		"acceptedAnswer": { "@type": "Answer", "text": "Có. Lalasea có khu glamping với lều gỗ đầy đủ máy lạnh trong khuôn viên nhà hàng, cách biển chỉ vài chục mét. Giá trọn gói từ 490.000đ/người đã gồm bữa sáng và bữa tối BBQ – lẩu. Check-in từ 14:00, check-out trước 12:00 hôm sau. Gọi 0907 896 949 để giữ lều." }
+	},
+	{
+		"@type": "Question",
+		"name": "Giá món ăn ở Lalasea khoảng bao nhiêu?",
+		"acceptedAnswer": { "@type": "Answer", "text": "Phần lớn món chính ở Lalasea nằm trong khoảng 100.000đ đến 300.000đ tùy món. Các phần hải sản lớn hoặc món tính theo thời giá trong ngày sẽ cao hơn và luôn được báo giá trước. Xem đủ 14 trang thực đơn kèm giá trên website." }
+	},
+	{
+		"@type": "Question",
+		"name": "Không ăn được hải sản thì Lalasea có món gì?",
+		"acceptedAnswer": { "@type": "Answer", "text": "Ngoài hải sản, thực đơn Lalasea có sườn cay, bò lúc lắc, bò né, sụn gà rang muối, cánh gà chiên nước mắm, ếch chiên giòn, lẩu, cơm và nhiều món lai rai khác, nên nhóm đông người nhiều khẩu vị khác nhau vẫn ăn chung được." }
+	},
+	{
+		"@type": "Question",
+		"name": "Lalasea Bistro Camping và Lalasea Bistro có phải cùng một nơi không?",
+		"acceptedAnswer": { "@type": "Answer", "text": "Đúng, chỉ là một nơi. Lalasea Bistro là nhà hàng không gian mở sát biển ở Quốc lộ 80, phường Tô Châu, Hà Tiên, và ngay trong khuôn viên nhà hàng có khu glamping lều gỗ máy lạnh. Vì quán vừa phục vụ ăn uống vừa có chỗ ngủ lại nên các trang đặt phòng thường niêm yết dưới tên “Lalasea Bistro Camping”, còn bản đồ và mạng xã hội hay gọi ngắn là “Lalasea”. Tất cả đều chỉ cùng một địa điểm, cùng số điện thoại 0907 896 949. Đặt bàn ăn, đặt lều qua đêm hay đặt tiệc đều gọi chung số này." }
+	},
+	{
+		"@type": "Question",
+		"name": "Lalasea ở Kiên Giang hay An Giang?",
+		"acceptedAnswer": { "@type": "Answer", "text": "Quán vẫn ở nguyên vị trí trên Quốc lộ 80, phường Tô Châu, thành phố Hà Tiên. Trước tháng 7/2025 Hà Tiên thuộc tỉnh Kiên Giang; sau sáp nhập tỉnh, Hà Tiên thuộc tỉnh An Giang. Chỉ tên tỉnh thay đổi — địa điểm và số điện thoại của Lalasea không đổi." }
+	}
+	]
 }
 </script>
 
 <!-- ===== ĐẶT BÀN ===== -->
 <section id="dat-ban" class="booking">
-  <div class="container">
-    <div class="section-title reveal">
-      <span class="script-accent">Giữ chỗ trước</span>
-      <h2>Đặt bàn</h2>
-    </div>
-    <form id="booking-form" class="booking-form reveal">
-      <div class="row">
-        <label>Họ tên<input name="ten" required placeholder="Nguyễn Văn A"></label>
-        <label>Số điện thoại<input name="sdt" type="tel" required placeholder="09xx xxx xxx"></label>
-      </div>
-      <div class="row">
-        <label>Số khách<input name="sokhach" type="number" min="1" value="2"></label>
-        <label>Ngày &amp; giờ<input name="thoigian" type="datetime-local"></label>
-      </div>
-      <label>Ghi chú<textarea name="ghichu" rows="3" placeholder="Ví dụ: bàn gần biển, có trẻ em, dịp sinh nhật..."></textarea></label>
-      <button type="submit" class="btn">Gửi yêu cầu đặt bàn</button>
-      <p id="booking-msg" class="booking-msg"></p>
-    </form>
-  </div>
+	<div class="container">
+	<div class="section-title reveal">
+		<span class="script-accent">Giữ chỗ trước</span>
+		<h2>Đặt bàn</h2>
+	</div>
+	<form id="booking-form" class="booking-form reveal">
+		<div class="row">
+		<label>Họ tên<input name="ten" required placeholder="Nguyễn Văn A"></label>
+		<label>Số điện thoại<input name="sdt" type="tel" required placeholder="09xx xxx xxx"></label>
+		</div>
+		<div class="row">
+		<label>Số khách<input name="sokhach" type="number" min="1" value="2"></label>
+		<label>Ngày &amp; giờ<input name="thoigian" type="datetime-local"></label>
+		</div>
+		<label>Ghi chú<textarea name="ghichu" rows="3" placeholder="Ví dụ: bàn gần biển, có trẻ em, dịp sinh nhật..."></textarea></label>
+		<button type="submit" class="btn">Gửi yêu cầu đặt bàn</button>
+		<p id="booking-msg" class="booking-msg"></p>
+	</form>
+	</div>
 </section>
 
 <!-- ===== ĐẾN LALASEA ===== -->
 <section id="lien-he" class="visit">
-  <div class="container">
-    <div class="section-title reveal">
-      <span class="script-accent">Ghé thăm chúng tôi</span>
-      <h2>Đến Lalasea</h2>
-    </div>
-    <div class="visit-grid">
-      <div class="visit-card reveal">
-        <div class="info-row">
-          <div class="ic">📍</div>
-          <div><strong>Địa chỉ</strong><span><?= ls_e(ls_lay($thongtin, 'dia_chi')) ?></span></div>
-        </div>
-        <div class="info-row">
-          <div class="ic">🕘</div>
-          <div><strong>Giờ mở cửa</strong><span>Thứ Hai – Thứ Sáu: <?= ls_e(ls_lay($thongtin, 'gio_mo_cua')) ?><br>Thứ Bảy &amp; Chủ Nhật: <?= ls_e(ls_lay($thongtin, 'gio_cuoi_tuan')) ?><br><?= ls_e(ls_lay($thongtin, 'gio_ghi_chu')) ?></span></div>
-        </div>
-        <div class="info-row" style="margin-bottom:8px;">
-          <div class="ic">📞</div>
-          <div><strong>Hotline đặt bàn / đặt tiệc</strong>
-            <a class="hotline" href="tel:<?= ls_e(ls_lay($thongtin, 'dien_thoai_goi')) ?>"><?= ls_e(ls_lay($thongtin, 'dien_thoai')) ?></a>
-          </div>
-        </div>
-        <a href="tel:<?= ls_e(ls_lay($thongtin, 'dien_thoai_goi')) ?>" class="btn">Gọi ngay</a>
-        <a href="<?= ls_e(ls_lay($thongtin, 'chi_duong')) ?>" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-left:10px;">Chỉ đường 🗺️</a>
-      </div>
-      <div class="visit-map reveal">
-        <iframe src="https://www.google.com/maps?q=Lalasea+Bistro+QL80+To+Chau+Ha+Tien&output=embed" loading="lazy" title="Bản đồ đường đi đến Lalasea Bistro" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+	<div class="section-title reveal">
+		<span class="script-accent">Ghé thăm chúng tôi</span>
+		<h2>Đến Lalasea</h2>
+	</div>
+	<div class="visit-grid">
+		<div class="visit-card reveal">
+		<div class="info-row">
+			<div class="ic">📍</div>
+			<div><strong>Địa chỉ</strong><span><?php echo esc_html( $lalasea_thongtin['dia_chi'] ); ?></span></div>
+		</div>
+		<div class="info-row">
+			<div class="ic">🕘</div>
+			<div><strong>Giờ mở cửa</strong><span>Thứ Hai – Thứ Sáu: <?php echo esc_html( $lalasea_thongtin['gio_mo_cua'] ); ?><br>Thứ Bảy &amp; Chủ Nhật: <?php echo esc_html( $lalasea_thongtin['gio_cuoi_tuan'] ); ?><br><?php echo esc_html( $lalasea_thongtin['gio_ghi_chu'] ); ?></span></div>
+		</div>
+		<div class="info-row" style="margin-bottom:8px;">
+			<div class="ic">📞</div>
+			<div><strong>Hotline đặt bàn / đặt tiệc</strong>
+			<a class="hotline" href="<?php echo esc_url( 'tel:' . $lalasea_thongtin['dien_thoai_goi'] ); ?>"><?php echo esc_html( $lalasea_thongtin['dien_thoai'] ); ?></a>
+			</div>
+		</div>
+		<a href="<?php echo esc_url( 'tel:' . $lalasea_thongtin['dien_thoai_goi'] ); ?>" class="btn">Gọi ngay</a>
+		<a href="<?php echo esc_url( $lalasea_thongtin['chi_duong'] ); ?>" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-left:10px;">Chỉ đường 🗺️</a>
+		</div>
+		<div class="visit-map reveal">
+		<iframe src="https://www.google.com/maps?q=Lalasea+Bistro+QL80+To+Chau+Ha+Tien&output=embed" loading="lazy" title="Bản đồ đường đi đến Lalasea Bistro" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+	</div>
+	</div>
 </section>
 
 <!-- ===== BANNER TỰ TRƯỢT + GỬI ĐẶT BÀN ===== -->
 <script>
-  // Banner tự trượt ảnh
-  (function () {
-    var slides = document.querySelectorAll('#hero-slides .slide-bg');
-    var dots = document.querySelectorAll('#hero-dots button');
-    var cur = 0, timer;
-    function show(i) {
-      slides[cur].classList.remove('active');
-      dots[cur].classList.remove('active');
-      cur = (i + slides.length) % slides.length;
-      slides[cur].classList.add('active');
-      dots[cur].classList.add('active');
-    }
-    function auto() { timer = setInterval(function () { show(cur + 1); }, 5500); }
-    dots.forEach(function (d, i) {
-      d.addEventListener('click', function () { clearInterval(timer); show(i); auto(); });
-    });
-    auto();
-  })();
+	// Banner tự trượt ảnh
+	(function () {
+	var slides = document.querySelectorAll('#hero-slides .slide-bg');
+	var dots = document.querySelectorAll('#hero-dots button');
+	var cur = 0, timer;
+	function show(i) {
+		slides[cur].classList.remove('active');
+		dots[cur].classList.remove('active');
+		cur = (i + slides.length) % slides.length;
+		slides[cur].classList.add('active');
+		dots[cur].classList.add('active');
+	}
+	function auto() { timer = setInterval(function () { show(cur + 1); }, 5500); }
+	dots.forEach(function (d, i) {
+		d.addEventListener('click', function () { clearInterval(timer); show(i); auto(); });
+	});
+	auto();
+	})();
 
-  // Gửi đặt bàn vào Google Sheet & email nhà hàng
-  const BOOKING_URL = "<?= ls_e(ls_lay($thongtin, 'booking_url')) ?>";
-  const form = document.getElementById('booking-form');
-  const msg = document.getElementById('booking-msg');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!BOOKING_URL) {
-      msg.style.color = '#c0392b';
-      msg.textContent = 'Đặt bàn online chưa được bật — vui lòng gọi <?= ls_e(ls_lay($thongtin, 'dien_thoai')) ?> giúp mình nhé.';
-      return;
-    }
-    msg.style.color = '#0b4f6c';
-    msg.textContent = 'Đang gửi...';
-    var data = Object.fromEntries(new FormData(form).entries());
-    fetch(BOOKING_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(data)
-    }).then(function () {
-      msg.style.color = '#1b9aaa';
-      msg.textContent = 'Đã gửi yêu cầu! Nhà hàng sẽ liên hệ lại với bạn sớm. Cảm ơn bạn 🌊';
-      form.reset();
-    }).catch(function () {
-      msg.style.color = '#c0392b';
-      msg.textContent = 'Có lỗi khi gửi. Vui lòng gọi <?= ls_e(ls_lay($thongtin, 'dien_thoai')) ?> giúp mình nhé.';
-    });
-  });
+	// Gửi đặt bàn vào Google Sheet & email nhà hàng
+	const BOOKING_URL = <?php echo lalasea_json( $lalasea_thongtin['booking_url'] ); ?>;
+	const form = document.getElementById('booking-form');
+	const msg = document.getElementById('booking-msg');
+	form.addEventListener('submit', function (e) {
+	e.preventDefault();
+	if (!BOOKING_URL) {
+		msg.style.color = '#c0392b';
+		msg.textContent = 'Đặt bàn online chưa được bật — vui lòng gọi <?php echo esc_js( $lalasea_thongtin['dien_thoai'] ); ?> giúp mình nhé.';
+		return;
+	}
+	msg.style.color = '#0b4f6c';
+	msg.textContent = 'Đang gửi...';
+	var data = Object.fromEntries(new FormData(form).entries());
+	fetch(BOOKING_URL, {
+		method: 'POST',
+		mode: 'no-cors',
+		headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+		body: JSON.stringify(data)
+	}).then(function () {
+		msg.style.color = '#1b9aaa';
+		msg.textContent = 'Đã gửi yêu cầu! Nhà hàng sẽ liên hệ lại với bạn sớm. Cảm ơn bạn 🌊';
+		form.reset();
+	}).catch(function () {
+		msg.style.color = '#c0392b';
+		msg.textContent = 'Có lỗi khi gửi. Vui lòng gọi <?php echo esc_js( $lalasea_thongtin['dien_thoai'] ); ?> giúp mình nhé.';
+	});
+	});
 </script>
 
-<?php get_footer();
+<?php
+get_footer();

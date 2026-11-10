@@ -1,134 +1,96 @@
 <?php
 /**
- * Hàm hỗ trợ cho các template sinh tự động từ Nunjucks.
- * Mỗi hàm tương ứng đúng một "bộ lọc" hoặc cú pháp trong bản Eleventy cũ
- * (xem eleventy.config.js) để HTML xuất ra giống nhau từng ký tự.
+ * Hàm định dạng dùng trong template: số điện thoại, giá tiền, ngày tháng, JSON.
+ *
+ * @package Lalasea
  */
-defined('ABSPATH') || exit;
 
-/* ---------- Xuất ra ---------- */
+defined( 'ABSPATH' ) || exit;
 
-// Nunjucks autoescape: & < > " ' → thực thể HTML (dấu ' thành &#39;)
-function ls_e($v)
-{
-    if ($v === null || $v === false) {
-        return '';
-    }
-    return strtr((string) $v, ['&' => '&amp;', '<' => '&lt;', '>' => '&gt;', '"' => '&quot;', "'" => '&#39;']);
+/**
+ * In một giá trị vào schema JSON-LD hoặc vào JavaScript.
+ *
+ * Giữ nguyên tiếng Việt và dấu "/" cho dễ đọc; "<" ">" được mã hoá để dữ liệu
+ * không bao giờ đóng được thẻ <script>.
+ *
+ * @param mixed $gia_tri Chuỗi, số hoặc mảng.
+ * @return string JSON.
+ */
+function lalasea_json( $gia_tri ) {
+	return (string) wp_json_encode( $gia_tri, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG );
 }
 
-// Bộ lọc | safe — in nguyên văn
-function ls_raw($v)
-{
-    return $v === null || $v === false ? '' : (string) $v;
+/**
+ * Số điện thoại hiển thị cho khách nước ngoài: "0907 896 949" → "+84 907 896 949".
+ *
+ * @param string $sdt Số điện thoại dạng Việt Nam.
+ * @return string
+ */
+function lalasea_sdt_quoc_te( $sdt ) {
+	return preg_replace( '/^0/', '+84 ', (string) $sdt );
 }
 
-/* ---------- Truy cập dữ liệu (an toàn như Nunjucks: thiếu thì trả rỗng) ---------- */
-
-function ls_lay($v, $k)
-{
-    if ($k === 'length' && !(is_array($v) && array_key_exists('length', $v))) {
-        if (is_array($v)) {
-            return count($v);
-        }
-        if (is_string($v)) {
-            return mb_strlen($v);
-        }
-        return null;
-    }
-    if (is_array($v)) {
-        return $v[$k] ?? null;
-    }
-    return null;
+/**
+ * Số điện thoại để bấm gọi từ SIM nước ngoài: "0907896949" → "+84907896949".
+ *
+ * @param string $sdt_goi Số điện thoại viết liền.
+ * @return string
+ */
+function lalasea_tel_quoc_te( $sdt_goi ) {
+	return '+84' . preg_replace( '/^0/', '', (string) $sdt_goi );
 }
 
-// Gọi phương thức JavaScript mà template cũ có dùng
-function ls_goi($obj, $ten, $args = [])
-{
-    switch ($ten) {
-        case 'toISOString':
-            return ls_iso($obj);
-        case 'split':
-            return explode($args[0], (string) $obj);
-        case 'endsWith':
-            return str_ends_with((string) $obj, (string) $args[0]);
-    }
-    return null;
+/**
+ * Giá kiểu Việt sang kiểu quốc tế, để chủ quán chỉ nhập giá một lần:
+ * "690.000đ/người" → "690,000 VND per person".
+ *
+ * @param string $gia Giá tiền như chủ quán nhập.
+ * @return string
+ */
+function lalasea_gia_en( $gia ) {
+	$gia = preg_replace( '/(\d)\.(?=\d{3})/', '$1,', (string) $gia );
+	$gia = preg_replace( '/\s*đ/u', ' VND', $gia );
+	return preg_replace( '/\s*\/\s*người/u', ' per person', $gia );
 }
 
-function ls_lap($v)
-{
-    return is_array($v) ? array_values($v) : [];
+/**
+ * Chuyển thời điểm GMT ("2026-09-10 00:00:00") sang giờ của website.
+ *
+ * @param string $gmt Thời điểm theo giờ GMT.
+ * @return DateTimeImmutable
+ */
+function lalasea_ngay_dia_phuong( $gmt ) {
+	$thoi_diem = new DateTimeImmutable( $gmt, new DateTimeZone( 'UTC' ) );
+	return $thoi_diem->setTimezone( wp_timezone() );
 }
 
-function ls_range($a, $b)
-{
-    return $b > $a ? range($a, $b - 1) : [];
+/**
+ * Ngày kiểu Việt Nam: 10/09/2026.
+ *
+ * @param string $gmt Thời điểm theo giờ GMT.
+ * @return string
+ */
+function lalasea_ngay_vn( $gmt ) {
+	return lalasea_ngay_dia_phuong( $gmt )->format( 'd/m/Y' );
 }
 
-// Toán tử + của JavaScript: có chuỗi thì nối, không thì cộng số
-function ls_cong($a, $b)
-{
-    if (is_string($a) || is_string($b)) {
-        return $a . $b;
-    }
-    return $a + $b;
+/**
+ * Ngày dạng chữ: 10 tháng 9, 2026.
+ *
+ * @param string $gmt Thời điểm theo giờ GMT.
+ * @return string
+ */
+function lalasea_ngay_chu( $gmt ) {
+	$ngay = lalasea_ngay_dia_phuong( $gmt );
+	return $ngay->format( 'j' ) . ' tháng ' . $ngay->format( 'n' ) . ', ' . $ngay->format( 'Y' );
 }
 
-/* ---------- Bộ lọc ---------- */
-
-function ls_replace($s, $tim, $thay, $so_lan = -1)
-{
-    return preg_replace('/' . preg_quote((string) $tim, '/') . '/', (string) $thay, (string) $s, (int) $so_lan);
-}
-
-// "0907 896 949" → "+84 907 896 949"
-function ls_sdt_quoc_te($sdt)
-{
-    return preg_replace('/^0/', '+84 ', (string) $sdt);
-}
-
-// "690.000đ/người" → "690,000 VND per person"
-function ls_gia_en($gia)
-{
-    $g = (string) $gia;
-    $g = preg_replace('/(\d)\.(?=\d{3})/', '$1,', $g);
-    $g = preg_replace('/\s*đ/u', ' VND', $g);
-    $g = preg_replace('/\s*\/\s*người/u', ' per person', $g);
-    return $g;
-}
-
-function ls_dump($v)
-{
-    return json_encode($v, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-}
-
-/* ---------- Ngày tháng (đầu vào: chuỗi giờ GMT "2026-09-10 00:00:00") ---------- */
-
-function ls_thoi_diem($d)
-{
-    $t = is_numeric($d) ? (int) $d : strtotime($d . ' UTC');
-    return new DateTimeImmutable('@' . $t);
-}
-
-function ls_ngay_dia_phuong($d)
-{
-    return ls_thoi_diem($d)->setTimezone(wp_timezone());
-}
-
-function ls_ngay_vn($d)
-{
-    return ls_ngay_dia_phuong($d)->format('d/m/Y');
-}
-
-function ls_ngay_chu($d)
-{
-    $x = ls_ngay_dia_phuong($d);
-    return (int) $x->format('j') . ' tháng ' . (int) $x->format('n') . ', ' . $x->format('Y');
-}
-
-// Giống Date.toISOString() của JavaScript
-function ls_iso($d)
-{
-    return ls_thoi_diem($d)->setTimezone(new DateTimeZone('UTC'))->format('Y-m-d\TH:i:s.000\Z');
+/**
+ * Thời điểm chuẩn ISO 8601 cho schema: 2026-09-10T00:00:00.000Z.
+ *
+ * @param string $gmt Thời điểm theo giờ GMT.
+ * @return string
+ */
+function lalasea_iso( $gmt ) {
+	return ( new DateTimeImmutable( $gmt, new DateTimeZone( 'UTC' ) ) )->format( 'Y-m-d\TH:i:s.000\Z' );
 }

@@ -23,7 +23,7 @@ dùng được, ảnh nào không và vì sao.
 | `src/_includes/layouts/` | Khuôn mẫu chung + toàn bộ schema JSON-LD |
 | `anh/` | Ảnh **đang dùng** — được xuất bản |
 | `luu-tru/` | Kho lưu trữ — **không** xuất bản |
-| `wordpress/` | Theme WordPress giữ nguyên giao diện, sinh tự động từ `src/` — xem [wordpress/HUONG-DAN.md](./wordpress/HUONG-DAN.md) |
+| `wordpress/` | Theme WordPress giữ nguyên giao diện, viết theo chuẩn WordPress — xem [wordpress/HUONG-DAN.md](./wordpress/HUONG-DAN.md) |
 
 `src/_data/thongtin.json` là nguồn duy nhất cho tên, địa chỉ, điện thoại, giờ mở
 cửa, toạ độ. Không viết cứng các giá trị này vào template.
@@ -46,5 +46,7 @@ Bing (và qua đó là ChatGPT).
   kiểm tra trang không tràn ngang.
 - Không bịa thông tin về quán. Giá, giờ, món, đánh giá — chỉ dùng số liệu thật.
 - Sửa nội dung một trang chính thì sửa luôn bản tiếng Anh tương ứng trong `src/en/`.
-- Sửa bất cứ gì trong `src/` thì chạy lại `node wordpress/tools/njk-sang-php.mjs` để theme
-  WordPress không lệch với web đang chạy. Không sửa tay các file đánh dấu "TỰ SINH".
+- Theme WordPress (`wordpress/lalasea/`) phải luôn giống web đang chạy. Sửa CSS / JSON /
+  bài viết trong `src/` thì chạy `node wordpress/tools/chep-tu-eleventy.mjs`; sửa chữ trong
+  `.njk` thì sửa tay file PHP tương ứng. Kiểm tra bằng `wordpress/tools/so-sanh-html.mjs` và
+  chấm code bằng `phpcs` (WordPress Coding Standards) — xem wordpress/HUONG-DAN.md.

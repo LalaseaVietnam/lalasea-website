@@ -14,7 +14,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 
-node wordpress/tools/njk-sang-php.mjs
+node wordpress/tools/chep-tu-eleventy.mjs
 
 RA=wordpress/dist
 mkdir -p "$RA"

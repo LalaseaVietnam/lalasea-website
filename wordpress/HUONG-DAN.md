@@ -8,7 +8,9 @@ phần quản trị đổi từ `lalasea.vn/quan-tri` sang `lalasea.vn/wp-admin`
 
 | Kiểm tra | Kết quả |
 |---|---|
-| So HTML từng trang (16 trang: 5 trang Việt, 5 trang Anh, tin tức, 5 bài viết) | Giống hệt từng thẻ |
+| So từng trang theo cách trình duyệt và Google đọc (16 trang: 5 trang Việt, 5 trang Anh, tin tức, 5 bài viết) | Giống hệt từng thẻ, từng chữ, từng giá trị schema (trừ 1 lỗi cũ đã sửa — xem cuối file) |
+| Chấm code theo WordPress Coding Standards | 0 lỗi, 0 cảnh báo |
+| Bật `WP_DEBUG`, mở mọi trang khách + trang quản trị | Không một cảnh báo PHP |
 | Chụp màn hình Chromium ở 390px và 1280px, so từng điểm ảnh (24 lần chụp) | Trùng khớp; chỉ lệch vài trăm điểm ở mép bo tròn của ảnh do trình duyệt khử răng cưa |
 | Tràn ngang ở 390px và 1280px | Không trang nào tràn |
 | Cài WordPress mới, tải theme lên, kích hoạt | Tự dựng đủ trang + bài, giống hệt web cũ |
@@ -112,28 +114,60 @@ Form đặt bàn vẫn gửi vào Google Sheet như cũ.
 
 ## Cho người lập trình
 
+Theme viết theo **WordPress Coding Standards** (bộ quy tắc chính thức mà lõi WordPress
+dùng) và đạt **0 lỗi, 0 cảnh báo** với bộ quy tắc đầy đủ `WordPress` (Core + Docs + Extra).
+Chạy thử với `WP_DEBUG` bật: không một cảnh báo PHP nào ở cả trang khách lẫn trang quản trị.
+
+Quy ước trong code:
+
+- Hàm, hằng số, biến toàn cục, tên dữ liệu lưu đều bắt đầu bằng `lalasea_`
+  (biến trong template cũng vậy — WordPress nạp template ở phạm vi toàn cục, đặt tên
+  `$page` hay `$title` là ghi đè biến của chính WordPress).
+- In ra luôn qua hàm escape đúng ngữ cảnh: `esc_html()` cho chữ, `esc_attr()` cho thuộc
+  tính, `esc_url()` cho đường dẫn, `esc_js()` trong chuỗi JavaScript, `lalasea_json()`
+  (= `wp_json_encode()` kèm `JSON_HEX_TAG`) cho schema JSON-LD và giá trị JavaScript.
+- CSS nạp bằng `wp_enqueue_style()`; trang có đủ `wp_head()`, `wp_body_open()`,
+  `wp_footer()` để plugin (GTM, Pixel, tăng tốc) hoạt động.
+- Template đọc dữ liệu bằng `lalasea_data( 'thongtin' )`. Mọi trường khai báo trong
+  biểu mẫu đều luôn có mặt (thiếu thì là chuỗi/mảng rỗng), nên đọc thẳng
+  `$lalasea_glamping['luu_y_en']` không cần `??`.
+
 ```
 wordpress/
+  phpcs.xml.dist           ← cấu hình chấm code theo WordPress Coding Standards
   lalasea/                 ← theme (thư mục này được nén thành lalasea-theme.zip)
-    templates/*.php        ← 5 trang Việt + 5 trang Anh   (TỰ SINH)
-    header.php footer.php  ← từ layouts/base.njk          (TỰ SINH)
-    single.php home.php 404.php                           (TỰ SINH)
-    page.php index.php     ← viết tay: trang tự thêm, trang dự phòng
-    css/style.css          ← chép từ src/css/style.css    (TỰ SINH)
-    data/*.json            ← chép từ src/_data/ + bieu-mau.json từ src/quan-tri/config.yml
-    seed/baiviet.json      ← bài viết Markdown đã đổi sang HTML
-    inc/                   ← logic PHP viết tay (dữ liệu, SEO, quản trị, dọn WordPress)
+    templates/*.php        ← 5 trang Việt + 5 trang Anh
+    header.php footer.php  ← khung chung: <head>, schema Restaurant, menu, chân trang
+    single.php home.php    ← một bài viết, danh sách tin tức
+    404.php page.php index.php
+    inc/                   ← dữ liệu, SEO, quản trị, dọn WordPress, dựng trang khi kích hoạt
+    assets/                ← CSS/JS của màn hình "Thông tin nhà hàng"
+    css/style.css          ← CSS của web          (chép từ src/css/style.css)
+    data/*.json            ← dữ liệu ban đầu       (chép từ src/_data/)
+    data/bieu-mau.json     ← các ô nhập trong /wp-admin (từ src/quan-tri/config.yml)
+    seed/baiviet.json      ← bài viết Markdown đã đổi sang HTML (từ src/posts/)
   tools/
-    njk-sang-php.mjs       ← chuyển .njk → .php, giữ nguyên văn HTML
-    so-sanh-html.mjs       ← so HTML từng trang: Eleventy ↔ WordPress
+    chep-tu-eleventy.mjs   ← chép CSS, dữ liệu, bài viết từ src/ sang theme
+    so-sanh-html.mjs       ← so từng trang Eleventy ↔ WordPress theo cách trình duyệt đọc
     so-sanh-anh.mjs        ← chụp 390px/1280px, so điểm ảnh, kiểm tra tràn ngang
     dong-goi.sh            ← tạo 2 file zip để tải lên hosting
 ```
 
-**Trong giai đoạn chuyển tiếp,** `src/` vẫn là bản gốc. Sửa `.njk` / CSS / JSON như
-bình thường rồi chạy lại `node wordpress/tools/njk-sang-php.mjs` để sinh lại theme.
-**Sau khi đã đổi tên miền sang WordPress,** theme là bản gốc: sửa trực tiếp file PHP
-và ngừng chạy bộ chuyển đổi (nếu chạy lại, nó sẽ ghi đè các file TỰ SINH).
+**Template PHP là bản gốc** — viết tay, không sinh tự động. Trong giai đoạn chuyển tiếp
+(web Eleventy vẫn chạy): sửa CSS / JSON / bài viết trong `src/` thì chạy
+`node wordpress/tools/chep-tu-eleventy.mjs`; sửa chữ trong một file `.njk` thì sửa tay file
+PHP tương ứng, rồi chạy `so-sanh-html.mjs` để chắc hai bản vẫn giống nhau.
+
+**Khác biệt có chủ ý với web cũ** (công cụ so sánh bỏ qua và luôn in ra): web cũ ghi link
+Google Maps trong schema JSON-LD thành `...&amp;query=...` — Nunjucks tự escape HTML cả
+bên trong `<script>`, mà trong JSON thì `&amp;` không được giải mã, nên Google đọc ra link
+sai. Bản WordPress ghi đúng `&`.
+
+Chấm code (cần `composer global require wp-coding-standards/wpcs`):
+
+```bash
+cd wordpress && phpcs
+```
 
 Kiểm tra lại độ giống nhau (cần một bản WordPress đang chạy, ví dụ ở cổng 8081):
 
