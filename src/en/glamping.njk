@@ -34,7 +34,7 @@ ban_dich: /glamping/
     { "@type": "LocationFeatureSpecification", "name": "Near the beach", "value": true }
   ],
   "containedInPlace": { "@id": "{{ thongtin.site_url }}/#nhahang" },
-  "sameAs": ["{{ thongtin.facebook }}", "{{ thongtin.tiktok }}", "{{ thongtin.maps }}"]
+  "sameAs": [{{ thongtin.facebook | dump | safe }}, {{ thongtin.tiktok | dump | safe }}, {{ thongtin.maps | dump | safe }}]
 }
 </script>
 

@@ -32,7 +32,7 @@ ban_dich: /en/glamping/
     { "@type": "LocationFeatureSpecification", "name": "Sát bờ biển", "value": true }
   ],
   "containedInPlace": { "@id": "{{ thongtin.site_url }}/#nhahang" },
-  "sameAs": ["{{ thongtin.facebook }}", "{{ thongtin.tiktok }}", "{{ thongtin.maps }}"]
+  "sameAs": [{{ thongtin.facebook | dump | safe }}, {{ thongtin.tiktok | dump | safe }}, {{ thongtin.maps | dump | safe }}]
 }
 </script>
 
